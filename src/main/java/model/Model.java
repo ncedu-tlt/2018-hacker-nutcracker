@@ -10,7 +10,9 @@ public class Model {
 	private String[] data;
 
 	public void loadFile(String path) throws IOException {
-
+		if (path.indexOf(".csv")==0){
+			path +=".csv";
+		}
 		CSVReader csvReader = new CSVReader(new FileReader(path), ',' , '"' , 1);
 		data = csvReader.readNext();
 	}

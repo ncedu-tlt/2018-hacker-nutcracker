@@ -16,7 +16,8 @@ public class View {
 				"1. Создать файл \n" +
 				"2. Вывести данныe файла \n" +
 				"3. Изменить данный файла\n" +
-				"4. Удалить файл");
+				"4. Удалить файл\n" +
+				"5. Выйти");
 
 		active();
 	}
@@ -24,7 +25,7 @@ public class View {
 	public void active() throws IOException {
 		int act = in.nextInt();
 
-		if (act<=4){
+		if (act<=5){
 
 			switch (act){
 
@@ -46,14 +47,34 @@ public class View {
 					in.nextLine();
 					String pathAndName = in.nextLine();
 					System.out.println("Укажите новые данные для файла в формате - id,name,way,USD");
-					controller.newParams(pathAndName,in.nextLine());
+					String params = in.nextLine();
+					System.out.println("Выберете формат сохранения файла\n" +
+							"1.CSV\n" +
+							"2.XML");
+
+					int form = in.nextInt();
+					in.nextLine();
+						switch (form) {
+							case 1:
+								controller.newParams(pathAndName,params);
+							case 2:
+								System.out.println("Сохранить оба файла y/n");
+								String saver = in.nextLine();
+								controller.saveXML(pathAndName,params.trim(),saver);
+							case 3:
+
+
+						}
 					hello();
 
 				case 4:
-					System.out.println("Укажите путь и имя файла");
+					System.out.println("Укажите путь и имя файла\n");
 					in.nextLine();
 					controller.delete(in.nextLine());
 					hello();
+
+				case 5:
+					System.exit(0);
 			}
 		}
 
