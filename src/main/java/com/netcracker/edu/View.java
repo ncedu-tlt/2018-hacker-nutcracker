@@ -16,7 +16,7 @@ public class View {
 	public void menu() throws IOException {
 		System.out.println("Выберите действие из предложенных");
 		System.out.println("1. Создать файл");
-		System.out.println("2. Прочесть файл");
+		System.out.println("2. Вывести файлы на экран");
 		System.out.println("3. Изменить данные в файле");
 		System.out.println("4. Удалить файл");
 		System.out.println("0. Выход");
@@ -35,48 +35,58 @@ public class View {
 		while (isCorrect) {
 			String nameFile;
 			switch (choice) {
-				case (1): {
+				case (1): {//Создание
 					pasreAllFilesInDirectory();
 					System.out.println("Введите найзвание файла");
 					nameFile = buf.readLine();
 					nameFile = controller.checkNameFile(nameFile);
+					if (!controller.checkFileInMap(nameFile)) {
+						Person person = new Person();
+						System.out.println("USD: ");
+						person.setUsd(buf.readLine());
+						System.out.println("id: ");
+						person.setId(buf.readLine());
+						System.out.println("name: ");
+						person.setName(buf.readLine());
+						System.out.println("way: ");
+						person.setWay(buf.readLine());
 
-					Person person = new Person();
-					System.out.println("USD: "); person.setUsd(buf.readLine());
-					System.out.println("id: "); person.setId(buf.readLine());
-					System.out.println("name: "); person.setName(buf.readLine());
-					System.out.println("way: "); person.setWay(buf.readLine());
-
-					controller.createFile(path, nameFile, person);
-					controller.printMap();
+						controller.createFile(path, nameFile, person);
+						controller.printMap();
+					} else System.out.println("Такой файл уже имеется!");
 					menu();
 				}break;
 
-				case (2): {
+				case (2): {//Вывод на экран
 					pasreAllFilesInDirectory();
 					controller.printMap();
 					menu();
 				}break;
 
-				case (3): {
+				case (3): {//Изменение
 					pasreAllFilesInDirectory();
 					System.out.println("Введите название файла");
 					nameFile = buf.readLine();
 					nameFile = controller.checkNameFile(nameFile);
+					if (controller.checkFileInMap(nameFile)) {
+						Person person = new Person();
+						System.out.println("Введите новые данные.");
+						System.out.println("USD: ");
+						person.setUsd(buf.readLine());
+						System.out.println("id: ");
+						person.setId(buf.readLine());
+						System.out.println("name: ");
+						person.setName(buf.readLine());
+						System.out.println("way: ");
+						person.setWay(buf.readLine());
 
-					Person person = new Person();
-					System.out.println("Введите новые данные.");
-					System.out.println("USD: "); person.setUsd(buf.readLine());
-					System.out.println("id: "); person.setId(buf.readLine());
-					System.out.println("name: "); person.setName(buf.readLine());
-					System.out.println("way: "); person.setWay(buf.readLine());
-
-					controller.changeFile(path, nameFile, person);
-					controller.printMap();
+						controller.changeFile(path, nameFile, person);
+						controller.printMap();
+					} else System.out.println("Файл не найден!");
 					menu();
 				}break;
 
-				case (4): {
+				case (4): {//Удаление
 					pasreAllFilesInDirectory();
 					System.out.println("Введите название файла");
 					nameFile = buf.readLine();
@@ -87,7 +97,7 @@ public class View {
 					menu();
 				}break;
 
-				case (0): {
+				case (0): {//Выход
 					isCorrect=false;
 				}break;
 

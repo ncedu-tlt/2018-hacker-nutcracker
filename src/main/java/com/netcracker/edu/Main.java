@@ -2,10 +2,10 @@ package com.netcracker.edu;
 
 import java.io.IOException;
 
-	public class Main {
+public class Main {
 
-		public static void main(String[] args) throws IOException {
-			View view = new View();
-			view.menu();
-		}
+	public static void main(String[] args) throws IOException {
+		View view = new View();
+		view.menu();
 	}
+}

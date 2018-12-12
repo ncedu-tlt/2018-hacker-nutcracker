@@ -11,7 +11,6 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +19,7 @@ public class Controller {
 	private Model model = new Model();
 	private HashMap<String, Person> map = model.getMap();
 
+	//Парсим файлы из репозитория
 	public void parseFiles(String path) {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -65,13 +65,7 @@ public class Controller {
 			e.getMessage();
 		}
 	}
-	//Создание нового тега в новый файл
-	private void createNewElementInFile(String elementField, Document doc, Element root, String textContent){
-		Element item = doc.createElement(elementField);
-		item.setTextContent(textContent);
-		root.appendChild(item);
-	}
-
+	//Создание файла
 	public void createFile(String path, String nameFile, Person person) {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -101,7 +95,17 @@ public class Controller {
 			System.out.println("Ошибка при создании файла!");
 		}
 	}
-
+	//Создание нового тега в новый файл
+	private void createNewElementInFile(String elementField, Document doc, Element root, String textContent){
+		Element item = doc.createElement(elementField);
+		item.setTextContent(textContent);
+		root.appendChild(item);
+	}
+	//Проверка наличия файла в директории, при попытке изменения файла и создания
+	public boolean checkFileInMap(String nameFile){
+		return map.containsKey(nameFile);
+	}
+	//Изменение файла
 	public void changeFile(String path, String nameFile, Person person) {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -145,7 +149,7 @@ public class Controller {
 			System.out.println("Ошибка изменения файла !");
 		}
 	}
-
+	//Удаление файла
 	public void deleteFile(String path, String nameFile){
 		File file = new File(path + "\\" + nameFile);
 		if (file.delete()){
@@ -155,14 +159,14 @@ public class Controller {
 		}
 		map.remove(nameFile);
 	}
-
+	//Печать всех файлов в директории из Мар
 	public void printMap(){
 		for (Map.Entry<String, Person> item : map.entrySet()) {
 			System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
 		}
 		System.out.println();
 	}
-
+	//Добавление .xml в название файла, если не пользователь не ввел
 	public String checkNameFile(String nameFile){
 		boolean endsWith = nameFile.endsWith(".xml");
 		if(!endsWith) {
