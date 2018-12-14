@@ -1,16 +1,16 @@
 package com.netcracker.edu;
 
 public class Person {
-	private String id;
-	private String usd;
+	private int id;
+	private int usd;
 	private String name;
 	private String way;
 
-	public String getId() { return id; }
-	public void setId(String id) { this.id = id; }
+	public int getId() { return id; }
+	public void setId(int id) { this.id = id; }
 
-	public String getUsd() { return usd; }
-	public void setUsd(String usd) { this.usd = usd; }
+	public int getUsd() { return usd; }
+	public void setUsd(int usd) { this.usd = usd; }
 
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
@@ -20,6 +20,6 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return id + ", " + usd + ", " + name + ", " + way;
+		return "" + id + ", " + usd + ", " + name + ", " + way;
 	}
 }
