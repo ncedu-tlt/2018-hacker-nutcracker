@@ -111,10 +111,10 @@ public class Controller {
 	}
 
 	/**
-	 * Метод проверяет наличие файла в директории
+	 * Метод проверяет наличие файла в коллекции
 	 * @param nameFile имя файла
-	 * @return возвращает true - если файл имеется в директории, введенной в view.pasreAllFilesInDirectory()
-	 *                    false - если файл отсутствует в директории, введенной в view.pasreAllFilesInDirectory()
+	 * @return возвращает true - если файл имеется в коллекции, введенной в view.pasreAllFilesInDirectory()
+	 *                    false - если файл отсутствует в коллекции, введенной в view.pasreAllFilesInDirectory()
 	 */
 	public boolean checkFileInMap(String nameFile){
 		return map.containsKey(nameFile);
