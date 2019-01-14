@@ -1,9 +1,5 @@
 package com.netcracker.edu;
 
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,6 +35,14 @@ public class View {
 		} catch (NumberFormatException e) {
 			choice=5; // В случае ввода текстовой строки
 		}
+		//Парсим все файлы из директории один раз, если выбраны 1,2,3,4 пункты в меню
+		if (choice!=0 && choice!=5){
+			if (!wasWorking){
+				System.out.println("Введите путь до файла: ");
+				path = buf.readLine();
+				wasWorking=controller.parseFiles(path);
+			}
+		}
 		choiceMenu();
 	}
 
@@ -50,7 +54,6 @@ public class View {
 		String nameFile;
 		switch (choice) {
 			case (1): {//Создание
-				pasreAllFilesInDirectory();
 				System.out.println("Введите название файла");
 				nameFile = buf.readLine();
 				nameFile = controller.checkNameFile(nameFile);
@@ -59,7 +62,7 @@ public class View {
 					while(isCorrect) {
 						try {
 							System.out.println("USD: ");
-							person.setUsd(parseInt(buf.readLine()));
+							person.setUSD(parseInt(buf.readLine()));
 							System.out.println("id: ");
 							person.setId(parseInt(buf.readLine()));
 							isCorrect=false;
@@ -73,11 +76,7 @@ public class View {
 					System.out.println("way: ");
 					person.setWay(buf.readLine());
 
-					try {
-						controller.createFile(path, nameFile, person);
-					} catch (ParserConfigurationException| TransformerException e) {
-						System.out.println("Парсер не поддерживает данные функции");
-					}
+					controller.createFile(path, nameFile, person);
 					for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
 						System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
 					}
@@ -87,7 +86,6 @@ public class View {
 			break;
 
 			case (2): {//Вывод на экран
-				pasreAllFilesInDirectory();
 				for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
 					System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
 				}
@@ -96,7 +94,6 @@ public class View {
 			break;
 
 			case (3): {//Изменение
-				pasreAllFilesInDirectory();
 				System.out.println("Введите название файла");
 				nameFile = buf.readLine();
 				nameFile = controller.checkNameFile(nameFile);
@@ -105,7 +102,7 @@ public class View {
 					while(isCorrect) {
 						try {
 							System.out.println("USD: ");
-							person.setUsd(parseInt(buf.readLine()));
+							person.setUSD(parseInt(buf.readLine()));
 							System.out.println("id: ");
 							person.setId(parseInt(buf.readLine()));
 							isCorrect=false;
@@ -118,11 +115,7 @@ public class View {
 					person.setName(buf.readLine());
 					System.out.println("way: ");
 					person.setWay(buf.readLine());
-					try{
-						controller.changeFile(path, nameFile, person);
-					} catch (ParserConfigurationException| TransformerException | SAXException e) {
-						System.out.println("Парсер не поддерживает данные функции");
-					}
+					controller.changeFile(path, nameFile, person);
 					for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
 						System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
 					}
@@ -132,7 +125,6 @@ public class View {
 			break;
 
 			case (4): {//Удаление
-				pasreAllFilesInDirectory();
 				System.out.println("Введите название файла");
 				nameFile = buf.readLine();
 				nameFile = controller.checkNameFile(nameFile);
@@ -160,23 +152,6 @@ public class View {
 				System.out.println("Неверное действие");
 				menu();
 			}
-		}
-	}
-
-	/**
-	 * Метод вызывает controller.parseFile, который парсит все файлы из указанной дирректории только при первом вызове
-	 * @throws IOException
-	 */
-	private void pasreAllFilesInDirectory() throws IOException {
-		if(!wasWorking){
-			System.out.println("Введите путь до файла: ");
-			path = buf.readLine();
-			try {
-				controller.parseFiles(path);
-			} catch (ParserConfigurationException | SAXException e) {
-				System.out.println("Парсер не поддерживает данные функции");
-			}
-			wasWorking=true;
 		}
 	}
 }
