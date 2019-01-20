@@ -1,8 +1,5 @@
 package program.controller;
 
-import program.model.CsvHelper;
-import program.model.Model;
-
 import java.io.*;
 
 public class Controller {
@@ -20,28 +17,34 @@ public class Controller {
 
 	CsvHelper csvHelper = CsvHelper.getInstance();
 
-	public void addPerson(){
-	}
+	PersonHelper personHelper = PersonHelper.getInstance();
+
+	XMLHelper xmlHelper = XMLHelper.getInstance();
+
+	JSONHelper jsonHelper = JSONHelper.getInstance();
 
 	public void createCsvFile(String path){
 		csvHelper.createFile(path);
 	}
 
-	public void newCsvParams(String filePath, String paramLine){
-		csvHelper.newParams(filePath,paramLine);
+	public void newCsvParams(String filePath, String params){
+		csvHelper.saveParams(filePath,params);
+	}
+
+	public void chanchePersonParams(String id, String paramLine){
+		personHelper.changePersonParams(Integer.parseInt(id),paramLine);
 	}
 
 	public void saveCsvLikeXML(String filePath, String paramLine, String saveOrNot){
-		csvHelper.saveXML(filePath,paramLine,saveOrNot);
+		xmlHelper.saveXML(filePath,paramLine,saveOrNot);
 	}
 
 	public void saveCsvLikeJSON(String filePath, String paramLine, String saveOrNot)  {
-		csvHelper.saveJSON(filePath,paramLine,saveOrNot);
+		jsonHelper.saveJSON(filePath,paramLine,saveOrNot);
 	}
 
 	public void delete(String path){
 			if (new File(path + ".csv").delete()) {
 		}
 	}
-
 }

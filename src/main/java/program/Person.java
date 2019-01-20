@@ -12,4 +12,29 @@ package program;
 		this.way = way;
 		this.USD = USD;
 	}
-}
+
+		@Override
+		public String toString() {
+			return id+"    "+name+"  "+way+"  "+USD;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public void setWay(String way) {
+			this.way = way;
+		}
+
+		public void setUSD(int USD) {
+			this.USD = USD;
+		}
+	}

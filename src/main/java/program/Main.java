@@ -10,7 +10,6 @@ public class Main {
 		System.out.println("Добро пожаловать!");
 		View view = new View();
 		view.hello();
-
 	}
 }
 
