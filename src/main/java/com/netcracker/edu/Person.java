@@ -2,25 +2,22 @@ package com.netcracker.edu;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @XmlRootElement(name = "person")
 @XmlType(propOrder = {"USD", "id", "name", "way"})
+@JsonPropertyOrder({"id", "name", "way", "usd"})
 
 public class Person {
-	private int USD;
+	@JsonProperty("id")
 	private int id;
+	@JsonProperty("name")
 	private String name;
+	@JsonProperty("way")
 	private String way;
-
-	public Person() {
-	}
-
-	public Person(int id, String name, String way, int USD) {
-		this.id = id;
-		this.name = name;
-		this.way = way;
-		this.USD = USD;
-	}
+	@JsonProperty("usd")
+	private int USD;
 
 	public int getId() { return id; }
 	public void setId(int id) { this.id = id; }

@@ -1,131 +1,150 @@
 package com.netcracker.edu;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-public class Controller {
+public class Controller implements PersonHelper{
 
+	private Integer wayId;
 	private Model model = new Model();
-	private HashMap<String, Person> map = model.getMap();
+	private WorkWithOracle workWithOracle = WorkWithOracle.getInstance(getOracleConnection());
 
-	/**
-	 * Метод парсит все файлы из принятой директории
-	 * @param path путь до директории
-	 * @return возвращает true для того, чтобы данный метод не вызывался больше 1 раза
-	 */
+	private Connection getOracleConnection() {
+		OracleDriverManager driverManager = new OracleDriverManager();
+		return driverManager.openOracleConnection();
+	}
 
-	public boolean parseFiles(String path) {
+	@Override
+	public boolean createPerson(String path, String nameFile, Person person, Integer choice) throws SQLException, IOException {
+		if (isPersonIdExist(person.getId())) {
+			return false;
+		} else {
+			wayId = isWayExist(person.getWay());
+			if (wayId == null) {
+				workWithOracle.insertPersonWay(person);
+			} else {
+				workWithOracle.insertPerson(person, wayId);
+			}
+			switch (choice){
+				case (1):{
+					model.saveXML(path, nameFile, person);
+				} break;
+				case (2):{
+					model.saveCSV(path, nameFile, person);
+				} break;
+				case (3):{
+					model.saveJSON(path, nameFile, person);
+				} break;
+			}
+			return true;
+		}
+	}
+
+	@Override
+	public void changePerson(Person person) throws SQLException {
+		wayId = isWayExist(person.getWay());
+		if(wayId==null) {
+			workWithOracle.updatePersonWay(person);
+		}else{
+			workWithOracle.updatePerson(person, wayId);
+		}
+	}
+
+	@Override
+	public void deletePerson(Integer persId) throws SQLException {
+			workWithOracle.delete(persId);
+	}
+
+	@Override
+	public String getAllPerson() throws SQLException {
+		return model.printPerson(workWithOracle.selectAll());
+	}
+
+	@Override
+	public String getPerson(Integer id) throws SQLException {
+		return model.printPerson(workWithOracle.selectId(id));
+	}
+
+	@Override
+	public void parseFilesInDir(String path) throws SQLException {
+		Person person;
+		File parent = new File(path);
+		File dirToOldFiles = new File(path + "\\" + "Old");
+		if (!dirToOldFiles.exists()){
+			dirToOldFiles.mkdir();
+		}
+		String[] nameFiles = parent.list();
+		for (String nameFile : nameFiles) {
+			if(nameFile.endsWith(".xml")) {
+				File file = new File(path +"\\"+nameFile);
+				person = model.parsingFile(path, nameFile);
+				file.renameTo(new File(path+"\\Old\\"+nameFile));
+				if (!isPersonIdExist(person.getId())) {
+					if (isWayExist(person.getWay()) == null){
+						workWithOracle.insertPersonWay(person);
+					} else {
+						workWithOracle.insertPerson(person, wayId);
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean parseFile(String path, String nameFile) throws SQLException {
+		Person person;
+		person = model.parsingFile(path, nameFile);
+		if (!isPersonIdExist(person.getId())) {
+			if (isWayExist(person.getWay()) == null){
+				workWithOracle.insertPersonWay(person);
+			} else {
+				workWithOracle.insertPerson(person, wayId);
+			}
+			return true;
+		} else return false;
+	}
+
+	public boolean checkFileInDir(String path, String nameFile){
 		File parent = new File(path);
 		String[] nameFiles = parent.list();
-
-		for (String nameFile : nameFiles) {
-			File file = new File(path + "\\" + nameFile);
-			Person person = new Person();
-			try {
-				JAXBContext jaxbContext = JAXBContext.newInstance(Person.class);
-				Unmarshaller un = jaxbContext.createUnmarshaller();
-
-				person = (Person) un.unmarshal(file);
-			} catch (JAXBException e) {
-				e.printStackTrace();
+		for (String name : nameFiles) {
+			if (nameFile.equals(name)) {
+				return false;
 			}
-			map.put(nameFile, person);
-			model.setMap(map);
 		}
 		return true;
 	}
 
-	/**
-	 * Метод создает файл по принимаемым параметрам, используя метод createNewElementInFile() для создания элементов
-	 * @param path путь до директории
-	 * @param nameFile имя файла
-	 * @param person объект Person, в котором содержатся  параметры для создания нового файла
-	 */
-	public void createFile(String path, String nameFile, Person person) {
+	public String addExtension(String nameFile, Integer choice){
+		switch (choice){
+			case (1):{
+				if(!nameFile.endsWith(".xml")) {
+					nameFile = nameFile + ".xml";
+				}
+			} break;
 
-		File file = new File(path + "\\" + nameFile);
-		try {
-			JAXBContext context = JAXBContext.newInstance(Person.class);
-			Marshaller marshaller = context.createMarshaller();
+			case (2):{
+				if(!nameFile.endsWith(".csv")) {
+					nameFile = nameFile + ".csv";
+				}
+			} break;
 
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-			marshaller.marshal(person, file);
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		}
-		map.put(nameFile, person);
-		model.setMap(map);
-	}
-
-	/**
-	 * Метод проверяет наличие файла в коллекции
-	 * @param nameFile имя файла
-	 * @return возвращает true - если файл имеется в коллекции, введенной в view.pasreAllFilesInDirectory()
-	 *                    false - если файл отсутствует в коллекции, введенной в view.pasreAllFilesInDirectory()
-	 */
-	public boolean checkFileInMap(String nameFile){
-		return map.containsKey(nameFile);
-	}
-
-	/**
-	 * Метод изменяет файл по принимаемым параметрам
-	 * @param path путь до директории
-	 * @param nameFile имя файла
-	 * @param person объект Person, в котором содержатся  параметры для изменения файла
-	 * @throws IOException
-	 */
-	public void changeFile(String path, String nameFile, Person person) {
-
-		File file = new File(path + "\\" + nameFile);
-		try {
-			JAXBContext context = JAXBContext.newInstance(Person.class);
-			Marshaller marshaller = context.createMarshaller();
-
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-			marshaller.marshal(person, file);
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		}
-		map.put(nameFile, person);
-		model.setMap(map);
-	}
-
-	/**
-	 * Метод удаляет файл из директории и Hashmap
-	 * @param path путь до директории
-	 * @param nameFile имя файла
-	 * @return возвращает результат выполнения операции
-	 */
-	public boolean deleteFile(String path, String nameFile){
-		File file = new File(path + "\\" + nameFile);
-		map.remove(nameFile);
-		return file.delete();
-	}
-
-	/**
-	 * Метод передает HashMap из Model во View для вывода на экран
-	 */
-	public HashMap<String, Person> getAllPerson(){
-		return model.getMap();
-	}
-
-	/**
-	 * Метод проверяет наличие в файле окончания .xml
-	 * @param nameFile имя файла
-	 * @return имя файла, с окончанием .xml, если его не было
-	 */
-	public String checkNameFile(String nameFile){
-		boolean endsWith = nameFile.endsWith(".xml");
-		if(!endsWith) {
-			nameFile = nameFile + ".xml";
+			case (3):{
+				if(!nameFile.endsWith(".json")) {
+					nameFile = nameFile + ".json";
+				}
+			} break;
 		}
 		return nameFile;
+	}
+
+	private Integer isWayExist(String way) throws SQLException {
+		return wayId = model.theWayId(workWithOracle.findWay(way));
+	}
+
+	private boolean isPersonIdExist(Integer id) throws SQLException {
+		return model.isExistPersonId(workWithOracle.selectId(id), id);
 	}
 }

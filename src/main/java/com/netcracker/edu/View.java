@@ -3,68 +3,68 @@ package com.netcracker.edu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Map;
+import java.sql.SQLException;
+import java.sql.SQLOutput;
 
 import static java.lang.Integer.parseInt;
 
 public class View {
 	private String path;
+	private String nameFile;
 	private int choice;
-	private boolean wasWorking;
 	private boolean isCorrect=true;
+//	private String login;
+//	private String password;
 
 	private BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
 	private Controller controller = new Controller();
 
-	/**
-	 * Меню для диалога с пользователем
-	 * @throws IOException
-	 */
-	public void menu() throws IOException {
+	public void menu() throws IOException, SQLException {
+//		if (login==null){
+//			System.out.println("Введите логин и пароль для доступа к базе данных");
+//			login=buf.readLine();
+//			password=buf.readLine();
+//			OracleDriverManager ora = new OracleDriverManager();
+//			ora.getLogPas(login, password);
+//		}
 		System.out.println("Выберите действие из предложенных");
-		System.out.println("1. Создать файл");
-		System.out.println("2. Вывести файлы на экран");
-		System.out.println("3. Изменить данные в файле");
-		System.out.println("4. Удалить файл");
+		System.out.println("1. Создать файл и новую запись в базе данных");
+		System.out.println("2. Изменить Person в базе данных");
+		System.out.println("3. Удалить Person из базы данных");
+		System.out.println("4. Вывести на экран всех Person из базы данных");
+		System.out.println("5. Вывести на экран Person по ID");
+		System.out.println("6. Добавить все файлы из директории в базу данных");
+		System.out.println("7. Добавить Person в базу данных из файла");
 		System.out.println("0. Выход");
 
 		// Блок проверки данных на корректность.
 		try {
-			String line = buf.readLine();
-			choice = parseInt(line);
+			choice = parseInt(buf.readLine());
 		} catch (NumberFormatException e) {
-			choice=5; // В случае ввода текстовой строки
+			choice=10; // В случае ввода текстовой строки
 		}
-		//Парсим все файлы из директории один раз, если выбраны 1,2,3,4 пункты в меню
-		if (choice!=0 && choice!=5){
-			if (!wasWorking){
-				System.out.println("Введите путь до файла: ");
-				path = buf.readLine();
-				wasWorking=controller.parseFiles(path);
-			}
-		}
+
 		choiceMenu();
 	}
 
-	/**
-	 * Действия для каждого пункта menu()
-	 * @throws IOException
-	 */
-	private void choiceMenu() throws IOException {
-		String nameFile;
+	private void choiceMenu() throws IOException, SQLException {
 		switch (choice) {
 			case (1): {//Создание
+				System.out.println("Введите путь до директории: ");
+				path = buf.readLine();
 				System.out.println("Введите название файла");
 				nameFile = buf.readLine();
-				nameFile = controller.checkNameFile(nameFile);
-				if (!controller.checkFileInMap(nameFile)) {
+				System.out.println("В каком формате сохранить файл? \n1. XML \n2. CSV \n3. JSON");
+				choice = Integer.parseInt(buf.readLine());
+				nameFile = controller.addExtension(nameFile, choice);
+				if (controller.checkFileInDir(path, nameFile)) {
 					Person person = new Person();
 					while(isCorrect) {
 						try {
-							System.out.println("USD: ");
-							person.setUSD(parseInt(buf.readLine()));
 							System.out.println("id: ");
 							person.setId(parseInt(buf.readLine()));
+							System.out.println("USD: ");
+							person.setUSD(parseInt(buf.readLine()));
 							isCorrect=false;
 						} catch (NumberFormatException e) {
 							System.out.println("Неверный формат данных. ID и USD должны быть целыми числами!");
@@ -76,68 +76,78 @@ public class View {
 					System.out.println("way: ");
 					person.setWay(buf.readLine());
 
-					controller.createFile(path, nameFile, person);
-					for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
-						System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
+					if(!controller.createPerson(path, nameFile, person, choice)){
+	                    System.out.println("Person с таким ID уже существует");
 					}
-				} else System.out.println("Такой файл уже имеется!");
+				} else System.out.println("Файл с таким именем уже имеется!");
 				menu();
 			}
 			break;
 
-			case (2): {//Вывод на экран
-				for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
-					System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
+			case (2): {//Изменение
+				System.out.println(controller.getAllPerson());
+				Person person = new Person();
+				System.out.println("Введите ID:");
+				person.setId(Integer.parseInt(buf.readLine()));
+
+				System.out.println("name: ");
+				person.setName(buf.readLine());
+				System.out.println("way: ");
+				person.setWay(buf.readLine());
+				while(isCorrect) {
+					try {
+						System.out.println("USD: ");
+						person.setUSD(parseInt(buf.readLine()));
+						isCorrect=false;
+					} catch (NumberFormatException e) {
+						System.out.println("Неверный формат данных. USD должен быть целым числом!");
+					}
 				}
+				isCorrect=true;
+				controller.changePerson(person);
 				menu();
 			}
 			break;
 
-			case (3): {//Изменение
-				System.out.println("Введите название файла");
-				nameFile = buf.readLine();
-				nameFile = controller.checkNameFile(nameFile);
-				if (controller.checkFileInMap(nameFile)) {
-					Person person = new Person();
-					while(isCorrect) {
-						try {
-							System.out.println("USD: ");
-							person.setUSD(parseInt(buf.readLine()));
-							System.out.println("id: ");
-							person.setId(parseInt(buf.readLine()));
-							isCorrect=false;
-						} catch (NumberFormatException e) {
-							System.out.println("Неверный формат данных. ID и USD должны быть целыми числами!");
-						}
-					}
-					isCorrect=true;
-					System.out.println("name: ");
-					person.setName(buf.readLine());
-					System.out.println("way: ");
-					person.setWay(buf.readLine());
-					controller.changeFile(path, nameFile, person);
-					for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
-						System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
-					}
-				} else System.out.println("Файл не найден!");
+			case (3): {//Удаление
+				System.out.println("Введите ID:");
+				Integer persId = Integer.parseInt(buf.readLine());
+				controller.deletePerson(persId);
+
 				menu();
 			}
 			break;
 
-			case (4): {//Удаление
-				System.out.println("Введите название файла");
+			case (4): {//Вывод на экран всех Person
+				System.out.println(controller.getAllPerson());
+				menu();
+			}
+			break;
+
+			case(5): {//Вывести на экран Person по ID
+				System.out.println("Введите ID: ");
+				System.out.println(controller.getPerson(parseInt(buf.readLine())));
+				menu();
+			}
+			break;
+
+			case(6): {//Добавить все файлы из дирректории
+				System.out.println("Введите путь до директории: ");
+				path = buf.readLine();
+				controller.parseFilesInDir(path);
+				menu();
+			}
+			break;
+
+			case(7): {//Добавить Person из файла
+				System.out.println("Введите путь до директории: ");
+				path = buf.readLine();
+				System.out.println("Введите имя файла: ");
 				nameFile = buf.readLine();
-				nameFile = controller.checkNameFile(nameFile);
 
-				if(controller.deleteFile(path, nameFile)){
-					System.out.println("Файл "+ nameFile + " удален!");
-				} else {
-					System.out.println("Файл "+ nameFile + " не найден!");
-				}
-
-				System.out.println();
-				for (Map.Entry<String, Person> item : controller.getAllPerson().entrySet()) {
-					System.out.printf("nameFile: %s  Value: %s \n", item.getKey(), item.getValue());
+				nameFile = controller.addExtension(nameFile, 1);
+				if(!controller.parseFile(path, nameFile)) {
+					System.out.println("Ошибка добавления записи. Person с таким ID уже существует");
 				}
 				menu();
 			}
