@@ -37,4 +37,16 @@ package program;
 		public void setUSD(int USD) {
 			this.USD = USD;
 		}
+
+		public String getName() {
+			return name;
+		}
+
+		public String getWay() {
+			return way;
+		}
+
+		public int getUSD() {
+			return USD;
+		}
 	}

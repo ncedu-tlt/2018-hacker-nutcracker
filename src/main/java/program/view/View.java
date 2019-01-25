@@ -1,15 +1,30 @@
 package program.view;
 
+import program.Person;
 import program.controller.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class View {
 
+	private static View view;
+
+	private View(){}
+
+	public static View getInstance(){
+		if (view==null){
+			view=new View();
+		}
+		return view;
+	}
+
+
 	private  Scanner in = new Scanner(System.in);
 
 	Controller controller = Controller.getInstance();
-	PersonHelper personHelper = PersonHelper.getInstance();
+	CsvHelper csvHelper = CsvHelper.getInstance();// Правильно ли??
+	DBConnectController dbConnectController =  DBConnectController.getInstance();
 
 	public void hello()  {
 
@@ -21,8 +36,12 @@ public class View {
 				"4. Вывести список загруженных персон \n" +
 				"5. Изменить данные персоны\n" +
 				"6. Добавить персону в массив\n" +
-				"7. Удалить файл\n" +
-				"8. Выйти");
+				"7. Показать список персон из базы данных\n" +
+				"8. Добавить персона в БД\n" +
+				"9. Загрузить персону из БД в массив\n" +
+				"10. Обновить персону в БД\n" +
+				"11. Удалить файл\n"+
+				"12. Выйти");
 
 		active();
 	}
@@ -33,16 +52,17 @@ public class View {
 			switch (act){
 				case 1:
 					System.out.println("Укажите путь и имя файла с указанием формата файла в формате: " +
-							"C:\\Users\\FileName");
+							"C:\\Users\\FileName");//дописать указание формата файла!!!
 					String thankYouNextInt = in.nextLine();
 					controller.createCsvFile(in.nextLine());
 					System.out.println("Файл был успешно создан\n");
 					hello();
 
 				case 2:
-					System.out.println("Укажите путь и имя файла");
+					System.out.println("Укажите путь и имя файла"); // дописать остальные форматы!! ВОПРОС не стоит
+					// ли пренести чтение файлов в контроллер или создать мотод по примеру создания файлов
 					 in.nextLine();
-					personHelper.readFile(in.nextLine());
+					csvHelper.takePersonFromFile(in.nextLine());
 					hello();
 
 				case 3:
@@ -59,8 +79,8 @@ public class View {
 						System.out.println("Укажите id персоны");
 						int personid = in.nextInt();
 						in.nextLine();
-						if (personHelper.returnSpecificPerson(String.valueOf(personid))!=null){
-							params= personHelper.personToLine(personHelper.returnSpecificPerson(String.valueOf(personid)));
+						if (csvHelper.showOnePerson(String.valueOf(personid))!=null){
+							params= personToLine(csvHelper.showOnePerson(String.valueOf(personid)));
 						}else hello();
 
 					}
@@ -77,37 +97,38 @@ public class View {
 					in.nextLine();
 					switch (form) {
 						case 1:
-							controller.newCsvParams(pathAndName,params);
+							controller.newCsvParams(pathAndName,params,"y");
 							System.out.println("Данные перезаписанны\n");
 							hello();
 						case 2:
 							System.out.println("Сохранить оба файла y/n");
-							String saver = in.nextLine();
-							controller.saveCsvLikeXML(pathAndName,params.trim(),saver);
+							String saverXMl = in.nextLine();
+							controller.saveXML(pathAndName,params.trim(),saverXMl);
 							System.out.println("Файл в формате .xml был успешно создан!\n");
 							hello();
 						case 3:
 							System.out.println("Сохранить оба файла y/n");
 							String saverJSON = in.nextLine();
-							controller.saveCsvLikeJSON(pathAndName,params,saverJSON);
+							controller.saveJSON(pathAndName,params,saverJSON);
 							System.out.println("Файл в формате .json был успешно создан!\n");
 							hello();
 					}
 
 				case 4:
-					personHelper.showAtt();
+					csvHelper.showAllPersons();
 					hello();
 
 				case 5:
 					System.out.println("Укажите id персоны которую хотите изменить\n");
 					in.nextLine();
 					String id = in.nextLine();
-					personHelper.showSpecificPerson(id);
+					System.out.println("id   name           way       USD");
+					csvHelper.showOnePerson(id).toString();
 					System.out.println("Укажите новые параметры выбранной персоны в формате - id,name,way,USD");
 					String par = in.nextLine();
 					controller.chanchePersonParams(id,par);
 					System.out.println("Параметры успешно измененны");
-					personHelper.showAtt();
+					csvHelper.showAllPersons();
 					hello();
 
 				case 6:
@@ -115,25 +136,70 @@ public class View {
 							"персоны в формате - id,name,way,USD \n");
 					in.nextLine();
 					String paramet= in.nextLine();
-					String fornew[] = paramet.split(",");
-					personHelper.addPerson(Integer.parseInt(fornew[0]),fornew[1],fornew[2],Integer.parseInt(fornew[3]));
+					csvHelper.createPerson(paramet);
 					System.out.println("Персона успешно добавленна\n");
-					personHelper.showAtt();
+					csvHelper.showAllPersons();
 					hello();
 
 				case 7:
+					dbConnectController.getAllPersonsFromDB();
+					System.out.println("Персоны успешно выведенны.\n");
+					hello();
+
+				case 8:
+					in.nextLine();
+					System.out.println("Укажите id персоны");
+					String personForDB = in.nextLine();
+//					System.out.println("id   name           way       USD");
+					dbConnectController.addPersonToDB(csvHelper.showOnePerson(personForDB));
+					System.out.println("Персоны успешно выведенны.\n");
+					hello();
+
+				case 9:
+					in.nextLine();
+					System.out.println("Укажите id персоны");
+					String personFromDB = in.nextLine();
+					dbConnectController.downloadPersonToM(personFromDB);
+					System.out.println("Персона успешно загруженна\n");
+					csvHelper.showAllPersons();
+					hello();
+
+				case 10:
+					in.nextLine();
+					System.out.println("Укажите id персоны из БД которую хотите обновить");
+					String updatePers = in.nextLine();
+					dbConnectController.downloadPersonToM(updatePers);
+					System.out.println("Укажите новые данные для персоны в формате - id,name,way,USD \n");
+					String newParamsForDB = in.nextLine();
+					controller.chanchePersonParams(updatePers,newParamsForDB);
+					System.out.println("id   name           way       USD");
+					dbConnectController.updatePersonFromDB(csvHelper.showOnePerson(updatePers));
+					System.out.println("Персона была успешно обновленна в БД и Массиве");
+					csvHelper.showAllPersons();
+					dbConnectController.getCurrentelyPersonFromDB(updatePers);
+					hello(); // 18,Mac Robson,Work,888
+
+				case 11:
 					System.out.println("Укажите путь и имя файла\n");
 					in.nextLine();
 					controller.delete(in.nextLine());
 					System.out.println("Файл удален");
 					hello();
 
-				case 8:
+				case 12:
 					System.exit(0);
 
 				default:
 					System.out.println("Неверная команда!\n");
 					hello();
 			}
+	}
+
+
+	public  String personToLine(Person person){
+
+		String newline = person.id+","+person.name+","+person.way+","+person.USD;
+
+		return newline;
 	}
 }

@@ -5,10 +5,9 @@ import program.view.View;
 
 
 public class Main {
-
 	public static void main(String[] args) {
 		System.out.println("Добро пожаловать!");
-		View view = new View();
+		View view = View.getInstance();
 		view.hello();
 	}
 }

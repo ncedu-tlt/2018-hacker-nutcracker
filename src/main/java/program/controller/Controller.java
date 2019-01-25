@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Controller {
 
+
 	private static Controller controller;
 
 	private Controller() {	}
@@ -17,8 +18,6 @@ public class Controller {
 
 	CsvHelper csvHelper = CsvHelper.getInstance();
 
-	PersonHelper personHelper = PersonHelper.getInstance();
-
 	XMLHelper xmlHelper = XMLHelper.getInstance();
 
 	JSONHelper jsonHelper = JSONHelper.getInstance();
@@ -26,25 +25,33 @@ public class Controller {
 	public void createCsvFile(String path){
 		csvHelper.createFile(path);
 	}
+	public void createXmlFile(String path){
+		xmlHelper.createFile(path);
+	}
+	public void createJsonFile(String path){
+		jsonHelper.createFile(path);
+	}
 
-	public void newCsvParams(String filePath, String params){
-		csvHelper.saveParams(filePath,params);
+	public void newCsvParams(String filePath, String params,String saveOrNot){
+		csvHelper.savePersonToFile(filePath,params,saveOrNot);
 	}
 
 	public void chanchePersonParams(String id, String paramLine){
-		personHelper.changePersonParams(Integer.parseInt(id),paramLine);
+		csvHelper.updatePerson(id,paramLine);
 	}
 
-	public void saveCsvLikeXML(String filePath, String paramLine, String saveOrNot){
-		xmlHelper.saveXML(filePath,paramLine,saveOrNot);
+	public void saveXML(String filePath, String paramLine, String saveOrNot){
+		xmlHelper.savePersonToFile(filePath,paramLine,saveOrNot);
 	}
 
-	public void saveCsvLikeJSON(String filePath, String paramLine, String saveOrNot)  {
-		jsonHelper.saveJSON(filePath,paramLine,saveOrNot);
+	public void saveJSON(String filePath, String paramLine, String saveOrNot)  {
+		jsonHelper.savePersonToFile(filePath,paramLine,saveOrNot);
 	}
 
 	public void delete(String path){
 			if (new File(path + ".csv").delete()) {
 		}
 	}
+
+
 }
