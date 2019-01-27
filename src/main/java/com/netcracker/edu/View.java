@@ -1,10 +1,10 @@
 package com.netcracker.edu;
+import com.netcracker.edu.controller.Controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
@@ -13,20 +13,12 @@ public class View {
 	private String nameFile;
 	private int choice;
 	private boolean isCorrect=true;
-//	private String login;
-//	private String password;
 
 	private BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
 	private Controller controller = new Controller();
 
-	public void menu() throws IOException, SQLException {
-//		if (login==null){
-//			System.out.println("Введите логин и пароль для доступа к базе данных");
-//			login=buf.readLine();
-//			password=buf.readLine();
-//			OracleDriverManager ora = new OracleDriverManager();
-//			ora.getLogPas(login, password);
-//		}
+
+	public void menu() throws IOException {
 		System.out.println("Выберите действие из предложенных");
 		System.out.println("1. Создать файл и новую запись в базе данных");
 		System.out.println("2. Изменить Person в базе данных");
@@ -40,14 +32,13 @@ public class View {
 		// Блок проверки данных на корректность.
 		try {
 			choice = parseInt(buf.readLine());
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			choice=10; // В случае ввода текстовой строки
 		}
-
 		choiceMenu();
 	}
 
-	private void choiceMenu() throws IOException, SQLException {
+	private void choiceMenu()throws IOException {
 		switch (choice) {
 			case (1): {//Создание
 				System.out.println("Введите путь до директории: ");
@@ -59,35 +50,37 @@ public class View {
 				nameFile = controller.addExtension(nameFile, choice);
 				if (controller.checkFileInDir(path, nameFile)) {
 					Person person = new Person();
-					while(isCorrect) {
+					while (isCorrect) {
 						try {
 							System.out.println("id: ");
 							person.setId(parseInt(buf.readLine()));
 							System.out.println("USD: ");
 							person.setUSD(parseInt(buf.readLine()));
-							isCorrect=false;
+							isCorrect = false;
 						} catch (NumberFormatException e) {
 							System.out.println("Неверный формат данных. ID и USD должны быть целыми числами!");
 						}
 					}
-					isCorrect=true;
+					isCorrect = true;
 					System.out.println("name: ");
 					person.setName(buf.readLine());
 					System.out.println("way: ");
 					person.setWay(buf.readLine());
 
-					if(!controller.createPerson(path, nameFile, person, choice)){
-	                    System.out.println("Person с таким ID уже существует");
-					}
+					controller.createPerson(path, nameFile, person, choice);
 				} else System.out.println("Файл с таким именем уже имеется!");
 				menu();
 			}
 			break;
 
 			case (2): {//Изменение
-				System.out.println(controller.getAllPerson());
+				System.out.println("ID  NAME               WAY       USD");
+				ArrayList<Person> persons = controller.getAllPerson();
+				for (Person person: persons){
+					System.out.print(person.toString());
+				}
 				Person person = new Person();
-				System.out.println("Введите ID:");
+				System.out.println("Введите ID Person'a для изменения:");
 				person.setId(Integer.parseInt(buf.readLine()));
 
 				System.out.println("name: ");
@@ -104,29 +97,44 @@ public class View {
 					}
 				}
 				isCorrect=true;
-				controller.changePerson(person);
+				if((controller.getPerson(person.getId()).getId())==0){
+					System.out.println("Person с таким ID  не найден!");
+				} else controller.changePerson(person);
 				menu();
 			}
 			break;
 
 			case (3): {//Удаление
+				System.out.println("ID  NAME               WAY       USD");
+				ArrayList<Person> persons = controller.getAllPerson();
+				for (Person person: persons){
+					System.out.print(person.toString());
+				}
 				System.out.println("Введите ID:");
 				Integer persId = Integer.parseInt(buf.readLine());
-				controller.deletePerson(persId);
-
+				if(controller.getPerson(persId).getId()==0){
+					System.out.println("Person с таким ID  не найден!");
+				} else controller.deletePerson(persId);
 				menu();
 			}
 			break;
 
 			case (4): {//Вывод на экран всех Person
-				System.out.println(controller.getAllPerson());
+				System.out.println("ID  NAME               WAY       USD");
+				ArrayList<Person> persons = controller.getAllPerson();
+				for (Person person: persons){
+					System.out.print(person.toString());
+				}
+				System.out.println();
 				menu();
 			}
 			break;
 
 			case(5): {//Вывести на экран Person по ID
 				System.out.println("Введите ID: ");
-				System.out.println(controller.getPerson(parseInt(buf.readLine())));
+				Integer persId = Integer.parseInt(buf.readLine());
+				System.out.println("ID  NAME               WAY       USD");
+				System.out.println(controller.getPerson(persId));
 				menu();
 			}
 			break;
@@ -146,9 +154,7 @@ public class View {
 				nameFile = buf.readLine();
 
 				nameFile = controller.addExtension(nameFile, 1);
-				if(!controller.parseFile(path, nameFile)) {
-					System.out.println("Ошибка добавления записи. Person с таким ID уже существует");
-				}
+				controller.parseFile(path, nameFile);
 				menu();
 			}
 			break;

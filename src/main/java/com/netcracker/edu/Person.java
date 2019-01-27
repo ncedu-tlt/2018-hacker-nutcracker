@@ -32,5 +32,8 @@ public class Person {
 	public void setWay(String way) { this.way = way; }
 
 	@Override
-	public String toString(){ return ""+ id + ", " + name + ", " + way + ", " + USD; }
+	public String toString(){
+		String s = String.format("%-3d%-20s%-10s%-6d%n",id, name, way, USD);
+		return s;
+	}
 }
