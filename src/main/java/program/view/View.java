@@ -2,8 +2,10 @@ package program.view;
 
 import program.Person;
 import program.controller.*;
+import program.enumFormat;
+import program.helpers.CsvHelper;
+import program.helpers.PersonHelper;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class View {
@@ -23,8 +25,9 @@ public class View {
 	private  Scanner in = new Scanner(System.in);
 
 	Controller controller = Controller.getInstance();
-	CsvHelper csvHelper = CsvHelper.getInstance();// Правильно ли??
+	CsvHelper csvHelper = CsvHelper.getInstance();
 	DBConnectController dbConnectController =  DBConnectController.getInstance();
+	PersonHelper personHelper = PersonHelper.getInstance();
 
 	public void hello()  {
 
@@ -52,17 +55,22 @@ public class View {
 			switch (act){
 				case 1:
 					System.out.println("Укажите путь и имя файла с указанием формата файла в формате: " +
-							"C:\\Users\\FileName");//дописать указание формата файла!!!
+							"C:\\Users\\FileName");
 					String thankYouNextInt = in.nextLine();
-					controller.createCsvFile(in.nextLine());
+					String createFilePath = in.nextLine();
+					System.out.println("Укажите формат сохранения файла CSV, XML, JSON");
+					String sw = in.nextLine();
+					controller.createFile(createFilePath, sw);
 					System.out.println("Файл был успешно создан\n");
 					hello();
 
 				case 2:
-					System.out.println("Укажите путь и имя файла"); // дописать остальные форматы!! ВОПРОС не стоит
-					// ли пренести чтение файлов в контроллер или создать мотод по примеру создания файлов
+					System.out.println("Укажите путь и имя файла");
 					 in.nextLine();
-					csvHelper.takePersonFromFile(in.nextLine());
+					 String filePath = in.nextLine();
+					System.out.println("Укажите формат файла CSV, XML, JSON");
+					String fr = in.nextLine();
+					 controller.takePersonFromFile(filePath,fr);
 					hello();
 
 				case 3:
@@ -79,8 +87,8 @@ public class View {
 						System.out.println("Укажите id персоны");
 						int personid = in.nextInt();
 						in.nextLine();
-						if (csvHelper.showOnePerson(String.valueOf(personid))!=null){
-							params= personToLine(csvHelper.showOnePerson(String.valueOf(personid)));
+						if (personHelper.showOnePerson(String.valueOf(personid))!=null){
+							params= personToLine(personHelper.showOnePerson(String.valueOf(personid)));
 						}else hello();
 
 					}
@@ -115,7 +123,7 @@ public class View {
 					}
 
 				case 4:
-					csvHelper.showAllPersons();
+					personHelper.showAllPersons();
 					hello();
 
 				case 5:
@@ -123,12 +131,12 @@ public class View {
 					in.nextLine();
 					String id = in.nextLine();
 					System.out.println("id   name           way       USD");
-					csvHelper.showOnePerson(id).toString();
+					personHelper.showOnePerson(id).toString();
 					System.out.println("Укажите новые параметры выбранной персоны в формате - id,name,way,USD");
 					String par = in.nextLine();
 					controller.chanchePersonParams(id,par);
 					System.out.println("Параметры успешно измененны");
-					csvHelper.showAllPersons();
+					personHelper.showAllPersons();
 					hello();
 
 				case 6:
@@ -136,9 +144,9 @@ public class View {
 							"персоны в формате - id,name,way,USD \n");
 					in.nextLine();
 					String paramet= in.nextLine();
-					csvHelper.createPerson(paramet);
+					personHelper.createPerson(paramet);
 					System.out.println("Персона успешно добавленна\n");
-					csvHelper.showAllPersons();
+					personHelper.showAllPersons();
 					hello();
 
 				case 7:
@@ -149,9 +157,8 @@ public class View {
 				case 8:
 					in.nextLine();
 					System.out.println("Укажите id персоны");
-					String personForDB = in.nextLine();
-//					System.out.println("id   name           way       USD");
-					dbConnectController.addPersonToDB(csvHelper.showOnePerson(personForDB));
+					String personId = in.nextLine();
+					dbConnectController.addPersonToDB(personHelper.showOnePerson(personId));
 					System.out.println("Персоны успешно выведенны.\n");
 					hello();
 
@@ -161,7 +168,7 @@ public class View {
 					String personFromDB = in.nextLine();
 					dbConnectController.downloadPersonToM(personFromDB);
 					System.out.println("Персона успешно загруженна\n");
-					csvHelper.showAllPersons();
+					personHelper.showAllPersons();
 					hello();
 
 				case 10:
@@ -171,13 +178,13 @@ public class View {
 					dbConnectController.downloadPersonToM(updatePers);
 					System.out.println("Укажите новые данные для персоны в формате - id,name,way,USD \n");
 					String newParamsForDB = in.nextLine();
-					controller.chanchePersonParams(updatePers,newParamsForDB);
 					System.out.println("id   name           way       USD");
-					dbConnectController.updatePersonFromDB(csvHelper.showOnePerson(updatePers));
+					controller.chanchePersonParams(updatePers,newParamsForDB);
+					dbConnectController.updatePersonFromDB(personHelper.showOnePerson(updatePers));
 					System.out.println("Персона была успешно обновленна в БД и Массиве");
-					csvHelper.showAllPersons();
+					personHelper.showAllPersons();
 					dbConnectController.getCurrentelyPersonFromDB(updatePers);
-					hello(); // 18,Mac Robson,Work,888
+					hello(); // 18,Mac Robson,Haven,888
 
 				case 11:
 					System.out.println("Укажите путь и имя файла\n");

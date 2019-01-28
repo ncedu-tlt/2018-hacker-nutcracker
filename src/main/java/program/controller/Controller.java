@@ -1,5 +1,11 @@
 package program.controller;
 
+import program.enumFormat;
+import program.helpers.CsvHelper;
+import program.helpers.JSONHelper;
+import program.helpers.PersonHelper;
+import program.helpers.XMLHelper;
+
 import java.io.*;
 
 public class Controller {
@@ -22,22 +28,26 @@ public class Controller {
 
 	JSONHelper jsonHelper = JSONHelper.getInstance();
 
-	public void createCsvFile(String path){
-		csvHelper.createFile(path);
+	PersonHelper personHelper = PersonHelper.getInstance();
+
+	public void createFile(String path, String format){
+		switch (format.toUpperCase()){
+			case "CSV":
+				csvHelper.createFile(path);
+			case "XML":
+				xmlHelper.createFile(path);
+			case "JSON":
+				jsonHelper.createFile(path);
+		}
 	}
-	public void createXmlFile(String path){
-		xmlHelper.createFile(path);
-	}
-	public void createJsonFile(String path){
-		jsonHelper.createFile(path);
-	}
+
 
 	public void newCsvParams(String filePath, String params,String saveOrNot){
 		csvHelper.savePersonToFile(filePath,params,saveOrNot);
 	}
 
 	public void chanchePersonParams(String id, String paramLine){
-		csvHelper.updatePerson(id,paramLine);
+		personHelper.updatePerson(id,paramLine);
 	}
 
 	public void saveXML(String filePath, String paramLine, String saveOrNot){
@@ -46,6 +56,17 @@ public class Controller {
 
 	public void saveJSON(String filePath, String paramLine, String saveOrNot)  {
 		jsonHelper.savePersonToFile(filePath,paramLine,saveOrNot);
+	}
+
+	public void takePersonFromFile(String path, String format){
+		switch (format.toUpperCase()){
+			case "CSV":
+				csvHelper.takePersonFromFile(path);
+			case "XML":
+				xmlHelper.takePersonFromFile(path);
+			case "JSON":
+				jsonHelper.takePersonFromFile(path);
+		}
 	}
 
 	public void delete(String path){

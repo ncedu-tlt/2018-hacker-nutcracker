@@ -1,9 +1,13 @@
 package program.controller;
 
 import program.Person;
+import program.helpers.CsvHelper;
+import program.helpers.PersonHelper;
 import program.view.View;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBConnectController {
 
@@ -20,7 +24,7 @@ public class DBConnectController {
 
 	OracleDriverManager oracleDriverManager = OracleDriverManager.getInstance();
 
-	CsvHelper csvHelper = CsvHelper.getInstance();// Правильно ли??
+	PersonHelper personHelper = PersonHelper.getInstance();
 
 	private Connection connection = oracleDriverManager.openOracleConnection();
 
@@ -32,13 +36,12 @@ public class DBConnectController {
 
 		Statement stmt = connection.createStatement();
 		ResultSet resultSet = stmt.executeQuery(query);
-
+			System.out.println("id       name         way     USD");
 			while (resultSet.next()) {
 				String personsId = resultSet.getString("PERSONS_ID");
 				String name = resultSet.getString("name");
 				String way = resultSet.getString("way");
 				Integer usd = resultSet.getInt("USD");
-				System.out.println("id       name         way     USD");
 				System.out.println(String.format("%s,   %s,   %s,   %d", personsId, name, way, usd));
 			}
 		}
@@ -63,7 +66,7 @@ public class DBConnectController {
 								resultSet.getString("name")+","+
 								resultSet.getString("way")+","+resultSet.getInt("USD");
 
-				csvHelper.createPerson(par);
+				personHelper.createPerson(par);
 			}
 		}
 		catch (SQLException e){
@@ -84,7 +87,8 @@ public class DBConnectController {
 		preparedStatement.execute();
 
 		System.out.println("Персона успешно добавленна\n");
-		}catch (SQLException e) {
+		}
+		catch (SQLException e){
 			e.printStackTrace();
 		}
 	}
@@ -124,7 +128,7 @@ public class DBConnectController {
 				String way = resultSet.getString("way");
 				Integer usd = resultSet.getInt("USD");
 				System.out.println("id       name         way     USD");
-				System.out.println(String.format("%s,   %s,   %s,   %d", personsId, name, way, usd));
+				System.out.println(String.format("%s   %s   %s   %d", personsId, name, way, usd));
 			}
 		}
 		catch (SQLException e){
@@ -139,38 +143,36 @@ public class DBConnectController {
 					" where d.name = " + "'" + way + "'";
 			Statement stmt = connection.createStatement();
 			ResultSet resultId = stmt.executeQuery(id);
-//      19,Fill Chop,Base,784
-			if (!resultId.next()){
-//				if (resultId.wasNull()) {
+
+			List<String> listorResult = new ArrayList();
+
+			while (resultId.next()) {
+				listorResult.add(resultId.getString("id"));
+			}
+
+			if (listorResult.isEmpty()){
 					String addQuery = "INSERT INTO directions (id, name) VALUES (TO_NUMBER(DIREC_SEQ.nextval), ?)";
 					PreparedStatement preparedStatement = connection.prepareStatement(addQuery);
 					preparedStatement.setString(1, way);
 					preparedStatement.execute();
-					preparedStatement.close();
+				//	preparedStatement.close();
 
 				String newId = "select d.id" +
 						" from directions d" +
 						" where d.name = " + "'" + way + "'";
 
-					ResultSet newResultId = stmt.executeQuery(newId);
-//					while (newResultId.next()) {//
-//						String wayId = resultId.getString("id");
-//						System.out.println(wayId);
-//						return wayId;
-//					}
+				ResultSet newResultId = stmt.executeQuery(newId);
+				List<String> ArrayorResult = new ArrayList();
 
-				if (newResultId !=null){
-					while (newResultId.next()) {
-						String wayId = resultId.getString("id");
-//						System.out.println(wayId);
-						return wayId;
-					}
-					String wayId = resultId.getString("id");
-//					System.out.println(wayId);
-					return wayId;
+				while (newResultId.next()) {
+					ArrayorResult.add(newResultId.getString("id"));
 				}
 
-//				}
+				if (!ArrayorResult.isEmpty()){
+						//String wayId = resultId.getString("id");         ROFL
+						String wayId = ArrayorResult.get(0);
+						return wayId;
+				}
 			}
 			else {
 					String wayId = resultId.getString("id");
@@ -186,18 +188,25 @@ public class DBConnectController {
 
 	public void checkID(String id){
 		try {
-			String query = " select p.persons_id \n" +
-					" from persons p \n" +
+			String query = " select p.persons_id " +
+					" from persons p " +
 					" where p.persons_id = " + id + " ";
 
 			Statement stmt = connection.createStatement();
 			ResultSet resultSet = stmt.executeQuery(query);
 
-			if (resultSet.next()){
-				System.out.println("\n ATTENTION ATTENTION ERROR #16884 ПЕРСОНА С ТАКИМ ID УЖЕ СУЩЕСТВУЕТ \n" +
-						"Поменяйте id персоны в памяти или в БД");
-				View view = View.getInstance();
-				view.hello();
+			List<String> idArray = new ArrayList();
+
+			while (resultSet.next()){
+				idArray.add(resultSet.getString("persons_id"));
+			}
+			if (!idArray.isEmpty()) {
+				if (idArray.get(0).equals(id)) {
+					System.out.println("\n ATTENTION ATTENTION ERROR #16884 ПЕРСОНА С ТАКИМ ID УЖЕ СУЩЕСТВУЕТ \n" +
+							"Поменяйте id персоны в памяти или в БД");
+					View view = View.getInstance();// создать
+					view.hello();
+				}
 			}
 		}
 		catch (SQLException e){
