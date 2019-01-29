@@ -9,18 +9,32 @@
 	<artifactId>2018-hacker-nutcracker</artifactId>
 	<version>0.0.1</version>
 
-	<developers>
-		<!-- Скопируйте блок тегов ниже и заполните их в соответствии со своими данными из GitHub'a:
-		<developer>
-			<id></id>
-			<name></name>
-			<email></email>
-		</developer>
-		-->
-	</developers>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.7</version>
+        </dependency>
+    </dependencies>
 
-	<dependencies>
-		<!-- Помещайте сюда ваши зависимости-->
-	</dependencies>
+    <developers>
+        <developer>
+            <id>IsaykovArtem</id>
+            <name>Isaykov Atrem</name>
+            <email>a.isaykov@bk.ru</email>
+        </developer>
+    </developers>
 
 </project>
