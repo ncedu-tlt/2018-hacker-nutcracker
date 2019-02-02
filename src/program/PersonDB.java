@@ -131,8 +131,8 @@ public class PersonDB {
             }
             if (!idArray.isEmpty()) {
                 if (idArray.get(0).equals(id)) {
-                    System.out.println("\n ATTENTION ATTENTION ERROR #16884 ПЕРСОНА С ТАКИМ ID УЖЕ СУЩЕСТВУЕТ \n" +
-                            "Поменяйте id персоны в памяти или в БД");
+                   // System.out.println("\n ATTENTION ATTENTION ERROR #16884 ПЕРСОНА С ТАКИМ ID УЖЕ СУЩЕСТВУЕТ \n" +
+                        //    "Поменяйте id персоны в памяти или в БД");
 
                 }
             }
