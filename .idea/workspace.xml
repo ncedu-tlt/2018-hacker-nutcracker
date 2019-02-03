@@ -8,15 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="045f64a2-5dc5-4d2f-beda-5bd1d9bc15ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,12 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/ViewAllPersons.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -70,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="66" />
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -296,22 +283,22 @@
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/classes/com/netcracker/edu/servlets" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web\WEB-INF" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu\servlets" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\web" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.netcracker.edu.servlets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\web\ServerPages" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\web\Servlets" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.netcracker.edu.servlets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web\WEB-INF" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu\servlets" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -499,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548614524071</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Start 3rd task.">
+      <created>1549182228811</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1549182228811</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158086000" />
+    <option name="totallyTimeSpent" value="158268000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,7 +510,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5319149" visible="true" weight="0.25037822" />
       <window_info id="Structure" order="1" sideWeight="0.4680851" side_tool="true" weight="0.21104388" />
@@ -913,13 +906,6 @@
     <entry file="file://$PROJECT_DIR$/web/Navigation.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/PersonPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -927,14 +913,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/ViewAllPersons.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
         </state>
       </provider>
     </entry>
