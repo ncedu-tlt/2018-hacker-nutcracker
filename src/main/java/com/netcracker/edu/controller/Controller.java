@@ -10,19 +10,20 @@ public class Controller implements PersonHelper {
 	private JSONHelper json = new JSONHelper();
 
 	@Override
-	public void createPerson(String path, String nameFile, Person person, int choice)  {
-		switch (choice){
-			case(1):{
-				xml.createFileXML(path, nameFile, person);
+	public void createPerson(Person person)  {
 				xml.addPerson(person);
+	}
+
+	public void savePersonInFile(Person person, String format)  {
+		switch (format){
+			case(".XML"):{
+				xml.createFileXML(person);
 			}break;
-			case(2):{
-				csv.createFileCSV(path, nameFile, person);
-				csv.addPerson(person);
+			case(".CSV"):{
+				csv.createFileCSV(person);
 			}break;
-			case(3):{
-				json.createFileJSON(path, nameFile, person);
-				json.addPerson(person);
+			case(".JSON"):{
+				json.createFileJSON(person);
 			}
 		}
 	}
@@ -55,24 +56,5 @@ public class Controller implements PersonHelper {
 	@Override
 	public void parseFile(String path, String nameFile) {
 		xml.parseFile(path, nameFile);
-	}
-
-	public boolean checkFileInDir(String path, String nameFile){
-		return xml.checkFileInDir(path, nameFile);
-	}
-
-	public String addExtension(String nameFile, Integer choice){
-		switch (choice){
-			case(1):{
-				return xml.addExtension(nameFile);
-			}
-			case(2):{
-				return csv.addExtension(nameFile);
-			}
-			case(3):{
-				return json.addExtension(nameFile);
-			}
-			default: return null;
-		}
 	}
 }

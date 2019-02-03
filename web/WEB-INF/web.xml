@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>WelcomePage</servlet-name>
+        <jsp-file>/WelcomePage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WelcomePage</servlet-name>
+        <url-pattern>/WelcomePage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Navigation</servlet-name>
+        <jsp-file>/Navigation.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Navigation</servlet-name>
+        <url-pattern>/Navigation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddPerson</servlet-name>
+        <jsp-file>/AddPerson.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPerson</servlet-name>
+        <url-pattern>/Add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewAllPersons</servlet-name>
+        <jsp-file>/ViewAllPersons.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewAllPersons</servlet-name>
+        <url-pattern>/View</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DownloadFile</servlet-name>
+        <jsp-file>/DownloadFile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownloadFile</servlet-name>
+        <url-pattern>/Download</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PersonPage</servlet-name>
+        <jsp-file>/PersonPage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonPage</servlet-name>
+        <url-pattern>/PersonPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Exception</servlet-name>
+        <jsp-file>/Exception.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Exception</servlet-name>
+        <url-pattern>/Exception</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SavePersonInFormat</servlet-name>
+        <jsp-file>/SavePersonInFormat.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SavePersonInFormat</servlet-name>
+        <url-pattern>/SavePersonInFormat</url-pattern>
+    </servlet-mapping>
+</web-app>

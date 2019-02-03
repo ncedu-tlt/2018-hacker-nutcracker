@@ -1,6 +1,7 @@
 package com.netcracker.edu.controller;
 import com.netcracker.edu.Person;
 
+import javax.swing.filechooser.FileSystemView;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -23,14 +24,15 @@ public class XMLHelper extends AbstractController {
 		return person;
 	}
 
-	public void createFileXML (String path, String nameFile, Person person){
+	public void createFileXML (Person person){
+		FileSystemView filesys = FileSystemView.getFileSystemView();
 		try {
 			JAXBContext context = JAXBContext.newInstance(Person.class);
 			Marshaller marshaller = context.createMarshaller();
 
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-			marshaller.marshal(person, new File(path+"\\"+nameFile));
+			marshaller.marshal(person, new File(filesys.getHomeDirectory()+"\\"+person.getName()+".xml"));
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
@@ -41,13 +43,11 @@ public class XMLHelper extends AbstractController {
 	}
 
 	public void changePerson(Person person) {
-		if (!super.isPersonIdExist(person.getId())) {
-			if (super.isWayExist(person.getWay()) == null){
-				super.changePersonInDB(person);
-			} else {
-				super.changePersonInDB_wayIsExist(person, wayId);
-			}
-		}else System.out.println("Person с таким ID уже имеется");
+		if (super.isWayExist(person.getWay()) == null){
+			super.changePersonInDB(person);
+		} else {
+			super.changePersonInDB_wayIsExist(person, wayId);
+		}
 	}
 
 	public void deletePerson(int persId) {
@@ -75,17 +75,6 @@ public class XMLHelper extends AbstractController {
 			if (!super.isPersonIdExist(person.getId())) {
 				addPerson(person);
 				file.delete();
-			}else System.out.println("Person с таким ID уже имеется");
-	}
-
-	@Override
-	public String addExtension(String nameFile){
-		if(!nameFile.endsWith(".xml")) {
-			nameFile = nameFile + ".xml";
-		}
-		return nameFile;
-	}
-	public boolean checkFileInDir(String path, String nameFile) {
-		return super.checkFileInDir(path, nameFile);
+			}
 	}
 }

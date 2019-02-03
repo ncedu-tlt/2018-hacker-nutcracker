@@ -3,27 +3,17 @@ package com.netcracker.edu.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netcracker.edu.Person;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
 
 public class JSONHelper extends AbstractController {
 
-	@Override
-	protected String addExtension(String nameFile) {
-		if(!nameFile.endsWith(".json")) {
-			nameFile = nameFile + ".json";
-		}
-		return nameFile;
-	}
-
-	public void createFileJSON(String path, String nameFile, Person person) {
+	public void createFileJSON(Person person) {
+		FileSystemView filesys = FileSystemView.getFileSystemView();
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.writeValue(new File(path + "\\" + nameFile), person);
+			mapper.writeValue(new File(filesys.getHomeDirectory()+"\\"+person.getName()+".json"), person);
 		}catch (IOException e) {e.printStackTrace();}
-	}
-
-	public void addPerson(Person person) {
-		super.addPerson(person);
 	}
 }

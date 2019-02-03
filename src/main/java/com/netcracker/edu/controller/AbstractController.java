@@ -33,7 +33,7 @@ public abstract class AbstractController {
 			} else {
 				addPersonInDB_wayIsExist(person, wayId);
 			}
-		} else System.out.println("Person с таким ID уже имеется");
+		}
 	}
 
 	protected void changePersonInDB(Person person) {
@@ -54,17 +54,6 @@ public abstract class AbstractController {
 		return model.getPerson(database.selectId(id));
 	}
 
-	protected boolean checkFileInDir(String path, String nameFile){
-		File parent = new File(path);
-		String[] nameFiles = parent.list();
-		for (String name : nameFiles) {
-			if (nameFile.equals(name)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 	protected Integer isWayExist(String way) {
 		return wayId = model.theWayId(database.findWay(way));
 	}
@@ -72,6 +61,4 @@ public abstract class AbstractController {
 	protected boolean isPersonIdExist(Integer id) {
 		return model.isExistPersonId(database.selectId(id), id);
 	}
-
-	protected abstract String addExtension(String nameFile);
 }

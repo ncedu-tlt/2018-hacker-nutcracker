@@ -1,24 +1,18 @@
 package com.netcracker.edu.controller;
 import com.netcracker.edu.Person;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class CSVHelper extends AbstractController {
 
-	@Override
-	protected String addExtension(String nameFile) {
-		if(!nameFile.endsWith(".csv")) {
-			nameFile = nameFile + ".csv";
-		}
-		return nameFile;
-	}
-
-	public void createFileCSV(String path, String nameFile, Person person) {
+	public void createFileCSV(Person person) {
+		FileSystemView filesys = FileSystemView.getFileSystemView();
 		PrintWriter pw = null;
 		try {
-			pw = new PrintWriter(new File(path + "\\" + nameFile));
+			pw = new PrintWriter(new File(filesys.getHomeDirectory()+"\\"+person.getName()+".csv"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -32,9 +26,5 @@ public class CSVHelper extends AbstractController {
 		builder.append('\n');
 		pw.write(builder.toString());
 		pw.close();
-	}
-
-	public void addPerson(Person person) {
-		super.addPerson(person);
 	}
 }

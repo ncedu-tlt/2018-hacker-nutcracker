@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public interface PersonHelper {
 
-	void createPerson(String path, String nameFile, Person person, int choice);
+	void createPerson(Person person);
 	void deletePerson(int persId);
 	void changePerson(Person person);
 	ArrayList getAllPerson();
