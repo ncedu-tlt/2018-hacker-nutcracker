@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Model {
 
 	private ArrayList<Person> persons = new ArrayList<>();
+	private ArrayList<String> ways = new ArrayList<>();
 
 	public ArrayList getAllPersons(ResultSet result) {
 		try {
@@ -21,6 +22,18 @@ public class Model {
 			}
 		} catch (SQLException e) {e.printStackTrace();}
 		return persons;
+	}
+
+	public ArrayList getAllWays(ResultSet result) {
+		try {
+			ways.clear();
+			String way;
+			while (result.next()) {
+				way=result.getString(1);
+				ways.add(way);
+			}
+		} catch (SQLException e) {e.printStackTrace();}
+		return ways;
 	}
 
 	public Person getPerson(ResultSet result) {

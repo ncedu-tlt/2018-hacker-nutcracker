@@ -16,12 +16,14 @@ public class AddPersonServlet extends HttpServlet {
 	private Controller controller = new Controller();
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String way = request.getParameter("selectWay");
 		Person person = new Person();
 		person.setId(Integer.parseInt(request.getParameter("id")));
 		person.setName(request.getParameter("name"));
 		person.setWay(request.getParameter("way"));
 		person.setUSD(Integer.parseInt(request.getParameter("usd")));
+
+		if(!way.equals("default"))person.setWay(way);
 
 		if (controller.getPerson(person.getId()).getId()!=0){
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Exception");

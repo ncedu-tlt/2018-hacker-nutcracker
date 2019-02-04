@@ -1,9 +1,10 @@
 package com.netcracker.edu;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "person")
 @XmlType(propOrder = {"USD", "id", "name", "way"})
@@ -33,7 +34,6 @@ public class Person {
 
 	@Override
 	public String toString(){
-		String s = String.format("%-3d%-20s%-10s%-6d%n",id, name, way, USD);
-		return s;
+		return String.format("%-3d%-20s%-10s%-6d%n",id, name, way, USD);
 	}
 }

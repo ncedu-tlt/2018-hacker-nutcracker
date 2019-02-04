@@ -1,28 +1,27 @@
 package com.netcracker.edu.controller;
+import com.netcracker.edu.Model;
+import com.netcracker.edu.Person;
 import com.netcracker.edu.database.DBQueries;
 import com.netcracker.edu.database.OracleDriverManager;
-import com.netcracker.edu.Person;
-import com.netcracker.edu.Model;
 
-import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
 public abstract class AbstractController {
 
 	protected Integer wayId;
-	protected Model model = new Model();
-	protected DBQueries database = DBQueries.getInstance(getOracleConnection());
+	private Model model = new Model();
+	private DBQueries database = DBQueries.getInstance(getOracleConnection());
 
-	protected Connection getOracleConnection() {
+	private Connection getOracleConnection() {
 		OracleDriverManager driverManager = new OracleDriverManager();
 		return driverManager.openOracleConnection();
 	}
 
-	protected void addPersonInDB(Person person) {
+	private void addPersonInDB(Person person) {
 		database.insertPersonWay(person);
 	}
-	protected void addPersonInDB_wayIsExist(Person person, int wayId) {
+	private void addPersonInDB_wayIsExist(Person person, int wayId) {
 		database.insertPerson(person, wayId);
 	}
 
@@ -50,6 +49,10 @@ public abstract class AbstractController {
 	protected ArrayList getAllPersons() {
 		return model.getAllPersons(database.selectAll());
 	}
+	protected ArrayList getAllWays() {
+		return model.getAllWays(database.selectWays());
+	}
+
 	public Person getPerson(Integer id) {
 		return model.getPerson(database.selectId(id));
 	}

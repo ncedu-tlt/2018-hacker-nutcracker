@@ -10,7 +10,7 @@
     <title>Navigation</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <h1 class="navbar-brand">Меню действий</h1>

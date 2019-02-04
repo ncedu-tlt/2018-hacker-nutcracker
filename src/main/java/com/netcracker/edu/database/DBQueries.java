@@ -110,6 +110,16 @@ public final class DBQueries {
 		return resultSet;
 	}
 
+	public ResultSet selectWays() {
+		ResultSet resultSet=null;
+		try{
+			String selectAll = "SELECT name FROM directions order by name";
+			Statement stmt = connection.createStatement();
+			resultSet = stmt.executeQuery(selectAll);
+		} catch (SQLException e) {e.printStackTrace();}
+		return resultSet;
+	}
+
 	public ResultSet selectId(Integer id) {
 		ResultSet resultSet=null;
 		try{

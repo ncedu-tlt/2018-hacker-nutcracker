@@ -43,6 +43,9 @@ public class Controller implements PersonHelper {
 		return xml.getAllPersons();
 	}
 
+	public ArrayList getAllWays() {
+		return xml.getAllWays();
+	}
 	@Override
 	public Person getPerson(int persId) {
 		return xml.getPerson(persId);

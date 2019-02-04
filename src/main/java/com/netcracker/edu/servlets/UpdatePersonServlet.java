@@ -19,12 +19,15 @@ public class UpdatePersonServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String way = request.getParameter("selectWay");
 		Person person = new Person();
+
 		person.setId(Integer.parseInt(request.getParameter("id")));
 		person.setName(request.getParameter("name"));
 		person.setWay(request.getParameter("way"));
 		person.setUSD(Integer.parseInt(request.getParameter("usd")));
 
+		if(!way.equals("default"))person.setWay(way);
 		controller.changePerson(person);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Navigation");
