@@ -23,6 +23,8 @@
     }
 </style>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Показать персону</title>
 </head>
 <body>
@@ -32,7 +34,7 @@
     <caption><tr><th>ID</th><th>Name</th><th>Way</th><th>Usd</th></tr></caption>
     <c:forEach var="person" items="${Persons}">
     <tr>
-    <td>${person.id}</td>
+        <td><a href="PersonPage?id=${person.id}&name=${person.name}&way=${person.way}&usd=${person.USD}">${person.id}</a></td>
     <td>${person.name}</td>
     <td>${person.way}</td>
     <td>${person.USD}</td></tr>

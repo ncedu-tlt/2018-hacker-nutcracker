@@ -48,5 +48,14 @@
     <servlet-name>ChangePersonServlet</servlet-name>
     <url-pattern>ChangePerson</url-pattern>
 </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PersonPageServlet</servlet-name>
+        <servlet-class>Servlets.PersonPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonPageServlet</servlet-name>
+        <url-pattern>PersonPage</url-pattern>
+    </servlet-mapping>
 </web-app>
 

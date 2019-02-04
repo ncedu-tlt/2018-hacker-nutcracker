@@ -1,5 +1,7 @@
 package program;
 
+import Servlets.ChangePersonServlet;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +57,7 @@ public class PersonDB {
     public void addPerson(Person person){
         try {
             String query = "INSERT INTO Persons (PERSONS_ID, name, way, USD) VALUES (?, ?, ?, ?)";
-           // personDB.checkID(String.valueOf(person.getId()));
+            personDB.checkID(String.valueOf(person.getId()));
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, String.valueOf(person.getId()));
             preparedStatement.setString(2, person.getName());
@@ -131,8 +133,7 @@ public class PersonDB {
             }
             if (!idArray.isEmpty()) {
                 if (idArray.get(0).equals(id)) {
-                   // System.out.println("\n ATTENTION ATTENTION ERROR #16884 ПЕРСОНА С ТАКИМ ID УЖЕ СУЩЕСТВУЕТ \n" +
-                        //    "Поменяйте id персоны в памяти или в БД");
+                   // тут надо чёт придумать потому что не знаю как реализовать проверку
 
                 }
             }
