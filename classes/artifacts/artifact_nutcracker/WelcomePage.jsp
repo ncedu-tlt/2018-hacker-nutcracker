@@ -9,16 +9,17 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <title>Welcome Page</title>
 </head>
 <body>
 <%OracleDriverManager oracle = new OracleDriverManager();
     DBQueries.getInstance(oracle.openOracleConnection());%>
-    <h1 align="center">Дратути</h1>
-    <h2 align="center">Удачи и терпения!</h2>
-    <form align="center" action="/Navigation" method="post">
-        <input type="submit" value="Начать работу"/>
-    </form>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Достаточно ли френдли?</h1>
+        <p>Считаю что достаточно, поехали =)</p>
+        <p><a class="btn btn-primary btn-lg" href="/ViewAllServlet" role="button">Начать работу</a></p>
+    </div>
+</div>
 </body>
 </html>

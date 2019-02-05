@@ -23,7 +23,7 @@ public class ViewAllServlet extends HttpServlet {
 		ArrayList<Person> persons = controller.getAllPerson();
 
 		request.setAttribute("listOfPersons", persons);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/View");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Main.jsp");
 		requestDispatcher.forward(request, response);
 
 	}

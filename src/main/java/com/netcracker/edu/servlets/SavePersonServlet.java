@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/SavePersonServlet")
 public class SavePersonServlet extends HttpServlet {
@@ -17,7 +18,7 @@ public class SavePersonServlet extends HttpServlet {
 	private Controller controller = new Controller();
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Person person = new Person();
 		person.setId(Integer.parseInt(request.getParameter("id")));
@@ -28,7 +29,10 @@ public class SavePersonServlet extends HttpServlet {
 		String format = request.getParameter("format");
 		controller.savePersonInFile(person, format);
 
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Navigation");
+		ArrayList<Person> persons = controller.getAllPerson();
+		request.setAttribute("listOfPersons", persons);
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Main.jsp");
 		requestDispatcher.forward(request, response);
 	}
 }

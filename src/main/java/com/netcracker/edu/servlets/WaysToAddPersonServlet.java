@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/FormToAddPersonServlet")
-public class FormToAddPersonServlet extends HttpServlet {
+@WebServlet("/WaysToAddPersonServlet")
+public class WaysToAddPersonServlet extends HttpServlet {
 
 	private Controller controller = new Controller();
 
@@ -23,7 +23,7 @@ public class FormToAddPersonServlet extends HttpServlet {
 
 		request.setAttribute("ways", ways);
 
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Add");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/AddPerson.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

@@ -38,7 +38,6 @@ public final class DBQueries {
 			preparedStatement.setString(3, person.getWay());
 			preparedStatement.setInt(4, person.getUSD());
 			preparedStatement.execute();
-			System.out.println("--- INSERTED 1 PERSON ---");
 		} catch (SQLException e) {e.printStackTrace();}
 	}
 
@@ -52,7 +51,6 @@ public final class DBQueries {
 			preparedStatement.setInt(3, wayId);
 			preparedStatement.setInt(4, person.getUSD());
 			preparedStatement.execute();
-			System.out.println("--- INSERTED 1 PERSON ---");
 		} catch (SQLException e) {e.printStackTrace();}
 	}
 
@@ -72,7 +70,6 @@ public final class DBQueries {
 			preparedStatement.setInt(4, person.getId());
 
 			preparedStatement.execute();
-			System.out.println("--- UPDATED 1 PERSON ---");
 		} catch (SQLException e) {e.printStackTrace();}
 	}
 
@@ -86,7 +83,6 @@ public final class DBQueries {
 			preparedStatement.setInt(3, person.getUSD());
 			preparedStatement.setInt(4, person.getId());
 			preparedStatement.execute();
-			System.out.println("--- UPDATED 1 PERSON ---");
 		} catch (SQLException e) {e.printStackTrace();}
 	}
 
@@ -95,7 +91,6 @@ public final class DBQueries {
 			String query = "DELETE FROM Persons Where id="+id;
 			Statement statement = connection.createStatement();
 			statement.execute(query);
-			System.out.println("--- PERSON REMOVED ---");
 		}catch (SQLException e) {e.printStackTrace();}
 	}
 

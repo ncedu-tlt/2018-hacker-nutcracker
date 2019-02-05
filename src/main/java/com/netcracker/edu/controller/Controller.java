@@ -16,13 +16,13 @@ public class Controller implements PersonHelper {
 
 	public void savePersonInFile(Person person, String format)  {
 		switch (format){
-			case(".XML"):{
+			case("xml"):{
 				xml.createFileXML(person);
 			}break;
-			case(".CSV"):{
+			case("csv"):{
 				csv.createFileCSV(person);
 			}break;
-			case(".JSON"):{
+			case("json"):{
 				json.createFileJSON(person);
 			}
 		}

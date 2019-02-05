@@ -30,9 +30,9 @@ public class PersonPageServlet extends HttpServlet {
 		ArrayList<String> ways = controller.getAllWays();
 
 		request.setAttribute("ways", ways);
-
 		request.setAttribute("Person", person);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/PersonPage");
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/PersonPage.jsp");
 		requestDispatcher.forward(request, response);
 
 	}
