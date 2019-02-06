@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Загрузка Person'a</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -12,13 +11,22 @@
 </head>
 <body>
     <h1 align="center">Выберите файл для загрузки</h1>
-    <h2 align="center">Ниче не работает! Не нажимать!</h2>
+<br>
+<br>
+<br>
+<br>
     <div class="container">
-        <form action="/DownloadFileServlet" method="post">
-            Выберите файлы: <input type="file" name="myFiles" multiple="true"><br><br>
-            <input type="submit" value="Отправить"/>
-        </form>
+    <form action="/DownloadFileServlet" method="post" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label for="file" class="col-sm-2 col-form-label">Выберите файл</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control-file" id="file" name="file">
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" name="Отправить" >
+    </form>
     </div>
+<br>
     <div class="btn-group btn-group-lg" role="group">
         <div class="btn-group" role="group">
             <a class="btn btn-default btn-lg" onclick="history.back();">Вернуться</a>

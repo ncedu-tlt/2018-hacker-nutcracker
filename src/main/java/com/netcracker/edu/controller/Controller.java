@@ -1,5 +1,6 @@
 package com.netcracker.edu.controller;
-import com.netcracker.edu.*;
+
+import com.netcracker.edu.Person;
 
 import java.util.ArrayList;
 

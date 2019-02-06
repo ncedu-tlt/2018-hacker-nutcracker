@@ -26,7 +26,7 @@ public class FindPersonServlet extends HttpServlet {
 
 		for (Person person: list) {
 			String str = person.toString();
-			Integer index = str.lastIndexOf(criterion);
+			int index = str.lastIndexOf(criterion);
 			if (index != -1) {
 				listResult.add(person);
 			}

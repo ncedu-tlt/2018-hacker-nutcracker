@@ -22,7 +22,7 @@
 
     <div class="panel panel-default">
         <div align="center" class="panel-heading">Список Person'ов</div>
-        <table class="table">
+        <table class="table table-striped">
             <thread>
                 <tr bgcolor="#88d4eb">
                     <th width="50px" height="20px" align="center">№</th>

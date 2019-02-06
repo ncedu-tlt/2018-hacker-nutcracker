@@ -28,7 +28,6 @@ public class AddPersonServlet extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Exception.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
-
 			String option = request.getParameter("radio");
 			//Если выбрано текстовое поле (option1) и оно пустое - то проверяем значение из списка, если и оно пустое, то exception
 			//Если выбрано значение из списка (option2) и оно пустое - то проверяем текстовое, если и оно пустое, то exception
@@ -66,6 +65,5 @@ public class AddPersonServlet extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Main.jsp");
 			requestDispatcher.forward(request, response);
 		}
-
 	}
 }

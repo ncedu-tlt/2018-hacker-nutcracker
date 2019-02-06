@@ -26,5 +26,4 @@ public class WaysToAddPersonServlet extends HttpServlet {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/AddPerson.jsp");
 		requestDispatcher.forward(request, response);
 	}
-
 }

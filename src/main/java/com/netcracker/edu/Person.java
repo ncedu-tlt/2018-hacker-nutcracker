@@ -34,6 +34,6 @@ public class Person {
 
 	@Override
 	public String toString(){
-		return String.format("%-3d%-20s%-10s%-6d%n",id, name, way, USD);
+		return id+", "+name+", "+way+", "+USD;
 	}
 }

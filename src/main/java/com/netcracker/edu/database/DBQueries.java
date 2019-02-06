@@ -1,12 +1,14 @@
 package com.netcracker.edu.database;
-import com.netcracker.edu.Person;
 
+import com.netcracker.edu.Person;
+import org.apache.log4j.Logger;
 import java.sql.*;
 
 public final class DBQueries {
 
 	private static Connection connection;
 	private static volatile DBQueries instance;
+	private static final Logger log = Logger.getLogger(DBQueries.class);
 
 	private DBQueries(Connection connection) {
 		this.connection = connection;
@@ -38,7 +40,8 @@ public final class DBQueries {
 			preparedStatement.setString(3, person.getWay());
 			preparedStatement.setInt(4, person.getUSD());
 			preparedStatement.execute();
-		} catch (SQLException e) {e.printStackTrace();}
+			log.info("Inserted person: "+ person.toString() + " and Way in Direction");
+		} catch (SQLException e) {log.error(e);}
 	}
 
 	public void insertPerson(Person person, Integer wayId) {
@@ -51,7 +54,8 @@ public final class DBQueries {
 			preparedStatement.setInt(3, wayId);
 			preparedStatement.setInt(4, person.getUSD());
 			preparedStatement.execute();
-		} catch (SQLException e) {e.printStackTrace();}
+			log.info("Inserted person: "+ person.toString() + " with wayid = "+ wayId);
+		} catch (SQLException e) {log.error(e);}
 	}
 
 	public void updatePersonWay(Person person) {
@@ -70,7 +74,8 @@ public final class DBQueries {
 			preparedStatement.setInt(4, person.getId());
 
 			preparedStatement.execute();
-		} catch (SQLException e) {e.printStackTrace();}
+			log.info("Inserted person: "+ person.toString() + " and inserted Way in Direction");
+		} catch (SQLException e) {log.error(e);}
 	}
 
 	public void updatePerson(Person person, Integer wayId) {
@@ -83,7 +88,8 @@ public final class DBQueries {
 			preparedStatement.setInt(3, person.getUSD());
 			preparedStatement.setInt(4, person.getId());
 			preparedStatement.execute();
-		} catch (SQLException e) {e.printStackTrace();}
+			log.info("Updated person: "+ person.toString() + " with wayid = "+ wayId);
+		} catch (SQLException e) {log.error(e);}
 	}
 
 	public void delete(Integer id) {
@@ -91,7 +97,8 @@ public final class DBQueries {
 			String query = "DELETE FROM Persons Where id="+id;
 			Statement statement = connection.createStatement();
 			statement.execute(query);
-		}catch (SQLException e) {e.printStackTrace();}
+			log.info("Person with id: "+ id + " deleted");
+		}catch (SQLException e) {log.error(e);}
 	}
 
 
@@ -101,7 +108,7 @@ public final class DBQueries {
 			String selectAll = "SELECT p.id, TRIM(p.name), TRIM(d.name), p.USD FROM persons p, directions d where p.way=d.id order by p.id";
 			Statement stmt = connection.createStatement();
 			resultSet = stmt.executeQuery(selectAll);
-		} catch (SQLException e) {e.printStackTrace();}
+		} catch (SQLException e) {log.error(e);}
 		return resultSet;
 	}
 
@@ -111,7 +118,7 @@ public final class DBQueries {
 			String selectAll = "SELECT name FROM directions order by name";
 			Statement stmt = connection.createStatement();
 			resultSet = stmt.executeQuery(selectAll);
-		} catch (SQLException e) {e.printStackTrace();}
+		} catch (SQLException e) {log.error(e);}
 		return resultSet;
 	}
 
@@ -121,7 +128,7 @@ public final class DBQueries {
 			String select = "SELECT p.id, TRIM(p.name), TRIM(d.name), p.usd FROM persons p, directions d WHERE p.way=d.id AND p.id = " + id;
 			Statement stmt = connection.createStatement();
 			resultSet = stmt.executeQuery(select);
-		} catch (SQLException e) {e.printStackTrace();}
+		} catch (SQLException e) {log.error(e);}
 		return resultSet;
 	}
 
@@ -131,7 +138,7 @@ public final class DBQueries {
 			String select = "SELECT id FROM directions WHERE name='" + way + "'";
 			Statement stmt = connection.createStatement();
 			resultSet = stmt.executeQuery(select);
-		} catch (SQLException e) {e.printStackTrace();}
+		} catch (SQLException e) {log.error(e);}
 		return resultSet;
 	}
 }

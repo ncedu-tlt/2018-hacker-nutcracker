@@ -10,11 +10,13 @@
     <title>Ошибка в действиях!</title>
 </head>
 <body>
-    <%String exception = request.getParameter("exception");
-    if(exception=="id"){%>
+    <%String exception = (String) request.getAttribute("exception");
+    if(exception.equals("id")){%>
     <h1 align="center">Введенный ID уже существует! Повторите действия с другим ID!</h1>
-    <%} else{%>
+    <%} else if (exception.equals("way")){%>
     <h1 align="center">Выберите Way из списка или создайте новый!</h1>
+    <%} else {%>
+    <h1 align="center">Для загрузки доступен формат ТОЛЬКО .xml</h1>
     <%}%>
     <div class="btn-group btn-group-lg" role="group">
         <div class="btn-group" role="group">

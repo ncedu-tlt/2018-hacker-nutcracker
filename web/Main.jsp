@@ -29,18 +29,18 @@
     </div>
     <br>
 
-    <div class="btn-group btn-group-lg" role="group">
+    <div class="btn-group btn-group-lg " role="group">
         <div class="btn-group" role="group">
             <a class="btn btn-primary btn-lg" role="button" href="/WaysToAddPersonServlet"> + Добавить Person'а</a>
         </div>
-        <%--<div class="btn-group" role="group">--%>
-        <%--<a class="btn btn-default btn-lg" role="button" href="/DownloadFile.jsp">Загрузить Person'а из файла</a>--%>
-        <%--</div>--%>
+        <div class="btn-group" role="group">
+        <a class="btn btn-default btn-lg" role="button" href="/DownloadFile.jsp">Загрузить Person'а из файла</a>
+        </div>
     </div>
 
     <div class="panel panel-default">
         <div align="center" class="panel-heading">Список Person'ов</div>
-        <table class="table">
+        <table class="table table-striped">
             <thread>
                 <tr bgcolor="#3486c6">
                     <th width="50px" height="20px">№</th>
