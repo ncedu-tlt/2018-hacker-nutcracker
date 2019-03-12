@@ -2,44 +2,25 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="artifact_nutcracker" />
+      <artifact name="artifact" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="045f64a2-5dc5-4d2f-beda-5bd1d9bc15ff" name="Default Changelist" comment="Almost done with weak parsing xml-files.">
-      <change afterPath="$PROJECT_DIR$/resources/log4j.properties" afterDir="false" />
+    <list default="true" id="045f64a2-5dc5-4d2f-beda-5bd1d9bc15ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/AddPerson.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/DownloadFile.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/Exception.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/FindPersons.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/Main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/PersonPage.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/classes/META-INF/2018-hacker-nutcracker.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/lib/jackson-annotations-2.9.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/lib/jackson-core-2.9.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/lib/jackson-databind-2.9.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/lib/ojdbc7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WelcomePage.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/AddPerson.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/AddPerson.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/DownloadFile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/DownloadFile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Exception.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Exception.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/FindPersons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/FindPersons.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/FindPersons.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/Main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/PersonPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/PersonPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WelcomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WelcomePage.jsp" afterDir="false" />
@@ -73,113 +54,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/FindPersons.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Main.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/PersonPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WelcomePage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#653#654#0" expanded="true" />
-                <element signature="e#692#693#0" expanded="true" />
-                <element signature="e#1742#1743#0" expanded="true" />
-                <element signature="e#1804#1805#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="137" column="69" selection-start-line="137" selection-start-column="69" selection-end-line="137" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#388#389#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+            <state relative-caret-position="391">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getOracleConnection#0;class#Controller#0" />
+                <element signature="method#createPerson#0;class#Controller#0" />
+                <element signature="method#changePerson#0;class#Controller#0" />
+                <element signature="method#savePersonInFile#0;class#Controller#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -216,12 +102,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/web/ServerPages/ViewAllPersons.jsp" />
         <option value="$PROJECT_DIR$/src/web/ServerPages/PersonPage.jsp" />
         <option value="$PROJECT_DIR$/src/web/Servlets/FirstServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FirstServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPerson.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ThirdServlet.java" />
@@ -232,9 +116,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ExceptoinServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" />
         <option value="$PROJECT_DIR$/web/SavePersonInFormat.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonsServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java" />
@@ -242,31 +123,36 @@
         <option value="$PROJECT_DIR$/web/ViewAllPersons.jsp" />
         <option value="$PROJECT_DIR$/web/Navigation.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FormToAddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/ExceptionWay.jsp" />
-        <option value="$PROJECT_DIR$/web/AddPerson.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" />
         <option value="$PROJECT_DIR$/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" />
+        <option value="$PROJECT_DIR$/web/FindPersons.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/web/Exception.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/WelcomePage.jsp" />
+        <option value="$PROJECT_DIR$/web/Main.jsp" />
+        <option value="$PROJECT_DIR$/web/AddPerson.jsp" />
+        <option value="$PROJECT_DIR$/web/DownloadFile.jsp" />
+        <option value="$PROJECT_DIR$/web/PersonPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/web/PersonPage.jsp" />
-        <option value="$PROJECT_DIR$/web/WelcomePage.jsp" />
-        <option value="$PROJECT_DIR$/web/Main.jsp" />
-        <option value="$PROJECT_DIR$/web/FindPersons.jsp" />
-        <option value="$PROJECT_DIR$/web/DownloadFile.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" />
-        <option value="$PROJECT_DIR$/web/Exception.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/GeneralController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -326,7 +212,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -360,30 +245,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="edu" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="servlets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549391552591" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551256150860" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -391,7 +263,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2908046" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/classes/com/netcracker/edu/servlets" />
   </component>
   <component name="RecentsManager">
@@ -425,13 +297,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.37">
-    <configuration name="WildFly" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 15.0.1.Final" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:\Program Files\Java\jdk1.8.0_181\jre">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/art/WelcomePage" />
+  <component name="RunManager" selected="JBoss Server.WildFly">
+    <configuration name="WildFly" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 15.0.1.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/artifact/WelcomePage.jsp" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
-        <artifact name="art">
+        <artifact name="artifact">
           <settings />
         </artifact>
       </deployment>
@@ -441,11 +313,11 @@
         <option name="DOMAIN" value="false" />
         <option name="SERVER_GROUP" value="main-server-group" />
         <option name="USERNAME" value="" />
-        <option name="PASSWORD" value="" />
+        <option name="CREDENTIAL_ALIAS" />
       </server-settings>
       <predefined_log_file enabled="true" id="JBoss" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63149" />
+        <option name="DEBUG_PORT" value="63562" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -494,7 +366,9 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="artifact" />
+        </option>
       </method>
     </configuration>
     <configuration default="true" type="JBossConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -505,7 +379,6 @@
         <option name="DOMAIN" value="false" />
         <option name="SERVER_GROUP" value="" />
         <option name="USERNAME" value="" />
-        <option name="PASSWORD" value="" />
       </server-settings>
       <predefined_log_file enabled="true" id="JBoss" />
       <RunnerSettings RunnerId="Debug">
@@ -579,19 +452,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.37" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.16" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.16" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/WelcomePage.jsp" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
-        <artifact name="artifact_nutcracker">
+        <artifact name="artifact">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_2018-hacker-nutcracker_2" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_2018-hacker-nutcracker" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -599,7 +472,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="54218" />
+        <option name="DEBUG_PORT" value="51280" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -649,13 +522,13 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="artifact_nutcracker" />
+          <artifact name="artifact" />
         </option>
       </method>
     </configuration>
     <list>
       <item itemvalue="JBoss Server.WildFly" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.37" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.16" />
     </list>
   </component>
   <component name="StructureViewFactory">
@@ -711,7 +584,26 @@
       <workItem from="1549284236844" duration="22847000" />
       <workItem from="1549342379926" duration="21494000" />
       <workItem from="1549394055598" duration="902000" />
-      <workItem from="1549430520585" duration="10818000" />
+      <workItem from="1549430520585" duration="13345000" />
+      <workItem from="1549456502200" duration="74000" />
+      <workItem from="1549465712266" duration="932000" />
+      <workItem from="1549476350405" duration="978000" />
+      <workItem from="1549520921574" duration="1357000" />
+      <workItem from="1549602676480" duration="8423000" />
+      <workItem from="1549637587166" duration="4075000" />
+      <workItem from="1549689298168" duration="4696000" />
+      <workItem from="1549811090540" duration="1130000" />
+      <workItem from="1550217578495" duration="1613000" />
+      <workItem from="1550220902144" duration="116000" />
+      <workItem from="1550256992222" duration="176000" />
+      <workItem from="1550562386151" duration="328000" />
+      <workItem from="1550598875931" duration="42000" />
+      <workItem from="1550602316839" duration="2227000" />
+      <workItem from="1550640261105" duration="2667000" />
+      <workItem from="1551117979559" duration="587000" />
+      <workItem from="1551254561233" duration="1606000" />
+      <workItem from="1551262866762" duration="518000" />
+      <workItem from="1552380593362" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary="Getting started on the project.">
       <created>1544539747334</created>
@@ -790,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549352011577</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Almost done with weak parsing xml-files.">
+      <created>1549445251239</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1549445251435</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="267792000" />
+    <option name="totallyTimeSpent" value="303244000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,9 +706,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.23373677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.22995462" />
       <window_info id="Structure" order="1" sideWeight="0.4680851" side_tool="true" weight="0.21104388" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -819,7 +717,7 @@
       <window_info id="Web" order="7" sideWeight="0.4866828" side_tool="true" weight="0.22692889" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.42553192" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.44844517" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5286416" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -828,10 +726,11 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015129" side_tool="true" weight="0.43535188" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.49924356" visible="true" weight="0.5581015" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49924356" weight="0.5581015" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.2569558" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3289689" />
+      <window_info anchor="right" id="Jms Messenger" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -847,7 +746,7 @@
       <window_info anchor="right" id="Bean Validation" order="12" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.22995462" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.22995462" />
       <window_info id="Structure" order="1" sideWeight="0.4680851" side_tool="true" weight="0.21104388" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -857,7 +756,7 @@
       <window_info id="Web" order="7" sideWeight="0.4866828" side_tool="true" weight="0.22692889" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.42553192" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.44844517" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5286416" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -870,19 +769,20 @@
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.2569558" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3289689" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.24962178" />
-      <window_info anchor="right" id="Maven" order="9" weight="0.32980332" />
-      <window_info anchor="right" id="JSF" order="10" />
-      <window_info anchor="right" id="CDI" order="11" />
-      <window_info anchor="right" id="Bean Validation" order="12" />
+      <window_info anchor="right" id="Jms Messenger" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32980332" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32980332" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.24962178" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.32980332" />
+      <window_info anchor="right" id="JSF" order="11" />
+      <window_info anchor="right" id="CDI" order="12" />
+      <window_info anchor="right" id="Bean Validation" order="13" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -965,17 +865,7 @@
     <entry file="file://$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/servlets/DeletePersonServlet.java" />
     <entry file="file://$PROJECT_DIR$/web/FindPersonsServlet.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonsServlet.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding>
-            <element signature="e#56437#56438#0" expanded="true" />
-            <element signature="e#56514#56515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/String.java" />
     <entry file="file://$PROJECT_DIR$/.idea/artifacts/art.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1004,66 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="61" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/OracleDriverManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-18">
@@ -1076,94 +906,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-647">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/management/remote/rmi/RMIConnectionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="828" selection-start-line="828" selection-end-line="828" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/AddPerson.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="64" column="52" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/management/remote/rmi/RMIConnectionImpl.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar!/javax/servlet/http/Part.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1174,83 +917,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/web/FindPersons.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" />
+    <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="306">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Exception.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/DownloadFile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/FindPersons.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/PersonPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        <state relative-caret-position="-1083">
+          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WelcomePage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        <state relative-caret-position="244">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java">
+    <entry file="file://$PROJECT_DIR$/web/Main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        <state relative-caret-position="17">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-            <element signature="e#1804#1805#0" expanded="true" />
+            <element signature="method#getAllPersons#0;class#Model#0" />
+            <element signature="method#getAllWays#0;class#Model#0" />
+            <element signature="method#getPerson#0;class#Model#0" />
+            <element signature="method#theWayId#0;class#Model#0" />
+            <element signature="method#isExistPersonId#0;class#Model#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/GeneralController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getOracleConnection#0;class#GeneralController#0" />
+            <element signature="method#addPerson#0;class#GeneralController#0" />
+            <element signature="method#changePerson#0;class#GeneralController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="137" column="69" selection-start-line="137" selection-start-column="69" selection-end-line="137" selection-end-column="69" />
+        <state relative-caret-position="-1253">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
@@ -1259,10 +1007,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/OracleDriverManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="391">
+          <caret line="23" column="70" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#parsingFile#0;class#XMLHelper#0" />
+            <element signature="method#createFileXML#0;class#XMLHelper#0" />
+            <element signature="method#parseFilesInDir#0;class#XMLHelper#0" />
+            <element signature="method#parseFile#0;class#XMLHelper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createFileJSON#0;class#JSONHelper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createFileCSV#0;class#CSVHelper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/AddPerson.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="76" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1271,10 +1086,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+        <state relative-caret-position="323">
+          <caret line="33" column="80" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="45" column="76" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getOracleConnection#0;class#Controller#0" />
+            <element signature="method#createPerson#0;class#Controller#0" />
+            <element signature="method#changePerson#0;class#Controller#0" />
+            <element signature="method#savePersonInFile#0;class#Controller#0" />
           </folding>
         </state>
       </provider>
@@ -1286,13 +1162,13 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="jpa-descriptors" />
               <type id="library" />
               <type id="javaee-facet-resources" />
+              <type id="jpa-descriptors" />
               <type id="artifact" />
             </show-content>
           </artifact-editor>
-          <last-edited>artifact_nutcracker</last-edited>
+          <last-edited>artifact</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1328,11 +1204,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>JDK</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.2908046" />
               </list>
             </option>
           </splitter-proportions>
@@ -1344,8 +1220,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.2908046" />
               </list>
             </option>
           </splitter-proportions>
@@ -1364,7 +1239,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: javax:javaee-web-api:6.0</last-edited>
+          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

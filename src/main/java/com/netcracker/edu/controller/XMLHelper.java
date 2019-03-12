@@ -8,7 +8,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
-public class XMLHelper extends AbstractController {
+public class XMLHelper extends Controller{
 
 	private Person parsingFile(String path, String nameFile){
 		File file = new File(path + "\\" + nameFile);
@@ -38,32 +38,16 @@ public class XMLHelper extends AbstractController {
 		}
 	}
 
-	public void addPerson(Person person) {
-		super.addPerson(person);
-	}
-
-	public void changePerson(Person person) {
-		if (super.isWayExist(person.getWay()) == null){
-			super.changePersonInDB(person);
-		} else {
-			super.changePersonInDB_wayIsExist(person, wayId);
-		}
-	}
-
-	public void deletePerson(int persId) {
-		super.deletePersonInDB(persId);
-	}
-
 	public void parseFilesInDir(String path){
 		Person person;
 		File parent = new File(path);
 		String[] nameFiles = parent.list();
 		for (String nameFile : nameFiles) {
 			if(nameFile.endsWith(".xml")) {
-					File file = new File(path +"\\"+nameFile);
-					person = parsingFile(path, nameFile);
-					addPerson(person);
-					file.delete();
+				File file = new File(path +"\\"+nameFile);
+				person = parsingFile(path, nameFile);
+				createPerson(person);
+				file.delete();
 			}
 		}
 	}
@@ -72,9 +56,7 @@ public class XMLHelper extends AbstractController {
 		Person person;
 		File file = new File(path +"\\"+nameFile);
 		person = parsingFile(path, nameFile);
-			if (!super.isPersonIdExist(person.getId())) {
-				addPerson(person);
-				file.delete();
-			}
+		createPerson(person);
+		file.delete();
 	}
 }

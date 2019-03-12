@@ -9,7 +9,7 @@ public interface PersonHelper {
 	void deletePerson(int persId);
 	void changePerson(Person person);
 	ArrayList getAllPerson();
-	Person getPerson(int persId);
+	Person getPerson(Integer id);
 	void parseFilesInDir(String path);
 	void parseFile(String path, String nameFile);
 }

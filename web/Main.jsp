@@ -9,57 +9,50 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title>Navigation</title>
 </head>
 <body>
     <h1 align="center">Список всех имеющихся Person</h1>
     <h2 align="center">Доступно изменение/удаление/сохранение Person'a по клику на ID</h2>
     <br><br>
-    <div class="row">
-        <div class="col-lg-6">
-            <form action="/FindPersonServlet" method="post">
-                <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Найти!</button>
-      </span>
-                    <input type="text" class="form-control" name="criterion" placeholder="Поиск...">
-                </div>
-            </form>
-        </div>
-    </div>
-    <br>
 
     <div class="btn-group btn-group-lg " role="group">
         <div class="btn-group" role="group">
-            <a class="btn btn-primary btn-lg" role="button" href="/WaysToAddPersonServlet"> + Добавить Person'а</a>
+            <a class="btn btn-primary btn-lg" role="button" href="/artifact/WaysToAddPersonServlet"> + Добавить Person'а</a>
         </div>
         <div class="btn-group" role="group">
-        <a class="btn btn-default btn-lg" role="button" href="/DownloadFile.jsp">Загрузить Person'а из файла</a>
+        <a class="btn btn-default btn-lg" role="button" href="/artifact/DownloadFile.jsp">Загрузить Person'а из файла</a>
         </div>
     </div>
+    <br><br>
 
+    <div class="container form-group">
+        <input type="text" class="form-control pull-right" id="search" placeholder="Поиск по таблице">
+    </div>
     <div class="panel panel-default">
-        <div align="center" class="panel-heading">Список Person'ов</div>
-        <table class="table table-striped">
+        <table class="table table-striped" cellspacing="0" id="mytable">
             <thread>
                 <tr bgcolor="#3486c6">
-                    <th width="50px" height="20px">№</th>
-                    <th width="70px" height="20px">Id</th>
-                    <th width="150px" height="20px">Name</th>
-                    <th width="150px" height="20px">Way</th>
-                    <th width="150px" height="20px">USD</th>
+                    <th width="50px" height="20px"><strong>№</strong></th>
+                    <th width="70px" height="20px"><strong>Id</strong></th>
+                    <th width="150px" height="20px"><strong>Name</strong></th>
+                    <th width="150px" height="20px"><strong>Way</strong></th>
+                    <th width="150px" height="20px"><strong>USD</strong></th>
                 </tr>
             </thread>
+            <tbody>
             <% ArrayList<Person> list = (ArrayList<Person>) request.getAttribute("listOfPersons");
                 int i =1;
                 for(Person person : list) {%>
             <tr><td width="70px" height="20px"><%=i%></td>
                 <td width="70px" height="20px" title="Тыкай, не боись">
-                    <a href="/PersonPageServlet?id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>"><%=person.getId()%></a></td>
+                    <a href="/artifact/PersonPageServlet?id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>"><%=person.getId()%></a></td>
                 <td width="150px" height="20px"><%=person.getName()%></td>
                 <td width="150px" height="20px"><%=person.getWay()%></td>
                 <td width="150px" height="20px"><%=person.getUSD()%></td></tr>
             <%i+=1;}%>
+            </tbody>
         </table>
     </div>
     <br>
@@ -68,5 +61,19 @@
             <a class="btn btn-default btn-lg" onclick="history.back();">Вернуться</a>
         </div>
     </div>
+    <script>
+    $(document).ready(function(){
+    $("#search").keyup(function(){
+    _this = this;
+    $.each($("#mytable tbody tr"), function() {
+        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
+            $(this).hide();
+    } else {
+    $(this).show();
+    }
+    });
+    });
+    });
+    </script>
 </body>
 </html>

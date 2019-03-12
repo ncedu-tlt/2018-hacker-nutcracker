@@ -16,7 +16,7 @@
 <br>
 <br>
     <div class="container">
-    <form action="/DownloadFileServlet" method="post" enctype="multipart/form-data">
+    <form action="/artifact/DownloadFileServlet" method="post" enctype="multipart/form-data">
         <div class="form-group row">
             <label for="file" class="col-sm-2 col-form-label">Выберите файл</label>
             <div class="col-sm-10">

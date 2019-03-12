@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class CSVHelper extends AbstractController {
+public class CSVHelper extends Controller{
 
 	public void createFileCSV(Person person) {
 		FileSystemView filesys = FileSystemView.getFileSystemView();

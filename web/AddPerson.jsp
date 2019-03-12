@@ -15,7 +15,7 @@
     <h1 align="center">Введите данные</h1>
 <br><br>
 <div class="container">
-    <form action="/AddPersonServlet" method="post">
+    <form action="/artifact/AddPersonServlet" method="post">
         <div class="form-group row">
             <label for="id" class="col-md-1 col-form-label">ID:</label>
             <div class="col-md-7">

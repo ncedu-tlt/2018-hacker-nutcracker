@@ -7,7 +7,7 @@ import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
 
-public class JSONHelper extends AbstractController {
+public class JSONHelper extends Controller{
 
 	public void createFileJSON(Person person) {
 		FileSystemView filesys = FileSystemView.getFileSystemView();

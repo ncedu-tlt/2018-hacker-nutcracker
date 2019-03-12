@@ -25,9 +25,10 @@ public class AddPersonServlet extends HttpServlet {
 
 		if (controller.getPerson(person.getId()).getId()!=0){
 			request.setAttribute("exception", "id");
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Exception.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/artifact/Exception.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
+
 			String option = request.getParameter("radio");
 			//Если выбрано текстовое поле (option1) и оно пустое - то проверяем значение из списка, если и оно пустое, то exception
 			//Если выбрано значение из списка (option2) и оно пустое - то проверяем текстовое, если и оно пустое, то exception
@@ -35,7 +36,7 @@ public class AddPersonServlet extends HttpServlet {
 				if ((request.getParameter("way").trim()).equals("")){
 				 	if (request.getParameter("selectWay").equals("NoWay")){
 						request.setAttribute("exception", "way");
-						RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Exception.jsp");
+						RequestDispatcher requestDispatcher = request.getRequestDispatcher("/artifact/Exception.jsp");
 						requestDispatcher.forward(request, response);
 					} else {
 						person.setWay(request.getParameter("selectWay"));
@@ -46,7 +47,7 @@ public class AddPersonServlet extends HttpServlet {
 			} else if (request.getParameter("selectWay").equals("NoWay")) {
 				if ((request.getParameter("way").trim()).equals("")){
 					request.setAttribute("exception", "way");
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Exception.jsp");
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/artifact/Exception.jsp");
 					requestDispatcher.forward(request, response);
 				} else {
 					person.setWay(request.getParameter("way").trim());

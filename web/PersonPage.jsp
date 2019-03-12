@@ -21,17 +21,17 @@
 <div class="btn-group btn-group-lg" role="group">
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/SavePersonServlet?format=xml&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="/artifact/SavePersonServlet?format=xml&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
             Сохранить в XML</a>
     </div>
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/SavePersonServlet?format=csv&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="/artifact/SavePersonServlet?format=csv&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
                 Сохранить в CSV</a>
     </div>
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/SavePersonServlet?format=json&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="/artifact/SavePersonServlet?format=json&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
                 Сохранить в JSON</a>
     </div>
 </div>
@@ -40,7 +40,7 @@
 <br><br>
 
 <div class="container">
-    <form action="/UpdatePersonServlet" method="post">
+    <form action="/artifact/UpdatePersonServlet" method="post">
     <div class="form-group row">
         <label for="id" class="col-md-1 col-form-label">ID:</label>
         <div class="col-md-7">
@@ -92,7 +92,7 @@
 </div>
 
 <div class="container">
-    <form action="/DeletePersonServlet" method="post">
+    <form action="/artifact/DeletePersonServlet" method="post">
         <input type="hidden" name="id" value="<%=person.getId()%>">
         <button type="submit" class="btn btn-danger">Удалить</button>
     </form>
