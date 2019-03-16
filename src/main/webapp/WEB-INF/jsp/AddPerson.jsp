@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -11,11 +12,10 @@
     <title>Меню добавления Person</title>
 </head>
 <body>
-<%ArrayList<String> ways = (ArrayList<String>) request.getAttribute("ways");%>
     <h1 align="center">Введите данные</h1>
 <br><br>
 <div class="container">
-    <form action="/artifact/AddPersonServlet" method="post">
+    <form action="${pageContext.request.contextPath}/addPerson?" method="get">
         <div class="form-group row">
             <label for="id" class="col-md-1 col-form-label">ID:</label>
             <div class="col-md-7">
@@ -47,9 +47,10 @@
                     </div>
                     <div class="col-md-3">
                         <select class="form-control" id="select" name="selectWay">
-                            <option selected value="NoWay">Выберите Way</option>--%>
-                            <%for (String way: ways){%>
-                            <option value="<%=way%>"><%=way%></option><%}%>
+                            <option selected value="NoWay">Выберите Way</option>
+                            <c:forEach  items="${ways}" var ="way">
+                                <option value="${way}">${way}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>
@@ -59,7 +60,7 @@
         <div class="form-group row">
             <label for="USD" class="col-md-1 col-form-label">USD:</label>
             <div class="col-md-7">
-                <input class="form-control" type="number" min="0" max="2000000000" id="USD" name="usd" required>
+                <input class="form-control" type="number" min="0" max="2000000000" id="USD" name="USD" required>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Создать Person'а</button>

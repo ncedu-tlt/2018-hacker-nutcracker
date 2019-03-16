@@ -10,16 +10,13 @@ import java.util.ArrayList;
 
 public class Controller implements PersonHelper {
 
-	private XMLHelper xml = new XMLHelper();
-	private CSVHelper csv = new CSVHelper();
-	private JSONHelper json = new JSONHelper();
+	private FileHelper file = new FileHelper();
 	private DBQueries database = DBQueries.getInstance(getOracleConnection());
 	private Model model = new Model();
 	protected Integer wayId;
 
 	private Connection getOracleConnection() {
-		OracleDriverManager driverManager = new OracleDriverManager();
-		return driverManager.openOracleConnection();
+		return new OracleDriverManager().openOracleConnection();
 	}
 
 	@Override
@@ -57,24 +54,16 @@ public class Controller implements PersonHelper {
 		return model.getPerson(database.selectId(id));
 	}
 
-	@Override
-	public void parseFilesInDir(String path) { xml.parseFilesInDir(path); }
-
-	@Override
-	public void parseFile(String path, String nameFile) {
-		xml.parseFile(path, nameFile);
-	}
-
 	public void savePersonInFile(Person person, String format)  {
 		switch (format){
 			case("xml"):{
-				xml.createFileXML(person);
+				file.createFileXML(person);
 			}break;
 			case("csv"):{
-				csv.createFileCSV(person);
+				file.createFileCSV(person);
 			}break;
 			case("json"):{
-				json.createFileJSON(person);
+				file.createFileJSON(person);
 			}
 		}
 	}

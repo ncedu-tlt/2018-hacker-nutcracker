@@ -10,6 +10,4 @@ public interface PersonHelper {
 	void changePerson(Person person);
 	ArrayList getAllPerson();
 	Person getPerson(Integer id);
-	void parseFilesInDir(String path);
-	void parseFile(String path, String nameFile);
 }

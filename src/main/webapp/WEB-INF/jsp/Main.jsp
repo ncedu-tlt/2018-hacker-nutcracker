@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.netcracker.edu.Person" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -10,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <title>Navigation</title>
+    <title>Список Person</title>
 </head>
 <body>
     <h1 align="center">Список всех имеющихся Person</h1>
@@ -19,10 +18,7 @@
 
     <div class="btn-group btn-group-lg " role="group">
         <div class="btn-group" role="group">
-            <a class="btn btn-primary btn-lg" role="button" href="/artifact/WaysToAddPersonServlet"> + Добавить Person'а</a>
-        </div>
-        <div class="btn-group" role="group">
-        <a class="btn btn-default btn-lg" role="button" href="/artifact/DownloadFile.jsp">Загрузить Person'а из файла</a>
+            <a class="btn btn-primary btn-lg" role="button" href="/pageToAddPerson"> + Добавить Person'а</a>
         </div>
     </div>
     <br><br>
@@ -34,7 +30,7 @@
         <table class="table table-striped" cellspacing="0" id="mytable">
             <thread>
                 <tr bgcolor="#3486c6">
-                    <th width="50px" height="20px"><strong>№</strong></th>
+                    <th width="150px" height="20px"><strong>Переход</strong></th>
                     <th width="70px" height="20px"><strong>Id</strong></th>
                     <th width="150px" height="20px"><strong>Name</strong></th>
                     <th width="150px" height="20px"><strong>Way</strong></th>
@@ -42,16 +38,15 @@
                 </tr>
             </thread>
             <tbody>
-            <% ArrayList<Person> list = (ArrayList<Person>) request.getAttribute("listOfPersons");
-                int i =1;
-                for(Person person : list) {%>
-            <tr><td width="70px" height="20px"><%=i%></td>
-                <td width="70px" height="20px" title="Тыкай, не боись">
-                    <a href="/artifact/PersonPageServlet?id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>"><%=person.getId()%></a></td>
-                <td width="150px" height="20px"><%=person.getName()%></td>
-                <td width="150px" height="20px"><%=person.getWay()%></td>
-                <td width="150px" height="20px"><%=person.getUSD()%></td></tr>
-            <%i+=1;}%>
+            <c:forEach items="${listOfPersons}" var ="person">
+                <tr>
+                    <td><a href="${pageContext.request.contextPath}/personPage?id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">Страница Person</a></td>
+                    <td>${person.id}</td>
+                    <td>${person.name}</td>
+                    <td>${person.way}</td>
+                    <td>${person.USD}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

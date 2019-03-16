@@ -18,7 +18,7 @@
     <div class="container">
         <h1>Достаточно ли френдли?</h1>
         <p>Считаю что достаточно, поехали =)</p>
-        <p><a class="btn btn-primary btn-lg" href="/artifact/ViewAllServlet" role="button">Начать работу</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/main" role="button">Начать работу</a></p>
     </div>
 </div>
 </body>

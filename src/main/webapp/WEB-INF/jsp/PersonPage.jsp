@@ -1,6 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.netcracker.edu.Person" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -12,8 +11,6 @@
     <title>Страница действия над Person</title>
 </head>
 <body>
-<% Person person = (Person) request.getAttribute("Person");%>
-<%ArrayList<String> ways = (ArrayList<String>) request.getAttribute("ways");%>
     <h1 align="center"> Данные Person'a </h1>
 
 <br>
@@ -21,17 +18,17 @@
 <div class="btn-group btn-group-lg" role="group">
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/artifact/SavePersonServlet?format=xml&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="${pageContext.request.contextPath}/savePerson?format=xml&id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">
             Сохранить в XML</a>
     </div>
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/artifact/SavePersonServlet?format=csv&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="${pageContext.request.contextPath}/savePerson?format=csv&id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">
                 Сохранить в CSV</a>
     </div>
     <div class="btn-group" role="group">
         <a class="btn btn-default btn-lg" role="button"
-           href="/artifact/SavePersonServlet?format=json&id=<%=person.getId()%>&name=<%=person.getName()%>&way=<%=person.getWay()%>&usd=<%=person.getUSD()%>">
+           href="${pageContext.request.contextPath}/savePerson?format=json&id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">
                 Сохранить в JSON</a>
     </div>
 </div>
@@ -40,18 +37,18 @@
 <br><br>
 
 <div class="container">
-    <form action="/artifact/UpdatePersonServlet" method="post">
+    <form action="${pageContext.request.contextPath}/updatePerson" method="get">
     <div class="form-group row">
         <label for="id" class="col-md-1 col-form-label">ID:</label>
         <div class="col-md-7">
-            <input class="form-control" type="text" value="<%=person.getId()%>" id="id" name="id" readonly/>
+            <input class="form-control" type="text" value="${person.id}" id="id" name="id" readonly/>
         </div>
     </div>
         <br>
     <div class="form-group row">
         <label for="name" class="col-md-1 col-form-label">Name:</label>
         <div class="col-md-7">
-            <input class="form-control" type="text" value="<%=person.getName()%>" id="name" name="name">
+            <input class="form-control" type="text" value="${person.name}" id="name" name="name">
         </div>
     </div>
         <br>
@@ -72,10 +69,11 @@
                 </div>
                 <div class="col-md-3">
                     <select class="form-control" id="select" name="selectWay">
-                    <option selected value="<%=person.getWay()%>"><%=person.getWay()+" (Старое значение)"%></option>--%>
-                    <%for (String way: ways){%>
-                    <option value="<%=way%>"><%=way%></option><%}%>
-                </select>
+                        <option selected value="${person.way}">${person.way}</option>
+                            <c:forEach  items="${ways}" var ="way">
+                                <option value="${way}">${way}</option>
+                            </c:forEach>
+                    </select>
                 </div>
             </div>
         </fieldset>
@@ -84,18 +82,15 @@
     <div class="form-group row">
         <label for="USD" class="col-md-1 col-form-label">USD:</label>
         <div class="col-md-7">
-            <input class="form-control" type="number" value="<%=person.getUSD()%>" min="0" max="2000000000" id="USD" name="usd">
+            <input class="form-control" type="number" value="${person.USD}" min="0" max="2000000000" id="USD" name="USD">
         </div>
     </div>
         <button type="submit" class="btn btn-primary">Изменить</button>
     </form>
 </div>
-
-<div class="container">
-    <form action="/artifact/DeletePersonServlet" method="post">
-        <input type="hidden" name="id" value="<%=person.getId()%>">
-        <button type="submit" class="btn btn-danger">Удалить</button>
-    </form>
+<div class="btn-group" role="group">
+    <a class="btn btn-default btn-lg" role="button"
+       href="${pageContext.request.contextPath}/deletePerson?id=${person.id}">Удалить</a>
 </div>
 <div class="btn-group btn-group-lg" role="group">
     <div class="btn-group" role="group">
