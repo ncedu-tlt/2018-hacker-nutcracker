@@ -1,23 +1,22 @@
 package com.netcracker.edu.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.netcracker.edu.Person;
+import com.google.gson.Gson;
+import com.netcracker.edu.model.dto.PersonDto;
+import org.springframework.stereotype.Component;
 
 import javax.swing.filechooser.FileSystemView;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
+@Component
 public class FileHelper {
 
-	public void createFileXML (Person person){
+	public void createFileXML (PersonDto person){
 		FileSystemView filesys = FileSystemView.getFileSystemView();
 		try {
-			JAXBContext context = JAXBContext.newInstance(Person.class);
+			JAXBContext context = JAXBContext.newInstance(PersonDto.class);
 			Marshaller marshaller = context.createMarshaller();
 
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -28,15 +27,20 @@ public class FileHelper {
 		}
 	}
 
-	public void createFileJSON(Person person) {
+	public void createFileJSON(PersonDto person) {
 		FileSystemView filesys = FileSystemView.getFileSystemView();
+		Gson gson = new Gson();
+		String json = gson.toJson(person);
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.writeValue(new File(filesys.getHomeDirectory()+"\\"+person.getName()+".json"), person);
-		}catch (IOException e) {e.printStackTrace();}
+			FileWriter fw = new FileWriter(filesys.getHomeDirectory()+"\\"+person.getName()+".json");
+			fw.write(json);
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void createFileCSV(Person person) {
+	public void createFileCSV(PersonDto person) {
 		FileSystemView filesys = FileSystemView.getFileSystemView();
 		PrintWriter pw = null;
 		try {

@@ -7,35 +7,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="045f64a2-5dc5-4d2f-beda-5bd1d9bc15ff" name="Default Changelist" comment="Spring+JSP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ojdbc6-11.2.0.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDaoToPersonDtoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDtoToPersonDaoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaParserFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/PersonDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/WayDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dto/PersonDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/repository/PersonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/repository/WayRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/PersonPage.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/WelcomePage.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/Exception.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2018-hacker-nutcracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ojdbc7.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/AddPerson.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/DownloadFile.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Exception.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Exception.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/PersonPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WelcomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/OracleDriverManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/AddPerson.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Main.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/PersonPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage111.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,20 +77,6 @@
         <item name="TLT_27: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@sql.edu-netcracker.com" type="feb32156:DbDataSourceImpl" />
-        <item name="TLT_27: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="DIRECTIONS: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@sql.edu-netcracker.com" type="feb32156:DbDataSourceImpl" />
-        <item name="TLT_27: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="PERSONS: table" type="942f455b:OraImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -96,48 +85,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Exception.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="20" column="66" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="1566">
+              <caret line="144" column="98" selection-start-line="144" selection-start-column="98" selection-end-line="144" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#mainPage#0;class#PagesController#0" />
-                <element signature="method#personPage#0;class#PagesController#0" />
-                <element signature="method#savePerson#0;class#PagesController#0" />
-                <element signature="method#updatePerson#0;class#PagesController#0" />
                 <element signature="method#deletePerson#0;class#PagesController#0" />
-                <element signature="method#addPersonPage#0;class#PagesController#0" />
-                <element signature="method#addPerson#0;class#PagesController#0" />
+                <element signature="method#pageToAddPerson#0;class#PagesController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="4" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -174,57 +149,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/View.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet1.java" />
-        <option value="$PROJECT_DIR$/web/SavePersonInFormat.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonsServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java" />
-        <option value="$PROJECT_DIR$/.idea/artifacts/art.xml" />
-        <option value="$PROJECT_DIR$/web/ViewAllPersons.jsp" />
-        <option value="$PROJECT_DIR$/web/Navigation.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FormToAddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/web/ExceptionWay.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" />
-        <option value="$PROJECT_DIR$/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" />
-        <option value="$PROJECT_DIR$/web/FindPersons.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" />
-        <option value="$PROJECT_DIR$/web/Exception.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/WelcomePage.jsp" />
-        <option value="$PROJECT_DIR$/web/Main.jsp" />
-        <option value="$PROJECT_DIR$/web/AddPerson.jsp" />
-        <option value="$PROJECT_DIR$/web/DownloadFile.jsp" />
-        <option value="$PROJECT_DIR$/web/PersonPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/AbstractController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/GeneralController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/ControllerHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/mainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Exception.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/PagesController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/personRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/PersonDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dto/PersonDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/Way.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/TaskToTaskDtoConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDaoToPersonDtoConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/TaskDtoToTaskConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/WayRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dto/PersonRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/PersonRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/OracleDriverManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/WayDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDtoToPersonDaoConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/service/PersonService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/repository/PersonRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/PersonDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaParserFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConsumer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dto/PersonDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.mustache" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/Main.mustache" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/WelcomePage.mustache" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/AddPerson.mustache" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.mustache" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/PersonPage.mustache" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/Main.mustache" />
+        <option value="$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java" />
       </list>
     </option>
   </component>
@@ -254,15 +229,20 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="2018-hacker-nutcracker" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="2018-hacker-nutcracker" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
       </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
+    <option name="width" value="1316" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -284,6 +264,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,79 +289,86 @@
               <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2018-hacker-nutcracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2018-hacker-nutcracker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="oracle" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552715850510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553493993576" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/spring-boot-demo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2908046" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/classes/artifacts/artifact_nutcracker/WEB-INF/classes/com/netcracker/edu/servlets" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\resources" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web\WEB-INF" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu\servlets" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.netcracker.edu.servlets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\resources\templates" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\webapp" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main" />
       <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\web\WEB-INF\jsp" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker" />
-      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\classes\artifacts\artifact_nutcracker\servlets" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.netcracker.edu.model.dao" />
+      <recent name="com.netcracker.edu.servlets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\webapp\WEB-INF\mustache" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\lib" />
+      <recent name="C:\Users\Artem\Documents\GitHub\2018-hacker-nutcracker\src\main\java\com\netcracker\edu\kafka" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -725,7 +714,20 @@
       <workItem from="1552477531116" duration="333000" />
       <workItem from="1552561203369" duration="5970000" />
       <workItem from="1552651563412" duration="17325000" />
-      <workItem from="1552714483963" duration="1454000" />
+      <workItem from="1552714483963" duration="5474000" />
+      <workItem from="1552739695463" duration="16547000" />
+      <workItem from="1552804065686" duration="286000" />
+      <workItem from="1552823634906" duration="1598000" />
+      <workItem from="1552887219561" duration="11253000" />
+      <workItem from="1552973653085" duration="729000" />
+      <workItem from="1553078915976" duration="375000" />
+      <workItem from="1553151877619" duration="25404000" />
+      <workItem from="1553229296163" duration="22025000" />
+      <workItem from="1553254004920" duration="3170000" />
+      <workItem from="1553281895497" duration="2737000" />
+      <workItem from="1553407895556" duration="2273000" />
+      <workItem from="1553488902228" duration="3861000" />
+      <workItem from="1553493404407" duration="473000" />
     </task>
     <task id="LOCAL-00001" summary="Getting started on the project.">
       <created>1544539747334</created>
@@ -818,11 +820,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552382041924</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Spring+JSP">
+      <created>1552716006161</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1552716006161</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334035000" />
+    <option name="totallyTimeSpent" value="428786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -835,9 +844,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.17411052" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.2655068" />
       <window_info id="Structure" order="1" sideWeight="0.4680851" side_tool="true" weight="0.21104388" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -847,17 +855,17 @@
       <window_info id="Web" order="7" sideWeight="0.4866828" side_tool="true" weight="0.22692889" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.44844517" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5286416" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.48772505" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45499182" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32405892" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5018925" side_tool="true" weight="0.5581015" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4981075" weight="0.5581015" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5018925" side_tool="true" weight="0.5581015" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32405892" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4981075" weight="0.5581015" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.2569558" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.3289689" />
@@ -866,19 +874,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.15064345" />
+      <window_info anchor="right" id="Database" order="4" weight="0.21331316" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.24962178" />
-      <window_info anchor="right" id="Maven" order="9" weight="0.32980332" />
-      <window_info anchor="right" id="JSF" order="10" weight="0.329296" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.20045386" />
+      <window_info anchor="right" id="JSF" order="10" show_stripe_button="false" weight="0.329296" />
       <window_info anchor="right" id="CDI" order="11" weight="0.329296" />
-      <window_info anchor="right" id="Bean Validation" order="12" weight="0.329296" />
-      <window_info anchor="right" id="Jms Messenger" order="13" weight="0.17411052" />
+      <window_info anchor="right" id="Bean Validation" order="12" weight="0.3290469" />
+      <window_info anchor="right" id="Jms Messenger" order="13" show_stripe_button="false" weight="0.17411052" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.17411052" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.51331717" visible="true" weight="0.2655068" />
       <window_info id="Structure" order="1" sideWeight="0.4680851" side_tool="true" weight="0.21104388" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -888,35 +896,35 @@
       <window_info id="Web" order="7" sideWeight="0.4866828" side_tool="true" weight="0.22692889" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.44844517" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5286416" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.48772505" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45499182" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32405892" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015129" side_tool="true" weight="0.43535188" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49924356" weight="0.5581015" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5018925" side_tool="true" weight="0.5581015" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32405892" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4981075" weight="0.5581015" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.2569558" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.3289689" />
-      <window_info anchor="bottom" id="Spring" order="16" />
+      <window_info anchor="bottom" id="Spring" order="16" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.15064345" />
+      <window_info anchor="right" id="Database" order="4" weight="0.21331316" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.24962178" />
-      <window_info anchor="right" id="Maven" order="9" weight="0.32980332" />
-      <window_info anchor="right" id="JSF" order="10" weight="0.329296" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.20045386" />
+      <window_info anchor="right" id="JSF" order="10" show_stripe_button="false" weight="0.329296" />
       <window_info anchor="right" id="CDI" order="11" weight="0.329296" />
-      <window_info anchor="right" id="Bean Validation" order="12" weight="0.329296" />
-      <window_info anchor="right" id="Jms Messenger" order="13" weight="0.17411052" />
+      <window_info anchor="right" id="Bean Validation" order="12" weight="0.3290469" />
+      <window_info anchor="right" id="Jms Messenger" order="13" show_stripe_button="false" weight="0.17411052" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -977,6 +985,13 @@
     <MESSAGE value="Spring+JSP" />
     <option name="LAST_COMMIT_MESSAGE" value="Spring+JSP" />
   </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((ProxyFactory)((JdkDynamicAopProxy)this.h).advised).targetSource" custom="org.springframework.aop.framework.JdkDynamicAopProxy,org.springframework.aop.framework.ProxyFactory,java.lang.reflect.Proxy" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -991,73 +1006,50 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/FindPersonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/GeneralController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/DownloadFile.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/XMLHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/JSONHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/CSVHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/ControllerHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonHelper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.5.RELEASE/spring-context-5.1.5.RELEASE.jar!/org/springframework/ui/Model.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Logger.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.5.RELEASE/spring-webmvc-5.1.5.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="510" selection-start-line="510" selection-end-line="510" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.5.RELEASE/spring-webmvc-5.1.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="83" selection-start-line="11" selection-start-column="78" selection-end-line="11" selection-end-column="83" />
+        <state relative-caret-position="102">
+          <caret line="571" selection-start-line="571" selection-end-line="571" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3433464c-eff2-4f3e-b255-41a19e0b3ade/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/OracleDriverManager.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="28" column="96" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="206">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/database/DBQueries.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.5.RELEASE/spring-core-5.1.5.RELEASE-sources.jar!/org/springframework/core/convert/support/ConversionUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-web-api/8.0.1-b5/javaee-web-api-8.0.1-b5.jar!/javax/servlet/annotation/WebServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+    <entry file="das://3433464c-eff2-4f3e-b255-41a19e0b3ade/schema/TLT_27/table/PERSONS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PersonController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/service/PersonService.java" />
     <entry file="das://3433464c-eff2-4f3e-b255-41a19e0b3ade/schema/TLT_27/table/DIRECTIONS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1065,10 +1057,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/repository/PersonRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.8/jackson-annotations-2.9.8.jar!/com/fasterxml/jackson/annotation/JsonProperty.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.8/jackson-annotations-2.9.8-sources.jar!/com/fasterxml/jackson/annotation/JsonProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1564">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.8/jackson-annotations-2.9.8-sources.jar!/com/fasterxml/jackson/annotation/JsonPropertyOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="34" column="58" lean-forward="true" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+          <folding>
+            <element signature="method#consumeCSV#0;class#KafkaConsumer#0" />
+            <element signature="method#consumeXML#0;class#KafkaConsumer#0" />
+            <element signature="method#consumeJson#0;class#KafkaConsumer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaParserFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="method#parserXML#0;class#KafkaParserFile#0" />
+            <element signature="method#parserCSV#0;class#KafkaParserFile#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-dependencies/2.1.3.RELEASE/spring-boot-dependencies-2.1.3.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="1725" column="12" selection-start-line="1725" selection-start-column="12" selection-end-line="1725" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/AddPerson.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDaoToPersonDtoConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.5.RELEASE/spring-core-5.1.5.RELEASE-sources.jar!/org/springframework/core/convert/converter/Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/conversion/PersonDtoToPersonDaoConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/WayDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dao/PersonDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/kafka/KafkaConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage111.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.5.RELEASE/spring-webmvc-5.1.5.RELEASE.jar!/org/springframework/web/servlet/ModelAndView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="221">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createFileXML#0;class#FileHelper#0" />
@@ -1078,227 +1206,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yaml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/model/dto/PersonDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/annotation/Documented.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/Mapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/annotation/Target.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/annotation/Retention.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-542">
-          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.5.RELEASE/spring-context-5.1.5.RELEASE.jar!/org/springframework/ui/package-info.class">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Exception.jsp">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.5.RELEASE/spring-context-5.1.5.RELEASE.jar!/org/springframework/ui/ConcurrentModel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.5.RELEASE/spring-context-5.1.5.RELEASE.jar!/org/springframework/ui/Model.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.5.RELEASE/spring-context-5.1.5.RELEASE.jar!/org/springframework/cache/Cache.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/ModelAttribute.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DownloadFileServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/PersonPageServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/SavePersonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/ViewAllServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/WaysToAddPersonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/DeletePersonServlet.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/RequestMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/RequestMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/GetMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar!/org/springframework/web/bind/annotation/PostMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/UpdatePersonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" selection-start-line="8" selection-end-line="9" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/servlets/AddPersonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-    <entry file="das://3433464c-eff2-4f3e-b255-41a19e0b3ade/schema/TLT_27/table/PERSONS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PersonPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="64" />
+        <state relative-caret-position="306">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mustache/Main.mustache">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="method#createPerson#0;class#Controller#0" />
-            <element signature="method#changePerson#0;class#Controller#0" />
-            <element signature="method#savePersonInFile#0;class#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllPersons#0;class#Model#0" />
-            <element signature="method#getAllWays#0;class#Model#0" />
-            <element signature="method#getPerson#0;class#Model#0" />
-            <element signature="method#theWayId#0;class#Model#0" />
-            <element signature="method#isExistPersonId#0;class#Model#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#mainPage#0;class#PagesController#0" />
-            <element signature="method#personPage#0;class#PagesController#0" />
-            <element signature="method#savePerson#0;class#PagesController#0" />
-            <element signature="method#updatePerson#0;class#PagesController#0" />
-            <element signature="method#deletePerson#0;class#PagesController#0" />
-            <element signature="method#addPersonPage#0;class#PagesController#0" />
-            <element signature="method#addPerson#0;class#PagesController#0" />
-          </folding>
+        <state relative-caret-position="-386">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AddPerson.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Exception.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="17">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="20" column="66" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
+        <state relative-caret-position="447">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/WelcomePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/netcracker/edu/controller/PagesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="144" column="98" selection-start-line="144" selection-start-column="98" selection-end-line="144" selection-end-column="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deletePerson#0;class#PagesController#0" />
+            <element signature="method#pageToAddPerson#0;class#PagesController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1309,9 +1280,9 @@
         <settings>
           <artifact-editor>
             <show-content>
+              <type id="jpa-descriptors" />
               <type id="library" />
               <type id="javaee-facet-resources" />
-              <type id="jpa-descriptors" />
               <type id="artifact" />
             </show-content>
           </artifact-editor>
@@ -1368,6 +1339,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2908046" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1386,7 +1358,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.8</last-edited>
+          <last-edited>ojdbc6-11.2.0.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -3,3 +3,9 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@sql.edu-netcracker.com:1251:xe
+    username: TLT_27
+    password: TLT_27

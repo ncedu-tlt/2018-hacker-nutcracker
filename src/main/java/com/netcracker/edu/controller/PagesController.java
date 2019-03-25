@@ -1,125 +1,148 @@
 package com.netcracker.edu.controller;
 
-import com.netcracker.edu.Person;
+import com.netcracker.edu.model.dao.PersonDao;
+import com.netcracker.edu.model.dao.WayDao;
+import com.netcracker.edu.model.dto.PersonDto;
+import com.netcracker.edu.model.repository.PersonRepository;
+import com.netcracker.edu.model.repository.WayRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Controller
 public class PagesController {
 
-	private static List<Person> persons = new ArrayList<>();
-	private static List<String> ways = new ArrayList<>();
-	private com.netcracker.edu.controller.Controller controller = new com.netcracker.edu.controller.Controller();
+	@Autowired
+	private PersonRepository personRepository;
+	@Autowired
+	private WayRepository wayRepository;
+	@Autowired
+	private ConversionService conversionService;
+	@Autowired
+	private FileHelper fileHelper;
+
+	private List<PersonDao> persons = new ArrayList<>();
+	private List<WayDao> ways = new ArrayList<>();
 
 
-	@GetMapping({"", "/welcome"})
-	public String welcomePage() {
-		return "WelcomePage";
+	@GetMapping ({"", "/welcome"})
+	public ModelAndView welcomePage() {
+		return new ModelAndView("WelcomePage.jsp");
 	}
 
 	@GetMapping ("/main")
 	public String mainPage (Model model) {
-		persons = controller.getAllPerson();
-		model.addAttribute("listOfPersons", persons);
+		redirectOutputMain(model);
 		return "Main";
 	}
 
 	@GetMapping ("/personPage")
-	public String personPage (@ModelAttribute Person person, Model model) {
-		ways = controller.getAllWays();
-		model.addAttribute("person", person);
+	public String personPage (@ModelAttribute PersonDto personDto, Model model) {
+		ways = wayRepository.findAll();
+		model.addAttribute("person", personDto);
 		model.addAttribute("ways", ways);
 		return "PersonPage";
 	}
 
 	@GetMapping ("/savePerson")
-	public String savePerson (@ModelAttribute Person person, Model model, String format) {
-		controller.savePersonInFile(person, format);
-		//перенаправлять?!!!!!!!!!!!
-		persons = controller.getAllPerson();
-		model.addAttribute("listOfPersons", persons);
+	public String savePerson (@ModelAttribute PersonDto personDto, Model model, String format) {
+		switch (format){
+			case "xml": fileHelper.createFileXML(personDto); break;
+			case "csv": fileHelper.createFileCSV(personDto); break;
+			case "json": fileHelper.createFileJSON(personDto); break;
+		}
+		redirectOutputMain(model);
 		return "Main";
 	}
 
 	@GetMapping ("/updatePerson")
-	public String updatePerson (@ModelAttribute Person person, Model model, String radio, String selectWay) {
+	public String updatePerson (@ModelAttribute PersonDto persondto111, Model model, String id, String name,
+	                            String way, String USD, String radio, String selectWay) {
+		PersonDto personDto = new PersonDto(Integer.parseInt(id), name, way, Integer.parseInt(USD));
+
 		if (radio.equals("option1")){
-			if((person.getWay().trim()).equals("")){
-				person.setWay(selectWay.trim());
+			if((personDto.getWay().trim()).equals("")){
+				personDto.setWay(selectWay.trim());
 			} else {
-				person.setWay(person.getWay().trim());
+				personDto.setWay(personDto.getWay().trim());
 			}
 		} else {
-			person.setWay(selectWay.trim());
+			personDto.setWay(selectWay.trim());
 		}
-		controller.changePerson(person);
-		//перенаправлять?!!!!!!!!!!!
+		PersonDao personDao = conversionService.convert(personDto, PersonDao.class);
+		personRepository.save(personDao);
 
-		persons = controller.getAllPerson();
-		model.addAttribute("listOfPersons", persons);
+		redirectOutputMain(model);
 		return "Main";
 	}
 
 	@GetMapping ("/deletePerson")
-	public String deletePerson (@ModelAttribute Person person, Model model) {
-		controller.deletePerson(person.getId());
-		//перенаправлять?!!!!!!!!!!!
-		persons = controller.getAllPerson();
-		model.addAttribute("listOfPersons", persons);
+	public String deletePerson (@ModelAttribute PersonDto persondto1111, String id, Model model) {
+		personRepository.deleteById(Integer.parseInt(id));
+
+		redirectOutputMain(model);
 		return "Main";
 	}
 
 	@GetMapping ("/pageToAddPerson")
 	public String pageToAddPerson (Model model) {
-		ways = controller.getAllWays();
+		ways = wayRepository.findAll();
 		model.addAttribute("ways", ways);
 		return "AddPerson";
 
 	}
 
 	@GetMapping ("/addPerson")
-	public String addPerson (@ModelAttribute Person person, Model model, String radio, String selectWay) {
-		String exception;
+	public String addPerson (@ModelAttribute PersonDto persondto111, Model model, String id, String name,
+	                         String way, String USD, String radio, String selectWay) {
 
-		if (controller.getPerson(person.getId()).getId()!=0){
-			exception="id";
-			model.addAttribute("exception", exception);
+		PersonDto personDto = new PersonDto(Integer.parseInt(id), name, way, Integer.parseInt(USD));
+
+		if (personRepository.existsById(personDto.getId())){
+			model.addAttribute("exception", "id");
 			return "Exception";//id
 		} else {
 			if (radio.equals("option1")) {
-				if ((person.getWay().trim()).equals("")) {
+				if ((personDto.getWay().trim()).equals("")) {
 					if (selectWay.equals("NoWay")) {
-						exception="way";
-						model.addAttribute("exception", exception);
+						model.addAttribute("exception", "way");
 						return "Exception";//way
 					} else {
-						person.setWay(selectWay.trim());
+						personDto.setWay(selectWay.trim());
 					}
 				} else {
-					person.setWay(person.getWay().trim());
+					personDto.setWay(personDto.getWay().trim());
 				}
 			} else if (selectWay.equals("NoWay")) {
-				if ((person.getWay().trim()).equals("")) {
-					exception="way";
-					model.addAttribute("exception", exception);
+				if ((personDto.getWay().trim()).equals("")) {
+
+					model.addAttribute("exception", "way");
 					return "Exception";//way
 				} else {
-					person.setWay(person.getWay().trim());
+					personDto.setWay(personDto.getWay().trim());
 				}
 			} else {
-				person.setWay(selectWay.trim());
+				personDto.setWay(selectWay.trim());
 			}
 		}
-		controller.createPerson(person);
-		//перенаправлять?!!!!!!!!!!!
-		persons = controller.getAllPerson();
-		model.addAttribute("listOfPersons", persons);
+		PersonDao personDao = conversionService.convert(personDto, PersonDao.class);
+		personRepository.save(personDao);
+
+		redirectOutputMain(model);
 		return "Main";
+	}
+
+	public void redirectOutputMain (Model model){
+		persons = personRepository.findAllByOrderByIdAsc();
+		List<PersonDto> result = new ArrayList<>();
+		persons.forEach(person -> result.add(conversionService.convert(person, PersonDto.class)));
+		model.addAttribute("listOfPersons", result);
 	}
 }
