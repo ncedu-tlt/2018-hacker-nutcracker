@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -37,7 +39,7 @@
 <br><br>
 
 <div class="container">
-    <form action="${pageContext.request.contextPath}/updatePerson" method="get">
+    <form action="/updatePerson" method="get">
     <div class="form-group row">
         <label for="id" class="col-md-1 col-form-label">ID:</label>
         <div class="col-md-7">
@@ -69,10 +71,10 @@
                 </div>
                 <div class="col-md-3">
                     <select class="form-control" id="select" name="selectWay">
-                        <option selected value="${person.way}">${person.way}</option>
-                            <c:forEach  items="${ways}" var ="way">
-                                <option value="${way}">${way}</option>
-                            </c:forEach>
+                        <option selected value="${person.way}">${person.way} (Исходный)</option>
+                        <c:forEach items="${ways}" var ="way">
+                                <option value="${way.name}">${way.name}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </div>

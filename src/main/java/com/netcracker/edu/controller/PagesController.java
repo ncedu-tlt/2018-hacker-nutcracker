@@ -34,7 +34,7 @@ public class PagesController {
 
 	@GetMapping ({"", "/welcome"})
 	public ModelAndView welcomePage() {
-		return new ModelAndView("WelcomePage.jsp");
+		return new ModelAndView("WelcomePage");
 	}
 
 	@GetMapping ("/main")

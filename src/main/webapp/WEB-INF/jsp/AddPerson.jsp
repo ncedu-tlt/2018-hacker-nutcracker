@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -49,7 +49,7 @@
                         <select class="form-control" id="select" name="selectWay">
                             <option selected value="NoWay">Выберите Way</option>
                             <c:forEach  items="${ways}" var ="way">
-                                <option value="${way}">${way}</option>
+                                <option value="${way.name}">${way.name}</option>
                             </c:forEach>
                         </select>
                     </div>

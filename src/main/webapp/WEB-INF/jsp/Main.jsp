@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -14,14 +15,14 @@
 <body>
     <h1 align="center">Список всех имеющихся Person</h1>
     <h2 align="center">Доступно изменение/удаление/сохранение Person'a по клику на ID</h2>
-    <br><br>
+    <br>
 
     <div class="btn-group btn-group-lg " role="group">
         <div class="btn-group" role="group">
             <a class="btn btn-primary btn-lg" role="button" href="/pageToAddPerson"> + Добавить Person'а</a>
         </div>
     </div>
-    <br><br>
+    <br>
 
     <div class="container form-group">
         <input type="text" class="form-control pull-right" id="search" placeholder="Поиск по таблице">
@@ -30,22 +31,25 @@
         <table class="table table-striped" cellspacing="0" id="mytable">
             <thread>
                 <tr bgcolor="#3486c6">
-                    <th width="150px" height="20px"><strong>Переход</strong></th>
-                    <th width="70px" height="20px"><strong>Id</strong></th>
+                    <th width="10px" height="20px"><strong>   </strong></th>
+                    <th width="100px" height="20px"><strong>№</strong></th>
+                    <th width="100px" height="20px"><strong>Id</strong></th>
                     <th width="150px" height="20px"><strong>Name</strong></th>
                     <th width="150px" height="20px"><strong>Way</strong></th>
                     <th width="150px" height="20px"><strong>USD</strong></th>
                 </tr>
             </thread>
             <tbody>
+            <c:set var="i" value="${1}"/>
             <c:forEach items="${listOfPersons}" var ="person">
-                <tr>
-                    <td><a href="${pageContext.request.contextPath}/personPage?id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">Страница Person</a></td>
-                    <td>${person.id}</td>
+                <tr><td>   </td>
+                    <td>${i}</td>
+                    <td><a href="${pageContext.request.contextPath}/personPage?id=${person.id}&name=${person.name}&way=${person.way}&USD=${person.USD}">${person.id}</a></td>
                     <td>${person.name}</td>
                     <td>${person.way}</td>
                     <td>${person.USD}</td>
                 </tr>
+                <c:set var="i" value="${i+1}"/>
             </c:forEach>
             </tbody>
         </table>
