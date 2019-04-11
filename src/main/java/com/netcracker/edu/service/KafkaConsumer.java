@@ -9,6 +9,7 @@ public class KafkaConsumer {
 	@KafkaListener ( topics = "total_topic" )
 	public void consume (String message) {
 		System.out.println(message);
+
 //		GoodsItem[] arrItemsDes = new Gson().fromJson(jsonStr, itemsArrType);
 //		System.out.println(Arrays.toString(arrItemsDes));
 

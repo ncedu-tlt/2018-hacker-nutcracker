@@ -1,2 +1,13 @@
 server:
   port: 8082
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@sql.edu-netcracker.com:1251:xe
+    username: TLT_5
+    password: 5
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.Oracle10gDialect

@@ -1,21 +1,25 @@
 package com.netcracker.edu.contoller;
 
+import com.netcracker.edu.entity.dao.CpeDao;
+import com.netcracker.edu.entity.dao.PeDao;
 import com.netcracker.edu.entity.dto.CpeDto;
 import com.netcracker.edu.entity.dto.PeDto;
+import com.netcracker.edu.service.CpePeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @RestController
 @RequestMapping ( "/service" )
 public class MonitoringController {
 
-	@PostMapping ( "/test" )
-	public void test ( ) {
-		System.out.println("Test success!");
-	}
+	@Autowired
+	CpePeService cpePeService;
 
 	@PostMapping ( "/internet" )
 	public void changeInternetOnCpe (@RequestBody CpeDto cpe) {
@@ -30,4 +34,35 @@ public class MonitoringController {
 		String uri = "???????????????????????????????????";//address pe
 		rt.postForEntity(uri, pe, PeDto.class);
 	}
+
+	@PostMapping ( "/saveCpe" )
+	public void saveCpe (@RequestBody CpeDao cpeDao) {
+		cpePeService.saveCpe(cpeDao);
+	}
+
+	@PostMapping ( "/savePe" )
+	public void savePe (@RequestBody PeDao peDao) {
+		cpePeService.savePe(peDao);
+	}
+
+	@PostMapping ( "/deleteCpe" )
+	public void deleteCpe (@RequestBody CpeDao cpeDao) {
+		cpePeService.deleteCpe(cpeDao.getIp());
+	}
+
+	@PostMapping ( "/deletePe" )
+	public void deletePe (@RequestBody PeDao peDao) {
+		cpePeService.deletePe(peDao.getIp());
+	}
+
+	@PostMapping ( "/allCpe" )
+	public List<CpeDao> getAllCpe () {
+		return cpePeService.findAllCpe();
+	}
+
+	@PostMapping ( "/allPe" )
+	public List<PeDao> getAllPe () {
+		return cpePeService.findAllPe();
+	}
 }
+
