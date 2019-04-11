@@ -56,13 +56,15 @@ public class MonitoringController {
 	}
 
 	@PostMapping ( "/allCpe" )
-	public List<CpeDao> getAllCpe () {
+	public List<CpeDao> getAllCpe ( ) {
 		return cpePeService.findAllCpe();
 	}
 
 	@PostMapping ( "/allPe" )
-	public List<PeDao> getAllPe () {
+	public List<PeDao> getAllPe ( ) {
 		return cpePeService.findAllPe();
 	}
+
+
 }
 
