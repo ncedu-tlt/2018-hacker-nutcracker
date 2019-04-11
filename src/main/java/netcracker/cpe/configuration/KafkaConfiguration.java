@@ -12,12 +12,13 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Configuration
 public class KafkaConfiguration {
 
 	@Bean
-	public ProducerFactory<String, CpeDao> producerFactory ( ) {
+	public ProducerFactory<String, List<CpeDao>> producerFactory ( ) {
 		HashMap<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -28,7 +29,7 @@ public class KafkaConfiguration {
 	}
 
 	@Bean
-	public KafkaTemplate<String, CpeDao> kafkaTemplate ( ) {
+	public KafkaTemplate<String, List<CpeDao>> kafkaTemplate ( ) {
 		return new KafkaTemplate<>(producerFactory());
 	}
 

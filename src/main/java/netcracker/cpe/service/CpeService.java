@@ -17,7 +17,6 @@ public class CpeService {
 		return cpeRepository.getOneByIp(ip);
 	}
 
-
 	public void saveCpe (CpeDao cpe) {
 		cpeRepository.save(cpe);
 	}

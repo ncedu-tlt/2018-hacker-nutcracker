@@ -12,6 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,11 +20,13 @@ import java.util.List;
 public class CpeController {
 
 	private static final String TOPIC = "cpe_topic";
+	private static Integer counter = 0;//for KEY Kafka
+
 	@Autowired
 	private CpeService service;
 
 	@Autowired
-	private KafkaTemplate<String, CpeDao> kafkaTemplate;
+	private KafkaTemplate<String, List<CpeDao>> kafkaTemplate;
 
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplateString;
@@ -36,7 +39,7 @@ public class CpeController {
 
 	@PostMapping ( "/add" )
 	public void addOne (@RequestBody CpeDao cpe) {
-		if (cpe.isInternetActive() == false) {
+		if (!cpe.isInternetActive()) {
 			cpe.setDownlinkSpeed(0);
 		}
 		service.saveCpe(cpe);
@@ -67,29 +70,29 @@ public class CpeController {
 
 	@PostMapping ( "/peData" )//for adoption PE and send CPE to kafka
 	public void generateCpeSpeed (@RequestBody List<PeDto> list) {
+		List<CpeDao> listCpe = new ArrayList<>();
+		SpeedGenerator generator = new SpeedGenerator();
 		for (PeDto peDto : list) {
-			List<CpeDao> listCpe = service.findAllByPeIpAddressAndIsInternetActive(peDto.getIp());
-			SpeedGenerator generator = new SpeedGenerator();
+			listCpe = service.findAllByPeIpAddressAndIsInternetActive(peDto.getIp());
 			listCpe = generator.generate(peDto, listCpe);
 			for (CpeDao cpe : listCpe) {
 				service.saveCpe(cpe);
-				kafkaTemplate.send(TOPIC, cpe);
 			}
 		}
-		String linkToAddCpe = "\"http://localhost:8080/cpe/add\"";
-		String linkToDeleteCpe = "\"http://localhost:8080/cpe/delete\"";
-		String linkToInternet = "\"http://localhost:8080/cpe/internet\"";
-		kafkaTemplateString.send(TOPIC, linkToAddCpe);
-		kafkaTemplateString.send(TOPIC, linkToDeleteCpe);
-		kafkaTemplateString.send(TOPIC, linkToInternet);
+		kafkaTemplate.send(TOPIC, counter.toString(), listCpe);
+		String linkToAddCpe = "http://localhost:8080/cpe/add";
+		String linkToDeleteCpe = "http://localhost:8080/cpe/delete";
+		String linkToInternet = "http://localhost:8080/cpe/internet";
+		String totalString = linkToAddCpe + ',' + linkToDeleteCpe + ',' + linkToInternet;
+		kafkaTemplateString.send(TOPIC, counter.toString(), totalString);
+		counter++;
 	}
 
 	@PostMapping ( "/sendCpe" )//for send Cpe to Pe
 	public void sendCpe ( ) {
 		RestTemplate rt = new RestTemplate();
-		String uri = "http://localhost:8080/cpe/test5";//URL to PE adoption
+		String uri = "http://localhost:8081/pe/cpeData";//URL to PE adoption
 		List<CpeDao> list = service.findAll();
 		rt.postForEntity(uri, list, List.class);
 	}
-
 }

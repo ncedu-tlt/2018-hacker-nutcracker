@@ -14,5 +14,4 @@ public class CpeApplication {
 		Locale.setDefault(Locale.ENGLISH);
 		SpringApplication.run(CpeApplication.class, args);
 	}
-
 }
