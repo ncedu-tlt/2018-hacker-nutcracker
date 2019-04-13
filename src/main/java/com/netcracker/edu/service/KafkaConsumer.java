@@ -38,5 +38,6 @@ public class KafkaConsumer {
 
 		listPe.forEach(peDao -> monitoringController.savePe(peDao));
 		listCpe.forEach(cpeDao -> monitoringController.saveCpe(cpeDao));
+		monitoringController.setLinksDto(linksDto.getPeLinks(), linksDto.getCpeLinks());
 	}
 }
