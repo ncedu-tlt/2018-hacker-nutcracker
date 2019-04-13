@@ -37,7 +37,7 @@ public class MonitoringController {
 	@PostMapping ( "/fan" )
 	public void changeFanOnPe (@RequestBody PeDto pe) {
 		RestTemplate rt = new RestTemplate();
-		String uri = "http://localhost:8081/pe/fan";
+		String uri = "http://localhost:8081/pe/fan";//123
 		rt.postForEntity(uri, pe, PeDto.class);
 	}
 
@@ -45,6 +45,7 @@ public class MonitoringController {
 	public void saveCpe (@RequestBody CpeDao cpeDao) {
 		cpePeService.saveCpe(cpeDao);
 	}
+
 
 	@PostMapping ( "/savePe" )
 	public void savePe (@RequestBody PeDao peDao) {
