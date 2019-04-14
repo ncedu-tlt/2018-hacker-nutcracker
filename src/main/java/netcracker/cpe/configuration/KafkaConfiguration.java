@@ -12,13 +12,12 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
-import java.util.List;
 
 @Configuration
 public class KafkaConfiguration {
 
 	@Bean
-	public ProducerFactory<String, List<CpeDao>> producerFactory ( ) {
+	public ProducerFactory<String, CpeDao> producerFactory ( ) {
 		HashMap<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -29,7 +28,7 @@ public class KafkaConfiguration {
 	}
 
 	@Bean
-	public KafkaTemplate<String, List<CpeDao>> kafkaTemplate ( ) {
+	public KafkaTemplate<String, CpeDao> kafkaTemplate ( ) {
 		return new KafkaTemplate<>(producerFactory());
 	}
 
@@ -38,7 +37,7 @@ public class KafkaConfiguration {
 		HashMap<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_1");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_2");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		return new DefaultKafkaProducerFactory<>(config);
