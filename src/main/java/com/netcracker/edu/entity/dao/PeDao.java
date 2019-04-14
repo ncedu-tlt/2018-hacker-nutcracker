@@ -21,7 +21,7 @@ public class PeDao {
 	private Integer temperature;
 	private Integer maxDownlinkSpeed;
 	private Integer downlinkSpeed;
-	private boolean isFanActive;
+	private boolean fanActive;
 	private Integer coordinateX;
 	private Integer coordinateY;
 }
