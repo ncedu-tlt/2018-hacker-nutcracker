@@ -7,8 +7,8 @@ import java.util.Locale;
 
 @SpringBootApplication
 public class MonitoringApplication {
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.ENGLISH);
-        SpringApplication.run(MonitoringApplication.class);
-    }
+	public static void main (String[] args) {
+		Locale.setDefault(Locale.ENGLISH);
+		SpringApplication.run(MonitoringApplication.class);
+	}
 }
