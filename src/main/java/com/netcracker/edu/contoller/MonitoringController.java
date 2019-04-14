@@ -6,9 +6,10 @@ import com.netcracker.edu.entity.dto.CpeDto;
 import com.netcracker.edu.entity.dto.PeDto;
 import com.netcracker.edu.service.CpePeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -72,10 +73,16 @@ public class MonitoringController {
 		return cpePeService.findAllPe();
 	}
 
-	@GetMapping("/greeting")
-	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+	@GetMapping ( "/greeting" )
+	public String greeting (@RequestParam ( name = "name", required = false, defaultValue = "World" ) String name, Model model) {
 		model.addAttribute("name", name);
 		return "greeting";
 	}
+
+	@GetMapping ( "/index" )
+	public ModelAndView welcomePage ( ) {
+		return new ModelAndView("WelcomePage");
+	}
+
 }
 
