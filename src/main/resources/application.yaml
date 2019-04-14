@@ -9,5 +9,9 @@ spring:
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database-platform: org.hibernate.dialect.Oracle10gDialect
+  mvc:
+    view:
+      prefix: /recources/templates
+      suffix: .html

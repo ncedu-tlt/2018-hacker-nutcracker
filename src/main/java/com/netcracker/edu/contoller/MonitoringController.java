@@ -7,6 +7,7 @@ import com.netcracker.edu.entity.dto.LinksDto;
 import com.netcracker.edu.entity.dto.PeDto;
 import com.netcracker.edu.service.CpePeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -37,7 +38,7 @@ public class MonitoringController {
 	@PostMapping ( "/fan" )
 	public void changeFanOnPe (@RequestBody PeDto pe) {
 		RestTemplate rt = new RestTemplate();
-		String uri = "http://localhost:8081/pe/fan";//123124 15212414211
+		String uri = "http://localhost:8081/pe/fan";
 		rt.postForEntity(uri, pe, PeDto.class);
 	}
 
@@ -61,14 +62,20 @@ public class MonitoringController {
 		cpePeService.deletePe(peDao.getIp());
 	}
 
-	@PostMapping ( "/allCpe" )
+	@GetMapping ( "/allCpe" )
 	public List<CpeDao> getAllCpe ( ) {
 		return cpePeService.findAllCpe();
 	}
 
-	@PostMapping ( "/allPe" )
+	@GetMapping ( "/allPe" )
 	public List<PeDao> getAllPe ( ) {
 		return cpePeService.findAllPe();
+	}
+
+	@GetMapping("/greeting")
+	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+		model.addAttribute("name", name);
+		return "greeting";
 	}
 }
 
