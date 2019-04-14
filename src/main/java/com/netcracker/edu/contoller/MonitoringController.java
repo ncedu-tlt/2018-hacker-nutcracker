@@ -3,11 +3,13 @@ package com.netcracker.edu.contoller;
 import com.netcracker.edu.entity.dao.CpeDao;
 import com.netcracker.edu.entity.dao.PeDao;
 import com.netcracker.edu.entity.dto.CpeDto;
-import com.netcracker.edu.entity.dto.LinksDto;
 import com.netcracker.edu.entity.dto.PeDto;
 import com.netcracker.edu.service.CpePeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -20,11 +22,12 @@ public class MonitoringController {
 	@Autowired
 	CpePeService cpePeService;
 
-	private LinksDto linksDto;
+	private HashMap<Integer, String> peLinks;
+	private HashMap<Integer, String> cpeLinks;
 
-	public void setLinksDto(HashMap<Integer, String> peLinks, HashMap<Integer, String> cpeLinks){
-		linksDto.setPeLinks(peLinks);
-		linksDto.setCpeLinks(cpeLinks);
+	public void setLinksDto (HashMap<Integer, String> peLinks, HashMap<Integer, String> cpeLinks) {
+		this.peLinks = peLinks;
+		this.cpeLinks = cpeLinks;
 	}
 
 	@PostMapping ( "/internet" )
@@ -37,7 +40,7 @@ public class MonitoringController {
 	@PostMapping ( "/fan" )
 	public void changeFanOnPe (@RequestBody PeDto pe) {
 		RestTemplate rt = new RestTemplate();
-		String uri = "http://localhost:8081/pe/fan";//123124 15212414211
+		String uri = "http://localhost:8081/pe/fan";
 		rt.postForEntity(uri, pe, PeDto.class);
 	}
 
