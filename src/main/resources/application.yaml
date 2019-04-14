@@ -11,7 +11,7 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.Oracle10gDialect
-  mvc:
-    view:
-      prefix: /recources/templates
-      suffix: .html
+#  mvc:
+#    view:
+#      prefix: /recources/templates
+#      suffix: .html

@@ -20,7 +20,7 @@ public class KafkaConsumer {
 	private HashMap<Integer, String> peLinks = new HashMap<>();
 	private HashMap<Integer, String> cpeLinks = new HashMap<>();
 
-	@KafkaListener ( topics = "total_topic" )
+//	@KafkaListener ( topics = "total_topic" )
 	public void consume (String message) {
 
 		GsonBuilder builder = new GsonBuilder();
