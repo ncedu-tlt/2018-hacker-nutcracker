@@ -2,31 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.netcracker.edu</groupId>
-    <artifactId>2018-hacker-nutcracker</artifactId>
-    <version>0.0.1</version>
-
-    <developers>
-        <developer>
-            <id>IsaykovArtem</id>
-            <name>Isaykov Atrem</name>
-            <email>a.isaykov@bk.ru</email>
-        </developer>
-        <developer>
-            <id>Dimas</id>
-            <name>Dima Bykov</name>
-            <email>db7709004@mail.ru</email>
-        </developer>
-    </developers>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
+    <groupId>netcracker-pe</groupId>
+    <artifactId>pe</artifactId>
+    <version>0.0.1</version>
     <packaging>war</packaging>
+    <name>pe</name>
+    <description>PE</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -48,29 +35,20 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
+            <version>2.2.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency><!--For parse String-Json from Kafka-->
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.5</version>
-        </dependency>
-        <dependency> <!--For .jsp-->
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
-        <dependency> <!--For web.jsp ModelAndView-->
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
