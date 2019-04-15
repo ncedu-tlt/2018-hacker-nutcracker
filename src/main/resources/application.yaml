@@ -1,15 +1,17 @@
+server:
+  port: 8082
 
 spring:
   datasource:
     url: jdbc:oracle:thin:@sql.edu-netcracker.com:1251:xe
-    username: TLT_27
-    password: 27
+    username: TLT_5
+    password: 5
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.Oracle10gDialect
-
-
-server:
-  port: 8081
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp

@@ -39,7 +39,7 @@ public class MonitoringController {
 	@PostMapping ( "/fan" )
 	public void changeFanOnPe (@RequestBody PeDto pe) {
 		RestTemplate rt = new RestTemplate();
-		String uri = "http://localhost:8081/pe/fan";//123124 15212414211
+		String uri = "http://localhost:8081/pe/fan";
 		rt.postForEntity(uri, pe, PeDto.class);
 	}
 
@@ -73,13 +73,7 @@ public class MonitoringController {
 		return cpePeService.findAllPe();
 	}
 
-	@GetMapping ( "/greeting" )
-	public String greeting (@RequestParam ( name = "name", required = false, defaultValue = "World" ) String name, Model model) {
-		model.addAttribute("name", name);
-		return "greeting";
-	}
-
-	@GetMapping ( "/index" )
+	@GetMapping ( "/welcome" )
 	public ModelAndView welcomePage ( ) {
 		return new ModelAndView("WelcomePage");
 	}
