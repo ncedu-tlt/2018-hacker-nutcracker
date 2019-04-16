@@ -1,3 +1,4 @@
+<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.netcracker.edu.entity.dao.CpeDao" %>
@@ -5,7 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--%>
 <%--<meta name="description" content="Пример на bootstrap 4: Ничего, кроме основ: скомпилированный CSS и JavaScript.">--%>
@@ -18,51 +18,51 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Главная страница</title>
-
-
     <style>
-        body {
-            /*background: #c7b39b url(images/map.JPG); !* Цвет фона и путь к файлу *!*/
+        body{
+            background: #c7b39b url(../images/map.jpg); /* Цвет фона и путь к файлу */
             /*color: #fff; !* Цвет текста *!*/
-
-            background: url(images/map.JPG) no-repeat center center fixed;
+            /*background-image: url(images/map.jpg);*/
+            backdrop-repeat: no-repeat;
             /*color: white;*/
             background-size: cover;
         }
     </style>
+    <!-- CSS -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../welcomeBootstrapFiles/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- /Bootstrap core CSS -->
+
+    <!-- OUR CSS -->
+    <link href="../css/welcomeCSS.min.css" rel="stylesheet" type="text/css"/>
+    <!-- /OUR CSS -->
+    <!-- /CSS -->
 </head>
-<!-- CSS -->
 
-<!-- Bootstrap core CSS -->
-<link href="./welcomeBootstrapFiles/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- /Bootstrap core CSS -->
 
-<!-- OUR CSS -->
-<link href="css/welcomeCSS.min.css">
-<!-- /OUR CSS -->
-<!-- /CSS -->
+<%--ЧТо это и зачем? Отключил и работает все равно--%>
+<%--<style>--%>
 
-<style>
+<%--    .bd-placeholder-img {--%>
+<%--        font-size: 1.125rem;--%>
+<%--        text-anchor: middle;--%>
+<%--    }--%>
 
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-    }
+<%--    @media (min-width: 768px) {--%>
+<%--        .bd-placeholder-img-lg {--%>
+<%--            font-size: 3.5rem;--%>
+<%--        }--%>
 
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
+<%--    }--%>
+<%--</style>--%>
 
-    }
-</style>
-
-<link href="./welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
+<link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
 
 <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188"></head>
 
 <body>
-<script type="text/javascript" async="" src="./welcomeBootstrapFiles/watch.js.download"></script><script async="" src="./welcomeBootstrapFiles/analytics.js.download"></script><script>
+<script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -269,9 +269,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="./welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="../welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!--<script>window.jQuery || document.write('<script src="./welcomeBootstrapFiles/jquery-slim.min.js"><\/script>')</script><script src="./welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
-<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="./welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 <!-- /SCRIPTS -->
 </body>
 </html>
