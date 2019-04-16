@@ -6,7 +6,6 @@ import com.netcracker.edu.contoller.MonitoringController;
 import com.netcracker.edu.entity.dao.CpeDao;
 import com.netcracker.edu.entity.dao.PeDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -20,7 +19,7 @@ public class KafkaConsumer {
 	private HashMap<Integer, String> peLinks = new HashMap<>();
 	private HashMap<Integer, String> cpeLinks = new HashMap<>();
 
-//	@KafkaListener ( topics = "total_topic" )
+	//	@KafkaListener ( topics = "total_topic" )
 	public void consume (String message) {
 
 		GsonBuilder builder = new GsonBuilder();

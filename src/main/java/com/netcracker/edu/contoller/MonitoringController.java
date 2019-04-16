@@ -6,7 +6,6 @@ import com.netcracker.edu.entity.dto.CpeDto;
 import com.netcracker.edu.entity.dto.PeDto;
 import com.netcracker.edu.service.CpePeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
