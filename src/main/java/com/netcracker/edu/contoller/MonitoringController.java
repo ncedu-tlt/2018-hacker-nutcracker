@@ -62,12 +62,12 @@ public class MonitoringController {
 		cpePeService.deletePe(peDao.getIp());
 	}
 
-	@GetMapping ( "/allCpe" )
+	@PostMapping ( "/allCpe" )
 	public List<CpeDao> getAllCpe ( ) {
 		return cpePeService.findAllCpe();
 	}
 
-	@GetMapping ( "/allPe" )
+	@PostMapping ( "/allPe" )
 	public List<PeDao> getAllPe ( ) {
 		return cpePeService.findAllPe();
 	}
@@ -77,5 +77,32 @@ public class MonitoringController {
 		return new ModelAndView("WelcomePage");
 	}
 
+	@ModelAttribute("CpeDaoList")
+	public List<CpeDao> cpeDao(){
+		return cpePeService.findAllCpe();
+	}
+
+	@ModelAttribute("PeDaoList")
+	public List<PeDao> PeDao(){
+		return cpePeService.findAllPe();
+	}
+
+	@ModelAttribute("PeLinksMap")
+	public HashMap<Integer, String> peLinks(){
+		peLinks = new HashMap<>();
+		peLinks.put(1,"123");
+		peLinks.put(2,"1234");
+		peLinks.put(3,"12345");
+		return peLinks;
+	}
+
+	@ModelAttribute("CpeLinksMap")
+	public HashMap<Integer, String> cpeLinks(){
+		cpeLinks = new HashMap<>();
+		cpeLinks.put(1,"123");
+		cpeLinks.put(2,"1234");
+		cpeLinks.put(3,"12345");
+		return cpeLinks;
+	}
 }
 

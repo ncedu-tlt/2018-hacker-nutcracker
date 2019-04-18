@@ -5,7 +5,7 @@
 <%@ page import="com.netcracker.edu.entity.dao.PeDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 
 <%--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--%>
 <%--<meta name="description" content="Пример на bootstrap 4: Ничего, кроме основ: скомпилированный CSS и JavaScript.">--%>
@@ -20,11 +20,11 @@
     <title>Главная страница</title>
     <style>
         body{
-            background: #c7b39b url(../images/map.jpg); /* Цвет фона и путь к файлу */
+            background: #c7b39b url(../images/map1); /* Цвет фона и путь к файлу */
             /*color: #fff; !* Цвет текста *!*/
             /*background-image: url(images/map.jpg);*/
             backdrop-repeat: no-repeat;
-            /*color: white;*/
+            color: white;
             background-size: cover;
         }
     </style>
@@ -33,35 +33,110 @@
     <!-- Bootstrap core CSS -->
     <link href="../welcomeBootstrapFiles/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- /Bootstrap core CSS -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <!-- OUR CSS -->
     <link href="../css/welcomeCSS.min.css" rel="stylesheet" type="text/css"/>
     <!-- /OUR CSS -->
+
+    <!-- DRAGIN CSS -->
+    <style>
+        #container {
+            width: 1355px;
+            height: 1000px;
+            /*background-color: #333;*/
+            /*min-width: 100%;*/
+            /*min-height: 100%;*/
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 7px;
+            touch-action: none;
+
+        }
+
+        .item {
+            border-radius: 50%;
+            touch-action: none;
+            user-select: none;
+            /*position: relative;*/
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(245, 230, 99);
+            border: 10px solid rgba(136, 136, 136, .5);
+            top: 0px;
+            left: 0px;
+        }
+
+        .two {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(196, 241, 190, 1);
+            border: 10px solid rgba(136, 136, 136, .5);
+            /*top: 30%;*/
+            /*left: 10%;*/
+            /*top: 0%;*/
+            /*left: 0%;*/
+        }
+
+        .three {
+            width: 40px;
+            height: 40px;
+            background-color: rgb(0, 255, 231);
+            border: 10px solid rgba(136, 136, 136, .5);
+            /*top: -40%;*/
+            /*left: -10%;*/
+            /*top: 0%;*/
+            /*left: 0%;*/
+        }
+
+        .four {
+            width: 80px;
+            height: 80px;
+            background-color: rgb(233, 210, 244);
+            border: 10px solid rgba(136, 136, 136, .5);
+            top: -10%;
+            left: 5%;
+        }
+
+        .item:active {
+            opacity: .75;
+        }
+
+        .item:hover {
+            cursor: pointer;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+    </style>
+    <!-- /DRAGIN CSS -->
+
     <!-- /CSS -->
+
+
 </head>
 
-
-<%--ЧТо это и зачем? Отключил и работает все равно--%>
-<%--<style>--%>
-
-<%--    .bd-placeholder-img {--%>
-<%--        font-size: 1.125rem;--%>
-<%--        text-anchor: middle;--%>
-<%--    }--%>
-
-<%--    @media (min-width: 768px) {--%>
-<%--        .bd-placeholder-img-lg {--%>
-<%--            font-size: 3.5rem;--%>
-<%--        }--%>
-
-<%--    }--%>
-<%--</style>--%>
 
 <link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
 
 <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188"></head>
 
 <body>
+
+<style>
+    body{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
 <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -85,7 +160,7 @@
     <style>
 <%--        это низ навигационного бара после которого идут остальные окна   50--%>
         body {
-            padding-top: 70px;
+            padding-top: 50px;
         }
     </style>
 
@@ -130,12 +205,12 @@
             </div>
                 <!-- List Cpe -->
                 <div class="list-group">
-                    <c:forEach var="CpeDao" items="${CpeDaos}">
+                    <c:forEach  items="${CpeDaoList}" var="CpeDao">
                     <a href="#" class="list-group-item list-group-item-action">${CpeDao.ip}</a>
                     </c:forEach>
-                    <a href="#" class="list-group-item list-group-item-action">192.168.1.2</a>
-                    <a href="#" class="list-group-item list-group-item-action">192.168.1.3</a>
-                    <a href="#" class="list-group-item list-group-item-action">192.168.1.3</a>
+<%--                    <c:forEach  items="${CpeLinksMap}" var="cpelink">--%>
+<%--                        <a href="#" class="list-group-item list-group-item-action">${cpelink.value}</a>--%>
+<%--                    </c:forEach>--%>
                 </div>
                 <!-- /List Cpe -->
             <div class="modal-footer">
@@ -159,12 +234,10 @@
             </div>
             <!-- List Pe -->
             <div class="list-group">
-                <c:forEach var="PeDao" items="${PeDaos}">
+                <c:forEach  items="${PeDaoList}" var="PeDao">
                     <a href="#" class="list-group-item list-group-item-action">${PeDao.ip}</a>
                 </c:forEach>
-                <a href="#" class="list-group-item list-group-item-action">192.168.1.2</a>
-                <a href="#" class="list-group-item list-group-item-action">192.168.1.3</a>
-                <a href="#" class="list-group-item list-group-item-action">192.168.1.3</a>
+
             </div>
             <!-- /List Pe -->
             <div class="modal-footer">
@@ -251,20 +324,121 @@
 <!-- /Modal for add PE-->
 
 <!-- MAP -->
-<main role="main" class="container">
+<%--<main role="main" class="container">--%>
+<%--<div id="outerContainer">--%>
+    <div id="container">
+        <c:forEach  items="${PeDaoList}" var="PeDao">
+            <div class="item two">
+                <style>
+                    .two{
+                        /*position: absolute; !* Абсолютное позиционирование *!*/
+                        bottom: ${PeDao.coordinateX}px; /* Положение от нижнего края */
+                        right: ${PeDao.coordinateY}px; /* Положение от правого края */
+                        line-height: 1px;
+                    }
+                </style>
+                PE
+            </div>
+        </c:forEach>
 
-    <div class="starter-template">
-        <h1>тут будет карта типо</h1>
-        <p class="lead">карту можно будет перемещать и ставить красивые иконочки и тд.<br> я очень надеюсь.</p>
+        <c:forEach  items="${CpeDaoList}" var="CpeDao">
+            <div class="item three newPos">
+                <style>
+                    .newPos{
+                        position: absolute; /* Абсолютное позиционирование */
+                        bottom: ${CpeDao.coordinateX}px; /* Положение от нижнего края */
+                        right: ${CpeDao.coordinateY}px; /* Положение от правого края */
+                        line-height: 1px;
+                    }
+                </style>
+                CPE
+            </div>
+        </c:forEach>
+
     </div>
-<%--    style="color: white"--%>
-    <div class="pe" >PE</div>
-
-    <div class="cpe">CPE</div>
-
-</main>
+<%--</div>--%>
+<%--</main>--%>
 <!-- /MAP -->
+<!-- OUR SCRIPTS -->
+<!-- SCRIP FOR DRAGING -->
+<script>
+    var container = document.querySelector("#container");
+    var activeItem = null;
 
+    var active = false;
+
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchend", dragEnd, false);
+    container.addEventListener("touchmove", drag, false);
+
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mouseup", dragEnd, false);
+    container.addEventListener("mousemove", drag, false);
+
+    function dragStart(e) {
+
+        if (e.target !== e.currentTarget) {
+            active = true;
+
+            // this is the item we are interacting with
+            activeItem = e.target;
+
+            if (activeItem !== null) {
+                if (!activeItem.xOffset) {
+                    activeItem.xOffset = 0;
+                }
+
+                if (!activeItem.yOffset) {
+                    activeItem.yOffset = 0;
+                }
+
+                if (e.type === "touchstart") {
+                    activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
+                    activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
+                } else {
+                    console.log("doing something!");
+                    activeItem.initialX = e.clientX - activeItem.xOffset;
+                    activeItem.initialY = e.clientY - activeItem.yOffset;
+                }
+            }
+        }
+    }
+
+    function dragEnd(e) {
+        if (activeItem !== null) {
+            activeItem.initialX = activeItem.currentX;
+            activeItem.initialY = activeItem.currentY;
+        }
+
+        active = false;
+        activeItem = null;
+    }
+
+    function drag(e) {
+        if (active) {
+            if (e.type === "touchmove") {
+                e.preventDefault();
+
+                activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
+                activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
+            } else {
+                activeItem.currentX = e.clientX - activeItem.initialX;
+                activeItem.currentY = e.clientY - activeItem.initialY;
+            }
+
+            activeItem.xOffset = activeItem.currentX;
+            activeItem.yOffset = activeItem.currentY;
+
+            setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
+        }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+</script>
+<!-- /SCRIP FOR DRAGING -->
+<!-- /OUR SCRIPTS -->
 <!-- SCRIPTS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
