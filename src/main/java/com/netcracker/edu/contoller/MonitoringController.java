@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping ( "/service" )
@@ -74,6 +73,7 @@ public class MonitoringController {
 
 	@GetMapping ( "/welcome" )
 	public ModelAndView welcomePage ( ) {
+
 		return new ModelAndView("WelcomePage");
 	}
 
@@ -103,6 +103,18 @@ public class MonitoringController {
 		cpeLinks.put(2,"1234");
 		cpeLinks.put(3,"12345");
 		return cpeLinks;
+	}
+	@GetMapping ( "/getAllLists" )
+	public String test () {
+		List<PeDao> listPe = getAllPe();
+		String str = "<div class=\"divPe\">";
+		for (PeDao pe:listPe){
+			str+= " <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getIp()+ "</a>"+
+					" <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getTemperature()+ "</a>"+
+					" <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getDownlinkSpeed()+ "</a>";
+		}
+		str+="</div>";
+		return str;
 	}
 }
 
