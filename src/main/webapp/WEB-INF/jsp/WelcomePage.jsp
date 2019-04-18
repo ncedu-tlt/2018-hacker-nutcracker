@@ -130,12 +130,12 @@
 
 <body>
 
-<style>
-    body{
-        width: 100%;
-        height: 100%;
-    }
-</style>
+<%--<style>--%>
+<%--    body{--%>
+<%--        width: 100%;--%>
+<%--        height: 100%;--%>
+<%--    }--%>
+<%--</style>--%>
 
 <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
