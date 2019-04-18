@@ -1,26 +1,29 @@
-<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.netcracker.edu.entity.dao.CpeDao" %>
 <%@ page import="com.netcracker.edu.entity.dao.PeDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 
-<%--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--%>
-<%--<meta name="description" content="Пример на bootstrap 4: Ничего, кроме основ: скомпилированный CSS и JavaScript.">--%>
 <head>
-
-    <meta charset="utf-8">
+    <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Главная страница</title>
-    <style>
+
+<%--    <meta http-equiv="Refresh" content="2" /><!--Обновление страницы каждые 2 сек HTML-->--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
         body{
-            background: #c7b39b url(../images/map1); /* Цвет фона и путь к файлу */
+            background: #c7b39b url(../images/map1.jpg); /* Цвет фона и путь к файлу */
             /*color: #fff; !* Цвет текста *!*/
             /*background-image: url(images/map.jpg);*/
             backdrop-repeat: no-repeat;
@@ -30,10 +33,6 @@
     </style>
     <!-- CSS -->
 
-    <!-- Bootstrap core CSS -->
-    <link href="../welcomeBootstrapFiles/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- /Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <!-- OUR CSS -->
     <link href="../css/welcomeCSS.min.css" rel="stylesheet" type="text/css"/>
     <!-- /OUR CSS -->
@@ -130,12 +129,12 @@
 
 <body>
 
-<%--<style>--%>
-<%--    body{--%>
-<%--        width: 100%;--%>
-<%--        height: 100%;--%>
-<%--    }--%>
-<%--</style>--%>
+<style>
+    body{
+        width: 1366px;
+        height: 100%;
+    }
+</style>
 
 <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -205,7 +204,7 @@
             </div>
                 <!-- List Cpe -->
                 <div class="list-group">
-                    <c:forEach  items="${CpeDaoList}" var="CpeDao">
+                    <c:forEach var="CpeDao" items="${CpeDaos}">
                     <a href="#" class="list-group-item list-group-item-action">${CpeDao.ip}</a>
                     </c:forEach>
 <%--                    <c:forEach  items="${CpeLinksMap}" var="cpelink">--%>
@@ -234,7 +233,7 @@
             </div>
             <!-- List Pe -->
             <div class="list-group">
-                <c:forEach  items="${PeDaoList}" var="PeDao">
+                <c:forEach var="PeDao" items="${PeDaos}">
                     <a href="#" class="list-group-item list-group-item-action">${PeDao.ip}</a>
                 </c:forEach>
 
@@ -358,6 +357,15 @@
     </div>
 <%--</div>--%>
 <%--</main>--%>
+    <div class="cpe">CPE</div>
+
+</main>
+
+
+<!-- Test Artem Scrypt-->
+
+<script >setInterval('refresh()', 1000)</script><!-- call refresh.js-->
+<div id="result"></div><!-- result rafresh.js-->
 <!-- /MAP -->
 <!-- OUR SCRIPTS -->
 <!-- SCRIP FOR DRAGING -->
@@ -440,12 +448,13 @@
 <!-- /SCRIP FOR DRAGING -->
 <!-- /OUR SCRIPTS -->
 <!-- SCRIPTS -->
+<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<%--<script src="../welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--%>
 <!--<script>window.jQuery || document.write('<script src="./welcomeBootstrapFiles/jquery-slim.min.js"><\/script>')</script><script src="./welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
-<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<%--<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>--%>
 <!-- /SCRIPTS -->
 </body>
 </html>
