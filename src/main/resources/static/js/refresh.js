@@ -1,13 +1,42 @@
-function refresh(){
+function refresh1() {
     var XMLHttpRequestObject = false;
     if (window.XMLHttpRequest)
         XMLHttpRequestObject = new XMLHttpRequest();
-    if (XMLHttpRequestObject)
-    {
-        XMLHttpRequestObject.open("GET","http://localhost:8082/service/getAllLists",true);
-        XMLHttpRequestObject.onreadystatechange = function(){
-            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200){
-                document.getElementById('result').innerHTML = XMLHttpRequestObject.responseText;
+    if (XMLHttpRequestObject) {
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListPe", false);
+        XMLHttpRequestObject.onreadystatechange = function () {
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById('peListId').innerHTML = XMLHttpRequestObject.responseText;
+            }
+        }
+        XMLHttpRequestObject.send(null);
+    }
+}
+
+function refresh2() {
+    var XMLHttpRequestObject = false;
+    if (window.XMLHttpRequest)
+        XMLHttpRequestObject = new XMLHttpRequest();
+    if (XMLHttpRequestObject) {
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListCpe", false);
+        XMLHttpRequestObject.onreadystatechange = function () {
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById('cpeListId').innerHTML = XMLHttpRequestObject.responseText;
+            }
+        }
+        XMLHttpRequestObject.send(null);
+    }
+}
+
+function refresh3() {
+    var XMLHttpRequestObject = false;
+    if (window.XMLHttpRequest)
+        XMLHttpRequestObject = new XMLHttpRequest();
+    if (XMLHttpRequestObject) {
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/refreshPeAndCpe", false);
+        XMLHttpRequestObject.onreadystatechange = function () {
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById('refreshPeAndCpe').innerHTML = XMLHttpRequestObject.responseText;
             }
         }
         XMLHttpRequestObject.send(null);
@@ -16,25 +45,23 @@ function refresh(){
 
 function sendCpe(link) {
     var val1 = document.getElementById('inputCpeIp').value;
-    var val2 = document.getElementById('inputPeIpAdressForCpe').value;
-    var chbox = document.getElementById('InternetActive');
-    var boolean;
+    var val2 = document.getElementById('inputPeIpAddressForCpe').value;
+    var box1 = document.getElementById('InternetActive');
+    var bool;
     var xhr = new XMLHttpRequest();
 
-    if (chbox.checked) {
-        boolean = 'true';
-    }
-    else {
-        boolean = 'false';
+    if (box1.checked) {
+        bool = 'true';
+    } else {
+        bool = 'false';
     }
     var json = JSON.stringify({
         ip: val1,
         peIpAddress: val2,
-        internetActive: boolean
+        isInternetActive: bool
     });
-
-    alert(json);
-    xhr.open("GET", ""+link+'/'+json, true);
+    alert("123" + json);
+    xhr.open("GET", "" + link + '/' + json, true);
     xhr.send(null);
 }
 
@@ -46,31 +73,30 @@ function sendPe(link) {
         ip: val1,
     });
 
-    alert(json);
-    xhr.open("GET", ""+link+'/'+json, true);
+    xhr.open("GET", "" + link + '/' + json, true);
     xhr.send(null);
 }
 
 function deleteCpe(link) {
     var val1 = document.getElementById('deleteCpeIp').value;
-    xhr.open("GET", ""+link+'/'+val1, true);
+    xhr.open("GET", "" + link + '/' + val1, true);
     xhr.send(null);
 }
 
 function deletePe(link) {
     var val1 = document.getElementById('deletePeIp').value;
-    xhr.open("GET", ""+link+'/'+val1, true);
+    xhr.open("GET", "" + link + '/' + val1, true);
     xhr.send(null);
 }
 
 function changeCpeInternet(link) {
     var val1 = document.getElementById('СpeIp').value;
-    xhr.open("GET", ""+link+'/'+val1, true);
+    xhr.open("GET", "" + link + '/' + val1, true);
     xhr.send(null);
 }
 
 function changePeFan(link) {
     var val1 = document.getElementById('PeIp').value;
-    xhr.open("GET", ""+link+'/'+val1, true);
+    xhr.open("GET", "" + link + '/' + val1, true);
     xhr.send(null);
 }

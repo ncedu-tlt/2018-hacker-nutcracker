@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping ( "/service" )
@@ -18,10 +19,11 @@ public class MonitoringController {
 
 	@Autowired
 	CpePeService cpePeService;
+	@Autowired
+	private PagesController pagesController;
 
 	private HashMap<Integer, String> peLinks;
 	private HashMap<Integer, String> cpeLinks;
-	private PagesController pagesController;
 
 	public void setLinksDto (HashMap<Integer, String> peLinks, HashMap<Integer, String> cpeLinks) {
 		this.peLinks = peLinks;
@@ -66,41 +68,36 @@ public class MonitoringController {
 	public ModelAndView welcomePage ( ) {
 		ModelAndView model = new ModelAndView("WelcomePage");
 		peLinks = new HashMap<>();
-		peLinks.put(1,"http://localhost:8080/pe/add");
+		peLinks.put(1, "http://localhost:8081/pe/add");
 		cpeLinks = new HashMap<>();
-		cpeLinks.put(1,"http://localhost:8080/cpe/add");
+		cpeLinks.put(1, "http://localhost:8080/cpe/add");
 		model.addObject("linksCpe", cpeLinks);
 		model.addObject("linksPe", peLinks);
 		return model;
 	}
 
-	@ModelAttribute("CpeDaoList")
-	public List<CpeDao> getAllCpe(){
+	@ModelAttribute ( "CpeDaoList" )
+	public List<CpeDao> getAllCpe ( ) {
 		return cpePeService.findAllCpe();
 	}
 
-	@ModelAttribute("PeDaoList")
-	public List<PeDao> getAllPe(){
+	@ModelAttribute ( "PeDaoList" )
+	public List<PeDao> getAllPe ( ) {
 		return cpePeService.findAllPe();
 	}
 
-	@GetMapping ( "/getAllLists" )
-	public String getAllLists () {
-		List<PeDao> listPe = getAllPe();
-		List<CpeDao> listCpe = getAllCpe();
-		String str = "<div class=\"divPe\">";
-		for (PeDao pe:listPe){
-			str+= " <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getIp()+ "</a>"+
-					" <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getTemperature()+ "</a>"+
-					" <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getDownlinkSpeed()+ "</a>";
-		}
-		str+="</div>";
-		return str;
+	@GetMapping ( "/getListPe" )
+	public String getListPe ( ) {
+		return pagesController.refreshListPe();
 	}
 
-	@GetMapping ( "/index" )
-	public ModelAndView index ( ) {
-		ModelAndView model = new ModelAndView("Index");
-		return model;
+	@GetMapping ( "/getListCpe" )
+	public String getListCpe ( ) {
+		return pagesController.refreshListCpe();
+	}
+
+	@GetMapping ( "/refreshPeAndCpe" )
+	public String refreshPeAndCpe ( ) {
+		return pagesController.refreshPeAndCpe();
 	}
 }
