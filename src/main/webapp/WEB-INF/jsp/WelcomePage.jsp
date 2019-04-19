@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.netcracker.edu.entity.dao.CpeDao" %>
-<%@ page import="com.netcracker.edu.entity.dao.PeDao" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ page import="com.netcracker.edu.entity.dao.CpeDao" %>
+    <%@ page import="com.netcracker.edu.entity.dao.PeDao" %>
+    <%@ page import="java.util.HashMap" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
-
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+    <% HashMap<Integer,String> linksCpe =(HashMap<Integer, String>) request.getAttribute("linksCpe");%>
+    <% HashMap<Integer,String> linksPe =(HashMap<Integer, String>) request.getAttribute("linksPe");%>
 <head>
     <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Главная страница</title>
-
-<%--    <meta http-equiv="Refresh" content="2" /><!--Обновление страницы каждые 2 сек HTML-->--%>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <style>
+    <style>
         body{
             background: #c7b39b url(../images/map1.jpg); /* Цвет фона и путь к файлу */
             /*color: #fff; !* Цвет текста *!*/
@@ -32,7 +29,6 @@
         }
     </style>
     <!-- CSS -->
-
     <!-- OUR CSS -->
     <link href="../css/welcomeCSS.min.css" rel="stylesheet" type="text/css"/>
     <!-- /OUR CSS -->
@@ -115,23 +111,19 @@
         }
     </style>
     <!-- /CSS -->
+    <link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
+    <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188"></head>
 </head>
-
-
-<link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
-
-<meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188"></head>
-
 <body>
+<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
+    <style>
+        body{
+            width: 1920px;
+            height: 1030px;
+        }
+    </style>
 
-<style>
-    body{
-        width: 1920px;
-        height: 1030px;
-    }
-</style>
-
-<script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
+    <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script><script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -140,17 +132,22 @@
     ga('create', 'UA-4481610-59', 'auto');
     ga('send', 'pageview');
 </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() {
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() {
     try { w.yaCounter39705265 = new Ya.Metrika({ id:39705265, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); }
     catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]")
-    { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
-</script> <noscript><div><img src="https://mc.yandex.ru/watch/39705265" style="position:absolute; left:-9999px;" alt="Yandex.Metrika" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+        s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]")
+        { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/39705265" style="position:absolute; left:-9999px;" alt="Yandex.Metrika" />
+        </div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
-<!-- NAVIGATION BAR-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+    <!-- NAVIGATION BAR-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
     <style>
 <%--        это низ навигационного бара после которого идут остальные окна   50--%>
         body {
@@ -179,16 +176,12 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Поиск</button>
-        </form>
     </div>
 </nav>
-<!-- /NAVIGATION BAR-->
+    <!-- /NAVIGATION BAR-->
 
-
-<!-- Modal for List Cpe -->
-<div class="modal fade" id="CpeList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <!-- Modal for List Cpe -->
+    <div class="modal fade" id="CpeList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -200,11 +193,8 @@
                 <!-- List Cpe -->
 
                 <div class="list-group">
-<%--                    <c:forEach var="CpeDao" items="${CpeDaos}">--%>
+<%--                    <c:forEach var="CpeDao" items="${CpeDaoList}">--%>
 <%--                    <a href="#" class="list-group-item list-group-item-action">${CpeDao.ip}</a>--%>
-<%--                    </c:forEach>--%>
-<%--                    <c:forEach  items="${CpeLinksMap}" var="cpelink">--%>
-<%--                        <a href="#" class="list-group-item list-group-item-action">${cpelink.value}</a>--%>
 <%--                    </c:forEach>--%>
                 </div>
 
@@ -215,11 +205,10 @@
         </div>
     </div>
 </div>
-<!-- /Modal for List Cpe -->
+    <!-- /Modal for List Cpe -->
 
-
-<!-- Modal for List Pe -->
-<div class="modal fade" id="PeList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <!-- Modal for List Pe -->
+    <div class="modal fade" id="PeList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -231,10 +220,6 @@
             <!-- List Pe -->
             <div id="result">
             <div class="list-group">
-<%--                <c:forEach var="PeDao" items="${PeDaos}">--%>
-<%--                    <a href="#" class="list-group-item list-group-item-action">${PeDao.ip}</a>--%>
-<%--                </c:forEach>--%>
-
             </div>
             </div>
             <!-- /List Pe -->
@@ -244,11 +229,10 @@
         </div>
     </div>
 </div>
-<!-- /Modal for List Pe -->
+    <!-- /Modal for List Pe -->
 
-
-<!-- Modal for add CPE-->
-<div class="modal fade" id="addCPE" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal for add CPE-->
+    <div class="modal fade" id="addCPE" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -259,28 +243,27 @@
             </div>
             <div class="modal-body">
                 <!-- Form for data СPE-->
-                <form>
+                <form name="addCpeForSend">
                     <div class="form-group">
-                        <label for="inputCPEIP">CPE IP address</label>
-                        <input type="text" class="form-control" id="inputCPEIP" placeholder="192.168.1.1">
+                        <label for="inputCpeIp">CPE IP address</label>
+                        <input type="text" class="form-control" id="inputCpeIp" name="inputCpeIp" placeholder="192.168.1.1">
                     </div>
                     <div class="form-group">
-                        <label for="inputPEIPAdressForCpe">PE IP address</label>
-                        <input type="text" class="form-control" id="inputPEIPAdressForCpe" placeholder="192.168.1.1">
+                        <label for="inputPeIpAdressForCpe">PE IP address</label>
+                        <input type="text" class="form-control" id="inputPeIpAdressForCpe" placeholder="192.168.1.1">
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="InternetIsActive">
-                                <label class="form-check-label" for="InternetIsActive">
+                                <label class="form-check-label" for="InternetActive">
+                                    <input class="form-check-input" type="checkbox" id="InternetActive">
                                     Включить интернет
                                 </label>
                             </div>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <button type="submit" class="btn btn-primary" onclick="sendCpe('<%=linksCpe.get(1)%>')">Добавить</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 </form>
                 <!-- /Form for data СPE-->
@@ -288,10 +271,10 @@
         </div>
     </div>
 </div>
-<!-- /Modal for add CPE-->
+    <!-- /Modal for add CPE-->
 
-<!-- Modal for add PE-->
-<div class="modal fade" id="addPE" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal for add PE-->
+    <div class="modal fade" id="addPE" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -304,14 +287,10 @@
                 <!-- Form for data PE-->
                 <form>
                     <div class="form-group">
-                        <label for="inputPEIP">PE IP address</label>
-                        <input type="text" class="form-control" id="inputPEIP" placeholder="192.168.1.1">
+                        <label for="inputPeIp">PE IP address</label>
+                        <input type="text" class="form-control" id="inputPeIp" placeholder="192.168.1.1">
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress1">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress1" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <button type="submit" class="btn btn-primary" onclick="sendPe('<%=linksPe.get(1)%>')">Добавить</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 </form>
                 <!-- /Form for data PE-->
@@ -319,7 +298,7 @@
         </div>
     </div>
 </div>
-<!-- /Modal for add PE-->
+    <!-- /Modal for add PE-->
 
 <!-- MAP -->
     <div id="container">
@@ -343,7 +322,6 @@
                 </div>
             </div>
         </c:forEach>
-
         <c:forEach  items="${CpeDaoList}" var="CpeDao">
             <div class="item three newPos1">
                 <style>
@@ -464,16 +442,16 @@
         el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     }
 </script>
-<!-- /SCRIP FOR DRAGING -->
-<!-- /OUR SCRIPTS -->
-<!-- SCRIPTS -->
-<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<%--<script src="../welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--%>
-<!--<script>window.jQuery || document.write('<script src="./welcomeBootstrapFiles/jquery-slim.min.js"><\/script>')</script><script src="./welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
-<%--<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>--%>
-<!-- /SCRIPTS -->
+    <!-- /SCRIP FOR DRAGING -->
+    <!-- /OUR SCRIPTS -->
+    <!-- SCRIPTS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <%--<script src="../welcomeBootstrapFiles/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--%>
+    <!--<script>window.jQuery || document.write('<script src="./welcomeBootstrapFiles/jquery-slim.min.js"><\/script>')</script><script src="./welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
+    <%--<script>window.jQuery || document.write('<script src="/docs/4.3.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../welcomeBootstrapFiles/bootstrap.bundle.min.js.download" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>--%>
+    <!-- /SCRIPTS -->
 </body>
 </html>

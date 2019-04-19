@@ -21,6 +21,7 @@ public class MonitoringController {
 
 	private HashMap<Integer, String> peLinks;
 	private HashMap<Integer, String> cpeLinks;
+	private PagesController pagesController;
 
 	public void setLinksDto (HashMap<Integer, String> peLinks, HashMap<Integer, String> cpeLinks) {
 		this.peLinks = peLinks;
@@ -61,52 +62,32 @@ public class MonitoringController {
 		cpePeService.deletePe(peDao.getIp());
 	}
 
-	@PostMapping ( "/allCpe" )
-	public List<CpeDao> getAllCpe ( ) {
-		return cpePeService.findAllCpe();
-	}
-
-	@PostMapping ( "/allPe" )
-	public List<PeDao> getAllPe ( ) {
-		return cpePeService.findAllPe();
-	}
-
 	@GetMapping ( "/welcome" )
 	public ModelAndView welcomePage ( ) {
-
-		return new ModelAndView("WelcomePage");
+		ModelAndView model = new ModelAndView("WelcomePage");
+		peLinks = new HashMap<>();
+		peLinks.put(1,"http://localhost:8080/pe/add");
+		cpeLinks = new HashMap<>();
+		cpeLinks.put(1,"http://localhost:8080/cpe/add");
+		model.addObject("linksCpe", cpeLinks);
+		model.addObject("linksPe", peLinks);
+		return model;
 	}
 
 	@ModelAttribute("CpeDaoList")
-	public List<CpeDao> cpeDao(){
+	public List<CpeDao> getAllCpe(){
 		return cpePeService.findAllCpe();
 	}
 
 	@ModelAttribute("PeDaoList")
-	public List<PeDao> PeDao(){
+	public List<PeDao> getAllPe(){
 		return cpePeService.findAllPe();
 	}
 
-	@ModelAttribute("PeLinksMap")
-	public HashMap<Integer, String> peLinks(){
-		peLinks = new HashMap<>();
-		peLinks.put(1,"123");
-		peLinks.put(2,"1234");
-		peLinks.put(3,"12345");
-		return peLinks;
-	}
-
-	@ModelAttribute("CpeLinksMap")
-	public HashMap<Integer, String> cpeLinks(){
-		cpeLinks = new HashMap<>();
-		cpeLinks.put(1,"123");
-		cpeLinks.put(2,"1234");
-		cpeLinks.put(3,"12345");
-		return cpeLinks;
-	}
 	@GetMapping ( "/getAllLists" )
 	public String getAllLists () {
 		List<PeDao> listPe = getAllPe();
+		List<CpeDao> listCpe = getAllCpe();
 		String str = "<div class=\"divPe\">";
 		for (PeDao pe:listPe){
 			str+= " <a href=\"#\" class=\"list-group-item list-group-item-action\">"+ pe.getIp()+ "</a>"+
@@ -116,5 +97,10 @@ public class MonitoringController {
 		str+="</div>";
 		return str;
 	}
-}
 
+	@GetMapping ( "/index" )
+	public ModelAndView index ( ) {
+		ModelAndView model = new ModelAndView("Index");
+		return model;
+	}
+}
