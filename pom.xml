@@ -2,6 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.netcracker.edu</groupId>
+    <artifactId>2018-hacker-nutcracker</artifactId>
+    <version>0.0.1</version>
+
+    <developers>
+        <developer>
+            <id>IsaykovArtem</id>
+            <name>Isaykov Atrem</name>
+            <email>a.isaykov@bk.ru</email>
+        </developer>
+        <developer>
+            <id>Dimas</id>
+            <name>Dima Bykov</name>
+            <email>db7709004@mail.ru</email>
+        </developer>
+    </developers>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

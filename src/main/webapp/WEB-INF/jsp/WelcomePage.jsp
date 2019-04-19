@@ -27,7 +27,7 @@
             /*color: #fff; !* Цвет текста *!*/
             /*background-image: url(images/map.jpg);*/
             backdrop-repeat: no-repeat;
-            color: white;
+            color: black;
             background-size: cover;
         }
     </style>
@@ -40,11 +40,8 @@
     <!-- DRAGIN CSS -->
     <style>
         #container {
-            width: 1355px;
-            height: 1000px;
-            /*background-color: #333;*/
-            /*min-width: 100%;*/
-            /*min-height: 100%;*/
+            width: 1920px;
+            height: 1030px;
             position: relative;
             display: flex;
             align-items: center;
@@ -52,23 +49,12 @@
             overflow: hidden;
             border-radius: 7px;
             touch-action: none;
-
         }
 
         .item {
             border-radius: 50%;
             touch-action: none;
             user-select: none;
-            /*position: relative;*/
-        }
-
-        .one {
-            width: 100px;
-            height: 100px;
-            background-color: rgb(245, 230, 99);
-            border: 10px solid rgba(136, 136, 136, .5);
-            top: 0px;
-            left: 0px;
         }
 
         .two {
@@ -76,10 +62,6 @@
             height: 60px;
             background-color: rgba(196, 241, 190, 1);
             border: 10px solid rgba(136, 136, 136, .5);
-            /*top: 30%;*/
-            /*left: 10%;*/
-            /*top: 0%;*/
-            /*left: 0%;*/
         }
 
         .three {
@@ -87,19 +69,6 @@
             height: 40px;
             background-color: rgb(0, 255, 231);
             border: 10px solid rgba(136, 136, 136, .5);
-            /*top: -40%;*/
-            /*left: -10%;*/
-            /*top: 0%;*/
-            /*left: 0%;*/
-        }
-
-        .four {
-            width: 80px;
-            height: 80px;
-            background-color: rgb(233, 210, 244);
-            border: 10px solid rgba(136, 136, 136, .5);
-            top: -10%;
-            left: 5%;
         }
 
         .item:active {
@@ -116,10 +85,36 @@
 
     </style>
     <!-- /DRAGIN CSS -->
-
+        <style>
+        .descr{
+            display:none;
+            padding-top: 13px;
+            padding-left: 10px;
+            margin-top:-25px;
+            background:#f3f3f3;
+            -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+            -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+            box-shadow:0 5px 5px rgba(0,0,0,0.3);
+        }
+        .two:hover .descr{
+            display:block;
+            margin-left:55px;
+            height:200%;
+            top:100px;
+            z-index:9999;
+            width:200px;
+        }
+        .three:hover .descr{
+            display:block;
+            /*position:absolute;*/
+            margin-left:35px;
+            height:300%;
+            top:100px;
+            z-index:9999;
+            width:200px;
+        }
+    </style>
     <!-- /CSS -->
-
-
 </head>
 
 
@@ -131,8 +126,8 @@
 
 <style>
     body{
-        width: 1366px;
-        height: 100%;
+        width: 1920px;
+        height: 1030px;
     }
 </style>
 
@@ -203,14 +198,16 @@
                 </button>
             </div>
                 <!-- List Cpe -->
+
                 <div class="list-group">
-                    <c:forEach var="CpeDao" items="${CpeDaos}">
-                    <a href="#" class="list-group-item list-group-item-action">${CpeDao.ip}</a>
-                    </c:forEach>
+<%--                    <c:forEach var="CpeDao" items="${CpeDaos}">--%>
+<%--                    <a href="#" class="list-group-item list-group-item-action">${CpeDao.ip}</a>--%>
+<%--                    </c:forEach>--%>
 <%--                    <c:forEach  items="${CpeLinksMap}" var="cpelink">--%>
 <%--                        <a href="#" class="list-group-item list-group-item-action">${cpelink.value}</a>--%>
 <%--                    </c:forEach>--%>
                 </div>
+
                 <!-- /List Cpe -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -232,11 +229,13 @@
                 </button>
             </div>
             <!-- List Pe -->
+            <div id="result">
             <div class="list-group">
-                <c:forEach var="PeDao" items="${PeDaos}">
-                    <a href="#" class="list-group-item list-group-item-action">${PeDao.ip}</a>
-                </c:forEach>
+<%--                <c:forEach var="PeDao" items="${PeDaos}">--%>
+<%--                    <a href="#" class="list-group-item list-group-item-action">${PeDao.ip}</a>--%>
+<%--                </c:forEach>--%>
 
+            </div>
             </div>
             <!-- /List Pe -->
             <div class="modal-footer">
@@ -323,27 +322,32 @@
 <!-- /Modal for add PE-->
 
 <!-- MAP -->
-<%--<main role="main" class="container">--%>
-<%--<div id="outerContainer">--%>
     <div id="container">
         <c:forEach  items="${PeDaoList}" var="PeDao">
-            <div class="item two">
+            <div class="item two newPos">
                 <style>
-                    .two{
-                        /*position: absolute; !* Абсолютное позиционирование *!*/
+                    .newPos{
+                        position: absolute; /* Абсолютное позиционирование */
                         bottom: ${PeDao.coordinateX}px; /* Положение от нижнего края */
                         right: ${PeDao.coordinateY}px; /* Положение от правого края */
                         line-height: 1px;
                     }
                 </style>
+
                 PE
+                <div class="descr">
+                    <p>${PeDao.ip}</p>
+                    <p >${PeDao.downlinkSpeed}</p>
+                    <p >${PeDao.temperature} </p>
+                    <p >${PeDao.fanActive} </p>
+                </div>
             </div>
         </c:forEach>
 
         <c:forEach  items="${CpeDaoList}" var="CpeDao">
-            <div class="item three newPos">
+            <div class="item three newPos1">
                 <style>
-                    .newPos{
+                    .newPos1{
                         position: absolute; /* Абсолютное позиционирование */
                         bottom: ${CpeDao.coordinateX}px; /* Положение от нижнего края */
                         right: ${CpeDao.coordinateY}px; /* Положение от правого края */
@@ -351,22 +355,37 @@
                     }
                 </style>
                 CPE
+                <div class="descr">
+                    <p>${CpeDao.ip}</p>
+                    <p >${CpeDao.downlinkSpeed}</p>
+                    <p >${CpeDao.internetActive} </p>
+                </div>
             </div>
         </c:forEach>
 
+        <div class="item three newPos2">
+            <style>
+                .newPos2{
+                    position: absolute; /* Абсолютное позиционирование */
+                    bottom: 300px; /* Положение от нижнего края */
+                    right: 300px; /* Положение от правого края */
+                    line-height: 1px;
+                }
+            </style>
+            CPE
+            <div class="descr">
+                <p>ПОШЁЛ НАХУЙ</p>
+                <p >ПОШЁЛ НАХУЙ</p>
+                <p >ПОШЁЛ </p>
+            </div>
+
+        </div>
     </div>
-<%--</div>--%>
-<%--</main>--%>
-    <div class="cpe">CPE</div>
-
-</main>
-
+<!-- /MAP -->
 
 <!-- Test Artem Scrypt-->
-
 <script >setInterval('refresh()', 1000)</script><!-- call refresh.js-->
-<div id="result"></div><!-- result rafresh.js-->
-<!-- /MAP -->
+<!-- result rafresh.js-->
 <!-- OUR SCRIPTS -->
 <!-- SCRIP FOR DRAGING -->
 <script>

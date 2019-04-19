@@ -105,7 +105,7 @@ public class MonitoringController {
 		return cpeLinks;
 	}
 	@GetMapping ( "/getAllLists" )
-	public String test () {
+	public String getAllLists () {
 		List<PeDao> listPe = getAllPe();
 		String str = "<div class=\"divPe\">";
 		for (PeDao pe:listPe){
