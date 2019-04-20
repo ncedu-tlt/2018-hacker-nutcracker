@@ -121,3 +121,17 @@ function changePeFan(link) {
     xhr.open("GET", "" + link + '/' + val1, true);
     xhr.send(null);
 }
+function message() {
+    var XMLHttpRequestObject = false;
+    if (window.XMLHttpRequest)
+        XMLHttpRequestObject = new XMLHttpRequest();
+    if (XMLHttpRequestObject) {
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/message", false);
+        XMLHttpRequestObject.onreadystatechange = function () {
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById('messageId').innerHTML = XMLHttpRequestObject.responseText;
+            }
+        }
+        XMLHttpRequestObject.send(null);
+    }
+}

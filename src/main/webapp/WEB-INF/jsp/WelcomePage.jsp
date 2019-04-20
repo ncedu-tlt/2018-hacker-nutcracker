@@ -82,7 +82,8 @@
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .two:hover .descr {
+        /*.two:hover .descr, .two .descr:hover {*/
+        .two:hover .descr{
             display: block;
             margin-left: 55px;
             margin-top: -50px;
@@ -91,6 +92,7 @@
             width: 200px;
         }
 
+        /*.three:hover .descr,.three .descr:hover {*/
         .three:hover .descr {
             display: block;
             margin-left: 75px;
@@ -275,9 +277,10 @@
                         <label for="inputPeIp">PE IP address</label>
                         <input type="text" class="form-control" id="inputPeIp" placeholder="192.168.1.1">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="sendPe('<%=linksPe.get(1)%>')">Добавить
+                    <button  type="submit" class="btn btn-primary" onclick="sendPe('<%=linksPe.get(1)%>')">Добавить
                     </button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <span style="visibility: hidden">.</span>
+                    <button  type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 </form>
                 <!-- /Form for data PE-->
             </div>
@@ -289,6 +292,7 @@
 <!-- MAP -->
 <div id="container">
     <div id="refreshPeAndCpe"></div>
+<%--    <div id="messageId"></div>--%>
 </div>
 <!-- /MAP -->
 
@@ -347,7 +351,7 @@
 
             var coords = activeItem.getBoundingClientRect();
             var strElementId = activeItem.id;
-            refreshXY(strElementId, (coords.top - 50), coords.left);
+            refreshXY(strElementId, (coords.top +50), coords.left);
         }
 
         active = false;
