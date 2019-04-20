@@ -30,16 +30,24 @@ public class CpePeService {
 		peRepository.save(pe);
 	}
 
+	public CpeDao getCpeByIp(String ip){return cpeRepository.getOne(ip);}
+
+	public PeDao getPeByIp(String ip){return peRepository.getOne(ip);}
+
 	public void deletePe (String ip) {
 		peRepository.deleteById(ip);
 	}
 
 	public List<CpeDao> findAllCpe ( ) {
-		return cpeRepository.findAll();
+		List<CpeDao> list = cpeRepository.findAll();
+		list.sort((o1, o2) -> o1.getIp().compareToIgnoreCase(o2.getIp()));
+		return list;
 	}
 
 	public List<PeDao> findAllPe ( ) {
-		return peRepository.findAll();
+		List<PeDao> list = peRepository.findAll();
+		list.sort((o1, o2) -> o1.getIp().compareToIgnoreCase(o2.getIp()));
+		return list;
 	}
 
 }

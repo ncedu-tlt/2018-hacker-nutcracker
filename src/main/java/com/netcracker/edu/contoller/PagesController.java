@@ -37,17 +37,16 @@ public class PagesController {
 	public String refreshPeAndCpe ( ) {
 		List<PeDao> listPe = cpePeService.findAllPe();
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
-
 		String str = "";
 
 		for (int i = 0; i < listPe.size(); i++) {
-			str += " <div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
-					"left: " + listPe.get(i).getCoordinateY() + "px;" + "\">\n" +
+			str += "<div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
+					"left: " + listPe.get(i).getCoordinateY() + "px; id=\"block1\">\n" +
 
 					"                <div class=\"descr\">\n" +
 					"                    <p>" + "IP:          " + listPe.get(i).getIp() + "</p>\n" +
-					"                    <p>" + "Speed:       " + listPe.get(i).getDownlinkSpeed() + "</p>\n" +
-					"                    <p>" + "Temperature: " + listPe.get(i).getTemperature() + "</p>\n" +
+					"                    <p>" + "Speed:       " + listPe.get(i).getDownlinkSpeed() + " kb/s" + "</p>\n" +
+					"                    <p>" + "Temperature: " + listPe.get(i).getTemperature() + " C" + "</p>\n" +
 					"                    <p>" + "Fan:         " + listPe.get(i).isFanActive() + "</p>\n" +
 					"                </div>\n" +
 					"            </div>";
@@ -55,10 +54,10 @@ public class PagesController {
 
 		for (int i = 0; i < listCpe.size(); i++) {
 			str += " <div class=\"item three \" style=\"position: absolute; top: " + listCpe.get(i).getCoordinateX() + "px;" +
-					"left: " + listCpe.get(i).getCoordinateY() + "px;" + "\">\n" +
+					"left: " + listCpe.get(i).getCoordinateY() + "px;id=\"sblock2\" id=\"" + listCpe.get(i).getIp() + "\">\n" +
 					"                <div class=\"descr\">\n" +
 					"                    <p>" + "IP:          " + listCpe.get(i).getIp() + "</p>\n" +
-					"                    <p>" + "Speed:       " + listCpe.get(i).getDownlinkSpeed() + "</p>\n" +
+					"                    <p>" + "Speed:       " + listCpe.get(i).getDownlinkSpeed() + " kb/s" + "</p>\n" +
 					"                    <p>" + "Internet:    " + listCpe.get(i).isInternetActive() + "</p>\n" +
 					"                </div>\n" +
 					"            </div>";

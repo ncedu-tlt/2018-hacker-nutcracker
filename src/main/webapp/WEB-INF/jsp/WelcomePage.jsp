@@ -8,14 +8,18 @@
 <% HashMap<Integer, String> linksCpe = (HashMap<Integer, String>) request.getAttribute("linksCpe");%>
 <% HashMap<Integer, String> linksPe = (HashMap<Integer, String>) request.getAttribute("linksPe");%>
 <head>
+    <%--    Скрипты для линий между блоками--%>
+    <%--    Скрипты для линий между блоками--%>
+
     <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <style src="..//css/line.css"></style>
     <title>Главная страница</title>
+    <!-- CSS -->
     <style>
         body {
             background: #c7b39b url(../images/map1.jpg);
@@ -26,8 +30,6 @@
             height: 1030px;
         }
     </style>
-    <!-- CSS -->
-
     <!-- DRAGIN CSS -->
     <style>
         #container {
@@ -103,11 +105,11 @@
     <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188">
 </head>
 <body>
-    <script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
+<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
+<script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
+<script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script>
 
-    <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
-    <script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script>
-    <script>
+<script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
@@ -122,21 +124,21 @@
 
     ga('create', 'UA-4481610-59', 'auto');
     ga('send', 'pageview');
-    </script>
-    <!-- NAVIGATION BAR-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <style>
-            <%--        это низ навигационного бара после которого идут остальные окна   50--%>
-            body {
-                padding-top: 50px;
-            }
-        </style>
+</script>
+<!-- NAVIGATION BAR-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <style>
+        <%--        это низ навигационного бара после которого идут остальные окна   50--%>
+        body {
+            padding-top: 50px;
+        }
+    </style>
 
-        <a class="navbar-brand" href="">Название??</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    <a class="navbar-brand" href="">Мониторинг сети</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -157,7 +159,7 @@
             </li>
         </ul>
     </div>
-    </nav>
+</nav>
 <!-- /NAVIGATION BAR-->
 
 <!-- Modal for List Cpe -->
@@ -291,11 +293,10 @@
 <!-- /MAP -->
 
 <script>
-    setInterval('refresh1()', 2000)
-    setInterval('refresh2()', 2000)
-    setInterval('refresh3()', 2000)
+    setInterval('refresh1()', 3000);
+    setInterval('refresh2()', 3000);
+    setInterval('refresh3()', 2000);
 </script><!-- call refresh.js-->
->
 <!-- SCRIP FOR DRAGING -->
 <script>
     var container = document.querySelector("#container");
@@ -316,7 +317,6 @@
         if (e.target !== e.currentTarget) {
             active = true;
 
-            // this is the item we are interacting with
             activeItem = e.target;
 
             if (activeItem !== null) {
@@ -344,6 +344,10 @@
         if (activeItem !== null) {
             activeItem.initialX = activeItem.currentX;
             activeItem.initialY = activeItem.currentY;
+
+            var coords = activeItem.getBoundingClientRect();
+            var strElementId = activeItem.id;
+            refreshXY(strElementId, (coords.top - 50), coords.left);
         }
 
         active = false;

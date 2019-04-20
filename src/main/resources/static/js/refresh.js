@@ -3,7 +3,7 @@ function refresh1() {
     if (window.XMLHttpRequest)
         XMLHttpRequestObject = new XMLHttpRequest();
     if (XMLHttpRequestObject) {
-        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListPe", false);
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListPe", true);
         XMLHttpRequestObject.onreadystatechange = function () {
             if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
                 document.getElementById('peListId').innerHTML = XMLHttpRequestObject.responseText;
@@ -18,7 +18,7 @@ function refresh2() {
     if (window.XMLHttpRequest)
         XMLHttpRequestObject = new XMLHttpRequest();
     if (XMLHttpRequestObject) {
-        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListCpe", false);
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/getListCpe", true);
         XMLHttpRequestObject.onreadystatechange = function () {
             if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
                 document.getElementById('cpeListId').innerHTML = XMLHttpRequestObject.responseText;
@@ -33,7 +33,7 @@ function refresh3() {
     if (window.XMLHttpRequest)
         XMLHttpRequestObject = new XMLHttpRequest();
     if (XMLHttpRequestObject) {
-        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/refreshPeAndCpe", false);
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/refreshPeAndCpe", true);
         XMLHttpRequestObject.onreadystatechange = function () {
             if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
                 document.getElementById('refreshPeAndCpe').innerHTML = XMLHttpRequestObject.responseText;
@@ -41,6 +41,27 @@ function refresh3() {
         }
         XMLHttpRequestObject.send(null);
     }
+}
+
+function message() {
+    var XMLHttpRequestObject = false;
+    if (window.XMLHttpRequest)
+        XMLHttpRequestObject = new XMLHttpRequest();
+    if (XMLHttpRequestObject) {
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/message", true);
+        XMLHttpRequestObject.onreadystatechange = function () {
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById('messageId').innerHTML = XMLHttpRequestObject.responseText;
+            }
+        }
+        XMLHttpRequestObject.send(null);
+    }
+}
+
+function refreshXY(ip, x, y) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8082/service/refreshXY/" + ip + "/" + x + "/" + y, false);
+    xhr.send(null);
 }
 
 function sendCpe(link) {
