@@ -110,7 +110,7 @@ public class PagesController {
 					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deleteCpe('" + monitoringController.getCpeLinks().get(2) + "/" + listCpe.get(i).getIp() + "')\">Удалить\n" +
 					"                    </button>" ;
 			str +=
-					"                </div>\n" +
+					"               </div>\n" +
 							"            </div>";
 		}
 		return str;
