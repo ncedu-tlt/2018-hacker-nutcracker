@@ -7,43 +7,32 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <% HashMap<Integer, String> linksCpe = (HashMap<Integer, String>) request.getAttribute("linksCpe");%>
 <% HashMap<Integer, String> linksPe = (HashMap<Integer, String>) request.getAttribute("linksPe");%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src=" https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <head>
-    <%--    Скрипты для линий между блоками--%>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src=" https://code.jquery.com/jquery-3.4.0.min.js"></script>
-    <%--    Скрипты для линий между блоками--%>
-
     <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<%--        <script src="/js/jquery.js"></script>--%>
     <style src="..//css/line.css"></style>
     <title>Главная страница</title>
     <!-- CSS -->
     <style>
         body {
-            background: #c7b39b url(../images/map1.jpg);
+            background: #c7b39b url(/images/map1.jpg);
+            /*background: #c7b39b url(../images/map1.jpg);*/
             backdrop-repeat: no-repeat;
             color: black;
             background-size: cover;
-            /*width: 1920px;*/
-            /*height: 1030px;*/
-            width: 1366px;
-            height: 768px;
+            width: 1920px;
+            height: 1080px;
         }
     </style>
     <!-- DRAGIN CSS -->
     <style>
         #container {
-            /*width: 1920px;*/
-            /*height: 1030px;*/
-            /*width: 1366px;*/
-            /*height: 768px;*/
-            width: 100%;
-            height: 100%;
+            width: 1920px;
+            height: 1080px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -51,19 +40,20 @@
             border-radius: 7px;
             touch-action: none;
             position: relative;
-
         }
 
         .two {
             width: 50px;
             height: 50px;
-            background: url(../images/PE.png);
+            background: url(/images/PE.png);
+            /*background: url(../images/PE.png);*/
         }
 
         .three {
             width: 60px;
             height: 48px;
-            background: url(../images/CPE.png);
+            background: url(/images/CPE.png);
+            /*background: url(../images/CPE.png);*/
         }
 
         .item:active {
@@ -76,6 +66,9 @@
 
         h1 {
             margin-bottom: 10px;
+        }
+        .pcl{
+            margin-left: 10px;
         }
 
     </style>
@@ -144,13 +137,11 @@
 
     <!-- /CSS -->
     <link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
-    <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188">
-<%--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>--%>
-
 </head>
 <body>
-<%--<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->--%>
-<script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
+<script async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
 <script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script>
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -245,7 +236,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="PeListTitle">Списко PE</h5>
+                <h5 class="modal-title" id="PeListTitle">Список PE</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -339,25 +330,21 @@
 </div>
 <!-- /Modal for add PE-->
 
-
+<!-- MAP -->
 <div id="container">
-<%--    <svg height="1366px" width="768px" id>--%>
-        <div id="refreshPeAndCpe"></div>
-<%--    </svg>--%>
+    <svg width="1920px" height="1080px" id="svgId" style="z-index: 5; pointer-events: none;"></svg>
+    <div id="refreshPeAndCpe" style="z-index: 10"></div>
 </div>
 <!-- /MAP -->
-
-
 <script>
     setInterval('refresh1()', 3000);
     setInterval('refresh2()', 3000);
     setInterval('refresh3()', 2000);
+    setInterval('lines()', 2000);
 </script><!-- call refresh.js-->
-<!-- SCRIP FOR DRAGING -->
 <script>
     var container = document.querySelector("#container");
     var activeItem = null;
-
     var active = false;
 
     container.addEventListener("touchstart", dragStart, false);
@@ -369,21 +356,16 @@
     container.addEventListener("mousemove", drag, false);
 
     function dragStart(e) {
-
         if (e.target !== e.currentTarget) {
             active = true;
-
             activeItem = e.target;
-
             if (activeItem !== null) {
                 if (!activeItem.xOffset) {
                     activeItem.xOffset = 0;
                 }
-
                 if (!activeItem.yOffset) {
                     activeItem.yOffset = 0;
                 }
-
                 if (e.type === "touchstart") {
                     activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
                     activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
@@ -403,7 +385,7 @@
 
             var coords = activeItem.getBoundingClientRect();
             var strElementId = activeItem.id;
-            refreshXY(strElementId, (coords.top +50), coords.left);
+            refreshXY(strElementId, (coords.top), coords.left);
         }
 
         active = false;
@@ -414,17 +396,14 @@
         if (active) {
             if (e.type === "touchmove") {
                 e.preventDefault();
-
                 activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
                 activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
             } else {
                 activeItem.currentX = e.clientX - activeItem.initialX;
                 activeItem.currentY = e.clientY - activeItem.initialY;
             }
-
             activeItem.xOffset = activeItem.currentX;
             activeItem.yOffset = activeItem.currentY;
-
             setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
         }
     }
@@ -433,12 +412,10 @@
         el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     }
 </script>
-<!-- /SCRIP FOR DRAGING -->
 <!-- SCRIPTS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

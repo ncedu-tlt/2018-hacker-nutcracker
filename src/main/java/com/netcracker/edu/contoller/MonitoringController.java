@@ -22,23 +22,23 @@ public class MonitoringController {
 	private HashMap<Integer, String> peLinks = new HashMap<>();
 	private HashMap<Integer, String> cpeLinks = new HashMap<>();
 
-    public HashMap<Integer, String> getPeLinks ( ) {
-        peLinks.put(1, "http://localhost:8081/pe/add");
-        peLinks.put(2, "http://localhost:8081/pe/delete");
-        peLinks.put(3, "http://localhost:8081/pe/fan");
-        return peLinks;
-    }
-
-    public HashMap<Integer, String> getCpeLinks ( ) {
-        cpeLinks.put(1, "http://localhost:8080/cpe/add");
-        cpeLinks.put(2, "http://localhost:8080/cpe/delete");
-        cpeLinks.put(3, "http://localhost:8080/cpe/internet");
-        return cpeLinks;
-    }
-
 	public void setLinksDto (HashMap<Integer, String> peLinks, HashMap<Integer, String> cpeLinks) {
 		this.peLinks = peLinks;
 		this.cpeLinks = cpeLinks;
+	}
+
+	public HashMap<Integer, String> getPeLinks ( ) {
+		peLinks.put(1, "http://localhost:8081/pe/add");
+		peLinks.put(2, "http://localhost:8081/pe/delete");
+		peLinks.put(3, "http://localhost:8081/pe/fan");
+		return peLinks;
+	}
+
+	public HashMap<Integer, String> getCpeLinks ( ) {
+		cpeLinks.put(1, "http://localhost:8080/cpe/add");
+		cpeLinks.put(2, "http://localhost:8080/cpe/delete");
+		cpeLinks.put(3, "http://localhost:8080/cpe/internet");
+		return cpeLinks;
 	}
 
 	@PostMapping ( "/saveCpe" )
@@ -51,25 +51,21 @@ public class MonitoringController {
 		cpePeService.savePe(peDao);
 	}
 
-    @GetMapping ( "/deleteCpe/{ip}" )
-    public void deleteCpe (@PathVariable("ip") String ip) {
-        cpePeService.deleteCpe(ip);
-    }
+	@GetMapping ( "/deleteCpe/{ip}" )
+	public void deleteCpe (@PathVariable("ip") String ip) {
+		cpePeService.deleteCpe(ip);
+	}
 
-    @GetMapping ( "/deletePe/{ip}" )
-    public void deletePe (@PathVariable("ip") String ip) {
-        cpePeService.deletePe(ip);
-    }
+	@GetMapping ( "/deletePe/{ip}" )
+	public void deletePe (@PathVariable("ip") String ip) {
+		cpePeService.deletePe(ip);
+	}
 
 	@GetMapping ( "/welcome" )
 	public ModelAndView welcomePage ( ) {
 		ModelAndView model = new ModelAndView("WelcomePage");
-		peLinks = new HashMap<>();
-		peLinks.put(1, "http://localhost:8081/pe/add");
-		cpeLinks = new HashMap<>();
-		cpeLinks.put(1, "http://localhost:8080/cpe/add");
-		model.addObject("linksCpe", cpeLinks);
-		model.addObject("linksPe", peLinks);
+		model.addObject("linksCpe", getCpeLinks());
+		model.addObject("linksPe", getPeLinks());
 		return model;
 	}
 
@@ -123,15 +119,25 @@ public class MonitoringController {
 			intY = Integer.parseInt(y);
 		}
 		if (intX > 0 && intY > 0) {
-			if (cpe != null) {
+			try {
 				cpe.setCoordinateX(intX);
 				cpe.setCoordinateY(intY);
 				saveCpe(cpe);
-			} else {
+			}catch (Exception e) {
 				pe.setCoordinateX(intX);
 				pe.setCoordinateY(intY);
 				savePe(pe);
 			}
 		}
+	}
+
+	@GetMapping ( "/message" )
+	public String message ( ) {
+		return pagesController.tempMassage();
+	}
+
+	@GetMapping ( "/lines" )
+	public String lines ( ) {
+		return pagesController.lines();
 	}
 }

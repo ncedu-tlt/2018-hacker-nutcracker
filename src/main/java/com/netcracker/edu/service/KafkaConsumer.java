@@ -27,9 +27,15 @@ public class KafkaConsumer {
 		Gson gson = builder.create();
 		if (message.indexOf("fanActive") != -1) {
 			PeDao pe = gson.fromJson(message, PeDao.class);
+			PeDao peLast = monitoringController.getPeByIp(pe.getIp());
+			pe.setCoordinateX(peLast.getCoordinateX());
+			pe.setCoordinateY(peLast.getCoordinateY());
 			monitoringController.savePe(pe);
 		} else if (message.indexOf("internetActive") != -1) {
 			CpeDao cpe = gson.fromJson(message, CpeDao.class);
+			CpeDao cpeLast = monitoringController.getCpeByIp(cpe.getIp());
+			cpe.setCoordinateX(cpeLast.getCoordinateX());
+			cpe.setCoordinateY(cpeLast.getCoordinateY());
 			monitoringController.saveCpe(cpe);
 		} else if (message.indexOf("8081") != -1) {
 			splitLinks(message, peLinks);
