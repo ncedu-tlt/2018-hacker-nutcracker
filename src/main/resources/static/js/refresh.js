@@ -99,28 +99,40 @@ function sendPe(link) {
 }
 
 function deleteCpe(link) {
-    var val1 = document.getElementById('deleteCpeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    alert(cpe);
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
+    var xhr2 = new XMLHttpRequest();
+    var cpe = link.substring(33);
+    alert(cpe);
+    xhr2.open("GET","http://localhost:8082/service/deleteCpe/" + cpe , true);
+    xhr2.send(null);
 }
 
 function deletePe(link) {
-    var val1 = document.getElementById('deletePeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link , true);
     xhr.send(null);
+    var xhr2 = new XMLHttpRequest();
+    var pe = link.substring(32);
+    alert(pe);
+    xhr2.open("GET","http://localhost:8082/service/deletePe/" + pe , true);
+    xhr2.send(null);
 }
 
 function changeCpeInternet(link) {
-    var val1 = document.getElementById('СpeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link , true);
     xhr.send(null);
 }
 
 function changePeFan(link) {
-    var val1 = document.getElementById('PeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
 }
+
 function message() {
     var XMLHttpRequestObject = false;
     if (window.XMLHttpRequest)

@@ -7,8 +7,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <% HashMap<Integer, String> linksCpe = (HashMap<Integer, String>) request.getAttribute("linksCpe");%>
 <% HashMap<Integer, String> linksPe = (HashMap<Integer, String>) request.getAttribute("linksPe");%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src=" https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <head>
     <%--    Скрипты для линий между блоками--%>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src=" https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <%--    Скрипты для линий между блоками--%>
 
     <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
@@ -16,7 +20,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style src="..//css/line.css"></style>
     <title>Главная страница</title>
     <!-- CSS -->
@@ -26,15 +29,21 @@
             backdrop-repeat: no-repeat;
             color: black;
             background-size: cover;
-            width: 1920px;
-            height: 1030px;
+            /*width: 1920px;*/
+            /*height: 1030px;*/
+            width: 1366px;
+            height: 768px;
         }
     </style>
     <!-- DRAGIN CSS -->
     <style>
         #container {
-            width: 1920px;
-            height: 1030px;
+            /*width: 1920px;*/
+            /*height: 1030px;*/
+            /*width: 1366px;*/
+            /*height: 768px;*/
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -42,6 +51,7 @@
             border-radius: 7px;
             touch-action: none;
             position: relative;
+
         }
 
         .two {
@@ -70,11 +80,33 @@
 
     </style>
     <!-- /DRAGIN CSS -->
-    <style>
+        <style>
         .descr {
-            display: none;
-            padding-top: 13px;
-            padding-left: 12px;
+        display: none;
+        }
+        .descrCPE {
+        /*display: none;*/
+        padding-top: 10px;
+        /*padding-left: 12px;*/
+        height: 370%;
+        width: 200px;
+        margin-left: 75px;
+        margin-top: -25px;
+        /*margin-top:-75px;*/
+        background: #f3f3f3;
+        -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .descrPE {
+            /*display: none;*/
+            padding-top: 10px;
+            /*padding-left: 12px;*/
+            height: 440%;
+            width: 200px;
+            margin-left: 55px;
+            margin-top: -50px;
             /*margin-top:-75px;*/
             background: #f3f3f3;
             -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
@@ -82,35 +114,44 @@
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /*.two:hover .descr, .two .descr:hover {*/
-        .two:hover .descr{
-            display: block;
-            margin-left: 55px;
-            margin-top: -50px;
-            height: 350%;
-            z-index: 9999;
-            width: 200px;
+        .two:hover .descrPE{
+        display: block;
+        margin-left: 55px;
+        margin-top: -50px;
+        height: 440%;
+        z-index: 9999;
+        width: 200px;
         }
 
-        /*.three:hover .descr,.three .descr:hover {*/
-        .three:hover .descr {
-            display: block;
-            margin-left: 75px;
-            margin-top: -25px;
-            height: 270%;
-            z-index: 9999;
-            width: 200px;
+        .three:hover .descrCPE {
+        display: block;
+        margin-left: 75px;
+        margin-top: -25px;
+        height: 370%;
+        z-index: 9999;
+        width: 200px;
         }
-    </style>
+        .pcl{
+            margin-left: 10px;
+        }
+        </style>
+
+        <style id="dark">
+            .descr{
+                display: block;
+            }
+        </style>
+
     <!-- /CSS -->
     <link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
     <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.188">
+<%--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>--%>
+
 </head>
 <body>
-<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
+<%--<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->--%>
 <script type="text/javascript" async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
 <script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script>
-
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -129,12 +170,6 @@
 </script>
 <!-- NAVIGATION BAR-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <style>
-        <%--        это низ навигационного бара после которого идут остальные окна   50--%>
-        body {
-            padding-top: 50px;
-        }
-    </style>
 
     <a class="navbar-brand" href="">Мониторинг сети</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -160,6 +195,21 @@
                 </div>
             </li>
         </ul>
+            <label class="btn btn-secondary"><input type="radio" name="chooseStyle" value="block" checked=""> <span style="vertical-align: 3px;">Динамика</span></label>
+        <label class="btn btn-secondary" style="margin-left: 10px"><input type="radio" name="chooseStyle" value="none"><span style="vertical-align: 3px;"> Статика</span> </label>
+            <script>
+                (function() {
+                    var styles = {
+                        block: $("#light"),
+                        none:  $("#dark").detach()
+                    };
+                    $("input[name=chooseStyle]").click(function() {
+                        var other = this.value === "block" ? "none" : "block";
+                        styles[this.value].appendTo('head');
+                        styles[other].detach();
+                    });
+                })();
+            </script>
     </div>
 </nav>
 <!-- /NAVIGATION BAR-->
@@ -289,12 +339,14 @@
 </div>
 <!-- /Modal for add PE-->
 
-<!-- MAP -->
+
 <div id="container">
-    <div id="refreshPeAndCpe"></div>
-<%--    <div id="messageId"></div>--%>
+<%--    <svg height="1366px" width="768px" id>--%>
+        <div id="refreshPeAndCpe"></div>
+<%--    </svg>--%>
 </div>
 <!-- /MAP -->
+
 
 <script>
     setInterval('refresh1()', 3000);
@@ -386,6 +438,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+<script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
