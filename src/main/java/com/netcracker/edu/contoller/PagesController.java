@@ -76,7 +76,7 @@ public class PagesController {
 			str += " <div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
 					"left: " + listPe.get(i).getCoordinateY() + "px; z-index: 10\" id=\"" + listPe.get(i).getIp() + "\">\n" +
 
-					"                <div class=\"descrPE\" name=\"test1\" style=\"display : none\">\n" +
+					"                <div class=\"descrPE descr\" name=\"test1\">\n" +
 					"                    <p class=\"pcl\">" + "IP:          " + listPe.get(i).getIp() + "</p>\n" +
 					"                    <p class=\"pcl\">" + "Speed:       " + listPe.get(i).getDownlinkSpeed() + " kb/s</p>\n" +
 					"                    <p class=\"pcl\">" + "Temperature: " + listPe.get(i).getTemperature() + " C </p>\n";
@@ -97,7 +97,7 @@ public class PagesController {
 		for (int i = 0; i < listCpe.size(); i++) {
 			str += " <div class=\"item three \" style=\"position: absolute; top: " + listCpe.get(i).getCoordinateX() + "px;" +
 					"left: " + listCpe.get(i).getCoordinateY() + "px;\" id=\"" + listCpe.get(i).getIp() + "\">\n" +
-					"                <div class=\"descrCPE\" name=\"test2\">\n" +
+					"                <div class=\"descrCPE descr\" name=\"test2\">\n" +
 					"                    <p class=\"pcl\">" + "IP:          " + listCpe.get(i).getIp() + "</p>\n" +
 					"                    <p class=\"pcl\">" + "Speed:       " + listCpe.get(i).getDownlinkSpeed() + " kb/s</p>\n";
 			if (listCpe.get(i).isInternetActive()) {

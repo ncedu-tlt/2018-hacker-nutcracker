@@ -77,6 +77,7 @@
         .descr {
         display: none;
         }
+
         .descrCPE {
         /*display: none;*/
         padding-top: 10px;
@@ -124,6 +125,7 @@
         z-index: 9999;
         width: 200px;
         }
+        
         .pcl{
             margin-left: 10px;
         }
