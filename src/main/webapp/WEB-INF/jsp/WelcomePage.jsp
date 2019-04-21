@@ -125,7 +125,7 @@
         z-index: 9999;
         width: 200px;
         }
-        
+
         .pcl{
             margin-left: 10px;
         }
@@ -342,7 +342,8 @@
     setInterval('refresh1()', 3000);
     setInterval('refresh2()', 3000);
     setInterval('refresh3()', 2000);
-    setInterval('lines()', 2000);
+    // setInterval('lines()', 2000);
+    setInterval('lines()', 500);
 </script><!-- call refresh.js-->
 <script>
     var container = document.querySelector("#container");

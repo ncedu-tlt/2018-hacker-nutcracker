@@ -6,6 +6,7 @@ import com.netcracker.edu.service.CpePeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -140,15 +141,36 @@ public class PagesController {
 		return str;
 	}
 
+	final static List<String > colors  =new ArrayList<>();
+	int kindOfSwitch=0;
 	public String lines() {
 		List<PeDao> listPe = cpePeService.findAllPe();
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
 		String str="";
+		for (int s=0; s<listPe.size();s++){
+			colors.add(((int)(Math.random() * (256)))+","+((int)(Math.random() * (256)))+","+ ((int)(Math.random() * (256))));
+		}
 		for (int j=0; j< listPe.size();j++) {
 			for (int i = 0; i < listCpe.size(); i++) {
 				if(listPe.get(j).getIp().equals(listCpe.get(i).getPeIpAddress())) {
-					str += "<line x1=\"" + (listPe.get(j).getCoordinateY()+25) + "\" y1=\"" + (listPe.get(j).getCoordinateX()+50) + "\" x2=\""
-							+ (listCpe.get(i).getCoordinateY()+25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX()+50) + "\" style=\"stroke:rgb(255,0,0);stroke-width:2\" />\n";
+						if (kindOfSwitch == 0) {
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 40px\" />\n";
+							kindOfSwitch++;
+						} else if (kindOfSwitch == 1){
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 35px\" />\n";
+							kindOfSwitch++;
+						}
+						else if (kindOfSwitch == 2){
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 30px\" />\n";
+							kindOfSwitch++;
+						}else {
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 25px\" />\n";
+							kindOfSwitch=0;
+						}
 				}
 			}
 		}
