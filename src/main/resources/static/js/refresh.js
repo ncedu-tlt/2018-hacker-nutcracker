@@ -43,21 +43,6 @@ function refresh3() {
     }
 }
 
-function message() {
-    var XMLHttpRequestObject = false;
-    if (window.XMLHttpRequest)
-        XMLHttpRequestObject = new XMLHttpRequest();
-    if (XMLHttpRequestObject) {
-        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/message", true);
-        XMLHttpRequestObject.onreadystatechange = function () {
-            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
-                document.getElementById('messageId').innerHTML = XMLHttpRequestObject.responseText;
-            }
-        }
-        XMLHttpRequestObject.send(null);
-    }
-}
-
 function refreshXY(ip, x, y) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:8082/service/refreshXY/" + ip + "/" + x + "/" + y, false);
@@ -99,37 +84,46 @@ function sendPe(link) {
 }
 
 function deleteCpe(link) {
-    var val1 = document.getElementById('deleteCpeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
+    var xhr2 = new XMLHttpRequest();
+    var cpe = link.substring(33);
+    xhr2.open("GET","http://localhost:8082/service/deleteCpe/" + cpe , true);
+    xhr2.send(null);
 }
 
 function deletePe(link) {
-    var val1 = document.getElementById('deletePeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link , true);
     xhr.send(null);
+    var xhr2 = new XMLHttpRequest();
+    var pe = link.substring(32);
+    xhr2.open("GET","http://localhost:8082/service/deletePe/" + pe , true);
+    xhr2.send(null);
 }
 
 function changeCpeInternet(link) {
-    var val1 = document.getElementById('СpeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link , true);
     xhr.send(null);
 }
 
 function changePeFan(link) {
-    var val1 = document.getElementById('PeIp').value;
-    xhr.open("GET", "" + link + '/' + val1, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
 }
-function message() {
+
+function lines() {
     var XMLHttpRequestObject = false;
     if (window.XMLHttpRequest)
         XMLHttpRequestObject = new XMLHttpRequest();
     if (XMLHttpRequestObject) {
-        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/message", false);
+        XMLHttpRequestObject.open("GET", "http://localhost:8082/service/lines", true);
         XMLHttpRequestObject.onreadystatechange = function () {
             if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
-                document.getElementById('messageId').innerHTML = XMLHttpRequestObject.responseText;
+                document.getElementById('svgId').innerHTML = XMLHttpRequestObject.responseText;
             }
         }
         XMLHttpRequestObject.send(null);
