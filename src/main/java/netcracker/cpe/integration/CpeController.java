@@ -1,7 +1,7 @@
 package netcracker.cpe.integration;
 
+import com.google.gson.Gson;
 import netcracker.cpe.entity.dao.CpeDao;
-import netcracker.cpe.entity.dto.CpeDto;
 import netcracker.cpe.entity.dto.PeDto;
 import netcracker.cpe.service.CpeService;
 import netcracker.cpe.service.SpeedGenerator;
@@ -34,35 +34,35 @@ public class CpeController {
 		return service.findAll();
 	}
 
-	@PostMapping ( "/add" )
-	public void addOne (@RequestBody CpeDao cpe) {
-		if (!cpe.isInternetActive()) {
-			cpe.setDownlinkSpeed(0);
-		}
+	@GetMapping ( "/add/{cpeStr}" )
+	public void addOne (@PathVariable ( "cpeStr" ) String cpeStr) {
+		Gson gson = new Gson();
+		CpeDao cpe = gson.fromJson(cpeStr, CpeDao.class);
+		cpe.setType("CPE");
+		cpe.setMaxDownlinkSpeed(1000);
+		cpe.setDownlinkSpeed(0);
+		cpe.setCoordinateX(100);
+		cpe.setCoordinateY(100);
 		service.saveCpe(cpe);
 	}
 
-	@PostMapping ( "/delete/{ip}" )
+	@GetMapping ( "/delete/{ip}" )
 	public void deleteByIp (@PathVariable String ip) {
 		service.deleteCpe(ip);
 	}
 
-	@GetMapping ( "/{ip}" )
-	public CpeDao getByIp (@PathVariable ( "ip" ) String ip) {
-		return service.getCpeByIp(ip);
-	}
-
-	@PostMapping ( "/internet" ) //for on/off internet
+	@GetMapping ( "/internet/{ip}" ) //for on/off internet
 	public @ResponseBody
-	ResponseEntity<HttpStatus> changeInternetStatus (@RequestBody CpeDto cpeDto) {
-		CpeDao cpeDao = service.getCpeByIp(cpeDto.getIp());
-		if (cpeDto.isInternetActive() == cpeDao.isInternetActive()) {
-			return new ResponseEntity(HttpStatus.CONFLICT);
+	ResponseEntity<HttpStatus> changeInternetStatus (@PathVariable ( "ip" ) String ip) {
+		CpeDao cpeDao = service.getCpeByIp(ip);
+		if (cpeDao.isInternetActive()) {
+			cpeDao.setInternetActive(false);
+			cpeDao.setDownlinkSpeed(0);
 		} else {
-			cpeDao.setInternetActive(cpeDto.isInternetActive());
-			service.saveCpe(cpeDao);
-			return new ResponseEntity(HttpStatus.OK);
+			cpeDao.setInternetActive(true);
 		}
+		service.saveCpe(cpeDao);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 	@PostMapping ( "/peData" )//for adoption PE and send CPE to kafka
@@ -74,9 +74,11 @@ public class CpeController {
 			listCpe = generator.generate(peDto, listCpe);
 			for (CpeDao cpe : listCpe) {
 				service.saveCpe(cpe);
-				kafkaTemplate.send(TOPIC, cpe);
 			}
 		}
+		listCpe = service.findAll();
+		listCpe.forEach(cpeDao -> kafkaTemplate.send(TOPIC, cpeDao));
+
 		String linkToAddCpe = "http://localhost:8080/cpe/add";
 		String linkToDeleteCpe = "http://localhost:8080/cpe/delete";
 		String linkToInternet = "http://localhost:8080/cpe/internet";
