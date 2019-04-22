@@ -62,8 +62,8 @@ public class PeController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping("/сpeData")
-    public void adoption(@RequestBody List<CpeDto> list) {
+    @RequestMapping(value = "/cpeData2", method = RequestMethod.POST)
+    public ResponseEntity adoption(@RequestBody List<CpeDto> list) {
 
         List<PeDao> listPe = peService.findAll();
         Integer speed = 0;
@@ -78,6 +78,7 @@ public class PeController {
             peService.savePe(peService.getPeByIp(listPe.get(i).getIp()));
             speed = 0;
         }
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @PostMapping("/sendPe")
