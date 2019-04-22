@@ -13,14 +13,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<%--        <script src="/js/jquery.js"></script>--%>
     <style src="..//css/line.css"></style>
     <title>Главная страница</title>
     <!-- CSS -->
     <style>
         body {
-            background: #c7b39b url(/images/map1.jpg);
-            /*background: #c7b39b url(../images/map1.jpg);*/
+            background: #c7b39b url(/images/map.jpg);
             backdrop-repeat: no-repeat;
             color: black;
             background-size: cover;
@@ -46,14 +44,12 @@
             width: 50px;
             height: 50px;
             background: url(/images/PE.png);
-            /*background: url(../images/PE.png);*/
         }
 
         .three {
             width: 60px;
             height: 48px;
             background: url(/images/CPE.png);
-            /*background: url(../images/CPE.png);*/
         }
 
         .item:active {
@@ -138,29 +134,13 @@
         </style>
 
     <!-- /CSS -->
-    <link href="../welcomeBootstrapFiles/starter-template.css" rel="stylesheet">
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
 <script async="" src="../welcomeBootstrapFiles/watch.js.download"></script>
 <script async="" src="../welcomeBootstrapFiles/analytics.js.download"></script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-4481610-59', 'auto');
-    ga('send', 'pageview');
-</script>
 <!-- NAVIGATION BAR-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
@@ -342,7 +322,6 @@
     setInterval('refresh1()', 3000);
     setInterval('refresh2()', 3000);
     setInterval('refresh3()', 2000);
-    // setInterval('lines()', 2000);
     setInterval('lines()', 500);
 </script><!-- call refresh.js-->
 <script>

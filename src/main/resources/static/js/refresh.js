@@ -66,7 +66,14 @@ function sendCpe(link) {
         peIpAddress: val2,
         isInternetActive: bool
     });
-    alert("123" + json);
+    var json2 = JSON.stringify({
+        ip: val1,
+        peIpAddress: val2,
+        internetActive: bool
+    });
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open("GET", "http://localhost:8082/service/addCpe/" + json2, true);
+    xhr2.send(null);
     xhr.open("GET", "" + link + '/' + json, true);
     xhr.send(null);
 }
@@ -79,6 +86,14 @@ function sendPe(link) {
         ip: val1,
     });
 
+    var json2 = JSON.stringify({
+        ip: val1,
+    });
+
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open("GET", "http://localhost:8082/service/addPe/" + json2, true);
+    xhr2.send(null);
+
     xhr.open("GET", "" + link + '/' + json, true);
     xhr.send(null);
 }
@@ -89,23 +104,23 @@ function deleteCpe(link) {
     xhr.send(null);
     var xhr2 = new XMLHttpRequest();
     var cpe = link.substring(33);
-    xhr2.open("GET","http://localhost:8082/service/deleteCpe/" + cpe , true);
+    xhr2.open("GET", "http://localhost:8082/service/deleteCpe/" + cpe, true);
     xhr2.send(null);
 }
 
 function deletePe(link) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "" + link , true);
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
     var xhr2 = new XMLHttpRequest();
     var pe = link.substring(32);
-    xhr2.open("GET","http://localhost:8082/service/deletePe/" + pe , true);
+    xhr2.open("GET", "http://localhost:8082/service/deletePe/" + pe, true);
     xhr2.send(null);
 }
 
 function changeCpeInternet(link) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "" + link , true);
+    xhr.open("GET", "" + link, true);
     xhr.send(null);
 }
 

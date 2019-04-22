@@ -1,5 +1,6 @@
 package com.netcracker.edu.contoller;
 
+import com.google.gson.Gson;
 import com.netcracker.edu.entity.dao.CpeDao;
 import com.netcracker.edu.entity.dao.PeDao;
 import com.netcracker.edu.service.CpePeService;
@@ -41,23 +42,39 @@ public class MonitoringController {
 		return cpeLinks;
 	}
 
-	@PostMapping ( "/saveCpe" )
-	public void saveCpe (@RequestBody CpeDao cpeDao) {
-		cpePeService.saveCpe(cpeDao);
+	@GetMapping ( "/addCpe/{cpeStr}" )
+	public void addOneCpe (@PathVariable ( "cpeStr" ) String cpeStr) {
+		Gson gson = new Gson();
+		CpeDao cpe = gson.fromJson(cpeStr, CpeDao.class);
+		cpe.setType("CPE");
+		cpe.setMaxDownlinkSpeed(1000);
+		cpe.setDownlinkSpeed(0);
+		cpe.setCoordinateX(100);
+		cpe.setCoordinateY(100);
+		cpePeService.saveCpe(cpe);
 	}
 
-	@PostMapping ( "/savePe" )
-	public void savePe (@RequestBody PeDao peDao) {
-		cpePeService.savePe(peDao);
+	@GetMapping ( "/addPe/{peStr}" )
+	public void addOnePe (@PathVariable ( "peStr" ) String peStr) {
+		Gson gson = new Gson();
+		PeDao pe = gson.fromJson(peStr, PeDao.class);
+		pe.setType("PE");
+		pe.setMaxDownlinkSpeed(10000);
+		pe.setDownlinkSpeed(0);
+		pe.setTemperature(40);
+		pe.setCoordinateX(100);
+		pe.setCoordinateY(200);
+		pe.setFanActive(false);
+		cpePeService.savePe(pe);
 	}
 
 	@GetMapping ( "/deleteCpe/{ip}" )
-	public void deleteCpe (@PathVariable("ip") String ip) {
+	public void deleteCpe (@PathVariable ( "ip" ) String ip) {
 		cpePeService.deleteCpe(ip);
 	}
 
 	@GetMapping ( "/deletePe/{ip}" )
-	public void deletePe (@PathVariable("ip") String ip) {
+	public void deletePe (@PathVariable ( "ip" ) String ip) {
 		cpePeService.deletePe(ip);
 	}
 
@@ -72,14 +89,6 @@ public class MonitoringController {
 	@ModelAttribute ( "CpeDaoList" )
 	public List<CpeDao> getAllCpe ( ) {
 		return cpePeService.findAllCpe();
-	}
-
-	public CpeDao getCpeByIp (String ip) {
-		return cpePeService.getCpeByIp(ip);
-	}
-
-	public PeDao getPeByIp (String ip) {
-		return cpePeService.getPeByIp(ip);
 	}
 
 	@ModelAttribute ( "PeDaoList" )
@@ -104,8 +113,8 @@ public class MonitoringController {
 
 	@GetMapping ( "/refreshXY/{ip}/{x}/{y}" )
 	public void refreshXY (@PathVariable ( "ip" ) String ip, @PathVariable ( "x" ) String x, @PathVariable ( "y" ) String y) {
-		CpeDao cpe = getCpeByIp(ip);
-		PeDao pe = getPeByIp(ip);
+		CpeDao cpe = cpePeService.getCpeByIp(ip);
+		PeDao pe = cpePeService.getPeByIp(ip);
 		Integer intX;
 		Integer intY;
 		try {
@@ -123,7 +132,7 @@ public class MonitoringController {
 				cpe.setCoordinateX(intX);
 				cpe.setCoordinateY(intY);
 				saveCpe(cpe);
-			}catch (Exception e) {
+			} catch (Exception e) {
 				pe.setCoordinateX(intX);
 				pe.setCoordinateY(intY);
 				savePe(pe);
@@ -139,5 +148,13 @@ public class MonitoringController {
 	@GetMapping ( "/lines" )
 	public String lines ( ) {
 		return pagesController.lines();
+	}
+
+	private void saveCpe (@RequestBody CpeDao cpeDao) {
+		cpePeService.saveCpe(cpeDao);
+	}
+
+	private void savePe (@RequestBody PeDao peDao) {
+		cpePeService.savePe(peDao);
 	}
 }

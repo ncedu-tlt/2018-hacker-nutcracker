@@ -30,9 +30,13 @@ public class CpePeService {
 		peRepository.save(pe);
 	}
 
-	public CpeDao getCpeByIp(String ip){return cpeRepository.getOne(ip);}
+	public CpeDao getCpeByIp (String ip) {
+		return cpeRepository.getOne(ip);
+	}
 
-	public PeDao getPeByIp(String ip){return peRepository.getOne(ip);}
+	public PeDao getPeByIp (String ip) {
+		return peRepository.getOne(ip);
+	}
 
 	public void deletePe (String ip) {
 		peRepository.deleteById(ip);

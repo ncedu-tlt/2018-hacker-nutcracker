@@ -10,5 +10,11 @@ import lombok.NoArgsConstructor;
 public class PeDto {
 
 	private String ip;
-	private boolean isFanActive;
+	private String type;
+	private Integer temperature;
+	private Integer maxDownlinkSpeed;
+	private Integer downlinkSpeed;
+	private boolean fanActive;
+	private Integer coordinateX;
+	private Integer coordinateY;
 }

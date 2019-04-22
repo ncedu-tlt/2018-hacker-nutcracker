@@ -10,5 +10,11 @@ import lombok.NoArgsConstructor;
 public class CpeDto {
 
 	private String ip;
-	private boolean isInternetActive;
+	private String type;
+	private boolean internetActive;
+	private Integer maxDownlinkSpeed;
+	private Integer downlinkSpeed;
+	private String peIpAddress;
+	private Integer coordinateX;
+	private Integer coordinateY;
 }

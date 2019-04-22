@@ -7,16 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class PagesController {
+
+	private final static HashMap<String, String> COLORS = new HashMap<>();
 
 	@Autowired
 	private CpePeService cpePeService;
 
 	@Autowired
 	private MonitoringController monitoringController;
+
+	private int kindOfSwitch = 0;
+	private List<PeDao> listPe = new ArrayList<>();
+	private List<CpeDao> listCpe = new ArrayList<>();
 
 	public String refreshListPe ( ) {
 		List<PeDao> listPe = cpePeService.findAllPe();
@@ -47,7 +54,7 @@ public class PagesController {
 		String str = "";
 		for (CpeDao cpe : listCpe) {
 
-			str +=  " <div class=\"accordion\" id=\"accordionExample\">\n" +
+			str += " <div class=\"accordion\" id=\"accordionExample\">\n" +
 					"  <div class=\"card\">\n" +
 					"    <div class=\"card-header\" id=\"headingTwo\">\n" +
 					"      <h5 class=\"mb-0\">\n" +
@@ -86,10 +93,10 @@ public class PagesController {
 			} else {
 				str += "                    <p class=\"pcl\">" + "Fan:         " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			}
-			str +=                    "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changeCpeInternet('"+ monitoringController.getPeLinks().get(3) + "/" + listPe.get(i).getIp() + "')\">Вкл/Выкл\n" +
+			str += "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changePeFan('" + monitoringController.getPeLinks().get(3) + "/" + listPe.get(i).getIp() + "')\">Вкл/Выкл\n" +
 					"                    </button>" +
-					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deleteCpe('" + monitoringController.getPeLinks().get(2) + "/" + listPe.get(i).getIp() + "')\">Удалить\n" +
-					"                    </button>" ;
+					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deletePe('" + monitoringController.getPeLinks().get(2) + "/" + listPe.get(i).getIp() + "')\">Удалить\n" +
+					"                    </button>";
 			str +=
 					"                </div>\n" +
 							"            </div>";
@@ -106,10 +113,10 @@ public class PagesController {
 			} else {
 				str += "                    <p class=\"pcl\">" + "Internet: " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			}
-			str +=                            "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changeCpeInternet('" + monitoringController.getCpeLinks().get(3) + "/" + listCpe.get(i).getIp() + "')\">Вкл/Выкл\n" +
+			str += "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changeCpeInternet('" + monitoringController.getCpeLinks().get(3) + "/" + listCpe.get(i).getIp() + "')\">Вкл/Выкл\n" +
 					"                    </button>" +
 					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deleteCpe('" + monitoringController.getCpeLinks().get(2) + "/" + listCpe.get(i).getIp() + "')\">Удалить\n" +
-					"                    </button>" ;
+					"                    </button>";
 			str +=
 					"               </div>\n" +
 							"            </div>";
@@ -120,7 +127,7 @@ public class PagesController {
 
 	public String tempMassage ( ) {
 		String str = "";
-		List<PeDao> listPe= cpePeService.findAllPe();
+		List<PeDao> listPe = cpePeService.findAllPe();
 		for (int i = 0; i < listPe.size(); i++) {
 			if (listPe.get(i).getTemperature() > 85) {
 				str += "<div class=\"toast\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">\n" +
@@ -141,36 +148,35 @@ public class PagesController {
 		return str;
 	}
 
-	final static List<String > colors  =new ArrayList<>();
-	int kindOfSwitch=0;
-	public String lines() {
-		List<PeDao> listPe = cpePeService.findAllPe();
-		List<CpeDao> listCpe = cpePeService.findAllCpe();
-		String str="";
-		for (int s=0; s<listPe.size();s++){
-			colors.add(((int)(Math.random() * (256)))+","+((int)(Math.random() * (256)))+","+ ((int)(Math.random() * (256))));
+	public String lines ( ) {
+		listPe = cpePeService.findAllPe();
+		listCpe = cpePeService.findAllCpe();
+		String str = "";
+		for (int s = 0; s < listPe.size(); s++) {
+			if (COLORS.get(listPe.get(s).getIp())==null){
+				COLORS.put(listPe.get(s).getIp(),((int) (Math.random() * (256)) + "," + ((int) (Math.random() * (256))) + "," + ((int) (Math.random() * (256)))));
+			}
 		}
-		for (int j=0; j< listPe.size();j++) {
+		for (int j = 0; j < listPe.size(); j++) {
 			for (int i = 0; i < listCpe.size(); i++) {
-				if(listPe.get(j).getIp().equals(listCpe.get(i).getPeIpAddress())) {
-						if (kindOfSwitch == 0) {
-							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 40px\" />\n";
-							kindOfSwitch++;
-						} else if (kindOfSwitch == 1){
-							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 35px\" />\n";
-							kindOfSwitch++;
-						}
-						else if (kindOfSwitch == 2){
-							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 30px\" />\n";
-							kindOfSwitch++;
-						}else {
-							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 50) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 50) + "\" style=\"stroke:rgb(" + colors.get(j) + ");stroke-width:2\" stroke-dasharray=\"50px 25px\" />\n";
-							kindOfSwitch=0;
-						}
+				if (listPe.get(j).getIp().equals(listCpe.get(i).getPeIpAddress())) {
+					if (kindOfSwitch == 0) {
+						str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 35) + "\" x2=\""
+								+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 35) + "\" style=\"stroke:rgb(" + COLORS.get(listPe.get(j).getIp()) + ");stroke-width:2\" stroke-dasharray=\"50px 40px\" />\n";
+						kindOfSwitch++;
+					} else if (kindOfSwitch == 1) {
+						str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 35) + "\" x2=\""
+								+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 35) + "\" style=\"stroke:rgb(" + COLORS.get(listPe.get(j).getIp()) + ");stroke-width:2\" stroke-dasharray=\"50px 35px\" />\n";
+						kindOfSwitch++;
+					} else if (kindOfSwitch == 2) {
+						str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 35) + "\" x2=\""
+								+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 35) + "\" style=\"stroke:rgb(" + COLORS.get(listPe.get(j).getIp()) + ");stroke-width:2\" stroke-dasharray=\"50px 30px\" />\n";
+						kindOfSwitch++;
+					} else {
+						str += "<line x1=\"" + (listPe.get(j).getCoordinateY() + 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 35) + "\" x2=\""
+								+ (listCpe.get(i).getCoordinateY() + 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 35) + "\" style=\"stroke:rgb(" + COLORS.get(listPe.get(j).getIp()) + ");stroke-width:2\" stroke-dasharray=\"50px 25px\" />\n";
+						kindOfSwitch = 0;
+					}
 				}
 			}
 		}
