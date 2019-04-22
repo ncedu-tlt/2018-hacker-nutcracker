@@ -1,6 +1,5 @@
 package netcrackerpe.pe.entity.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,13 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CpeDto {
 
-    private String ip;
-    private String type;
-    private boolean isInternetActive;
-    private Integer maxDownlinkSpeed;
-    private Integer downlinkSpeed;
-    private String peIpAddress;
-    private Integer coordinateX;
-    private Integer coordinateY;
+	private String ip;
+	private String type;
+	private boolean internetActive;
+	private Integer maxSpeed;
+	private Integer speed;
+	private String peIpAddress;
+	private Integer coordinateX;
+	private Integer coordinateY;
 
 }

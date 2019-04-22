@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class PeDto {
 
     private String ip;
-    private boolean isFanActive;
+    private boolean fanActive;
 }

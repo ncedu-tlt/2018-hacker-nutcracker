@@ -6,7 +6,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Locale;
 
-
 @SpringBootApplication
 @EnableScheduling
 public class PeApplication {
@@ -15,5 +14,4 @@ public class PeApplication {
         Locale.setDefault(Locale.ENGLISH);
         SpringApplication.run(PeApplication.class, args);
     }
-
 }

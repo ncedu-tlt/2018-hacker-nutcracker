@@ -14,7 +14,7 @@ public class TemperatureControll {
     @Autowired
     private PeService peService;
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 3500)
     public void controllTemperature() {
         List<PeDao> pe = peService.findAll();
 

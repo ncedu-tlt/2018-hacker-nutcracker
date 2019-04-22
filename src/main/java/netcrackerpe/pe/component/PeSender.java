@@ -1,6 +1,5 @@
 package netcrackerpe.pe.component;
 
-
 import netcrackerpe.pe.controller.PeController;
 import netcrackerpe.pe.entity.dao.PeDao;
 import netcrackerpe.pe.service.PeService;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class PeSender {
@@ -30,7 +28,6 @@ public class PeSender {
     @Scheduled(fixedRate = 2000)
     public void conversationWithCpe() {
         peController.sendPe();
-
         for (PeDao pe : peService.findAll()) {
             kafkaTemplate.send(TOPIC, pe);
         }
@@ -39,6 +36,5 @@ public class PeSender {
         String linkToInternet = "http://localhost:8081/pe/fan";
         String totalString = linkToAddCpe + ',' + linkToDeleteCpe + ',' + linkToInternet;
         kafkaTemplateString.send(TOPIC, totalString);
-
     }
 }
