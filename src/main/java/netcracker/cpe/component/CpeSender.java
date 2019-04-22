@@ -11,7 +11,7 @@ public class CpeSender {
 	@Autowired
 	CpeController cpeController;
 
-	@Scheduled ( fixedRate = 5000 )
+	@Scheduled ( fixedRate = 2000 )
 	public void dialogWithPe ( ) {
 		cpeController.sendCpe();
 	}
