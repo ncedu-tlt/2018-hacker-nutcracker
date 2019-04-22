@@ -47,8 +47,8 @@ public class MonitoringController {
 		Gson gson = new Gson();
 		CpeDao cpe = gson.fromJson(cpeStr, CpeDao.class);
 		cpe.setType("CPE");
-		cpe.setMaxDownlinkSpeed(1000);
-		cpe.setDownlinkSpeed(0);
+		cpe.setMaxSpeed(1000);
+		cpe.setSpeed(0);
 		cpe.setCoordinateX(100);
 		cpe.setCoordinateY(100);
 		cpePeService.saveCpe(cpe);
@@ -59,8 +59,8 @@ public class MonitoringController {
 		Gson gson = new Gson();
 		PeDao pe = gson.fromJson(peStr, PeDao.class);
 		pe.setType("PE");
-		pe.setMaxDownlinkSpeed(10000);
-		pe.setDownlinkSpeed(0);
+		pe.setMaxSpeed(10000);
+		pe.setSpeed(0);
 		pe.setTemperature(40);
 		pe.setCoordinateX(100);
 		pe.setCoordinateY(200);
@@ -138,11 +138,6 @@ public class MonitoringController {
 				savePe(pe);
 			}
 		}
-	}
-
-	@GetMapping ( "/message" )
-	public String message ( ) {
-		return pagesController.tempMassage();
 	}
 
 	@GetMapping ( "/lines" )

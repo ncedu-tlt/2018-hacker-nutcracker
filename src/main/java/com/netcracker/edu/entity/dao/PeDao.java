@@ -19,8 +19,8 @@ public class PeDao {
 	private String ip;
 	private String type;
 	private Integer temperature;
-	private Integer maxDownlinkSpeed;
-	private Integer downlinkSpeed;
+	private Integer speed;
+	private Integer maxSpeed;
 	private boolean fanActive;
 	private Integer coordinateX;
 	private Integer coordinateY;

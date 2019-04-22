@@ -23,14 +23,14 @@
             color: black;
             background-size: cover;
             width: 1920px;
-            height: 1080px;
+            height: 980px;
         }
     </style>
     <!-- DRAGIN CSS -->
     <style>
         #container {
-            width: 1920px;
-            height: 1080px;
+            width: 2020px;
+            height: 980px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -75,14 +75,11 @@
         }
 
         .descrCPE {
-        /*display: none;*/
         padding-top: 10px;
-        /*padding-left: 12px;*/
         height: 370%;
         width: 200px;
         margin-left: 75px;
         margin-top: -25px;
-        /*margin-top:-75px;*/
         background: #f3f3f3;
         -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
         -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
@@ -90,9 +87,7 @@
         }
 
         .descrPE {
-            /*display: none;*/
             padding-top: 10px;
-            /*padding-left: 12px;*/
             height: 440%;
             width: 200px;
             margin-left: 55px;

@@ -19,8 +19,8 @@ public class CpeDao {
 	private String ip;
 	private String type;
 	private boolean internetActive;
-	private Integer maxDownlinkSpeed;
-	private Integer downlinkSpeed;
+	private Integer maxSpeed;
+	private Integer speed;
 	private String peIpAddress;
 	private Integer coordinateX;
 	private Integer coordinateY;

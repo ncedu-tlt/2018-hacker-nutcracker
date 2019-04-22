@@ -32,6 +32,7 @@ public class KafkaConsumer {
 
 	@KafkaListener ( topics = "total_topic" )
 	public void consume (String message) {
+
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
 		List<PeDao> listPe = cpePeService.findAllPe();
 		GsonBuilder builder = new GsonBuilder();
@@ -61,7 +62,8 @@ public class KafkaConsumer {
 		for (PeDao peDao : listPe) {
 			if (peDao.getIp().equals(peDto.getIp())) {
 				peDao.setTemperature(peDto.getTemperature());
-				peDao.setDownlinkSpeed(peDto.getDownlinkSpeed());
+				peDao.setSpeed(peDto.getSpeed());
+				peDao.setFanActive(peDto.isFanActive());
 				cpePeService.savePe(peDao);
 			}
 		}
@@ -71,7 +73,7 @@ public class KafkaConsumer {
 		for (CpeDao cpeDao : listCpe) {
 			if (cpeDao.getIp().equals(cpeDto.getIp())) {
 				cpeDao.setInternetActive(cpeDto.isInternetActive());
-				cpeDao.setDownlinkSpeed(cpeDto.getDownlinkSpeed());
+				cpeDao.setSpeed(cpeDto.getSpeed());
 				cpePeService.saveCpe(cpeDao);
 			}
 		}

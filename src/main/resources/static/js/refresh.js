@@ -64,7 +64,7 @@ function sendCpe(link) {
     var json = JSON.stringify({
         ip: val1,
         peIpAddress: val2,
-        isInternetActive: bool
+        internetActive: bool
     });
     var json2 = JSON.stringify({
         ip: val1,
