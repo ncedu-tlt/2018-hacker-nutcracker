@@ -1,9 +1,8 @@
 package netcrackerpe.pe.controller;
 
+import com.google.gson.Gson;
 import netcrackerpe.pe.entity.dao.PeDao;
 import netcrackerpe.pe.entity.dto.CpeDto;
-import netcrackerpe.pe.entity.dto.PeDto;
-import netcrackerpe.pe.kafka.config.KafkaConfiguration;
 import netcrackerpe.pe.service.PeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,26 +18,29 @@ import java.util.List;
 public class PeController {
 
     @Autowired
-    private KafkaConfiguration kafkaConfiguration;
-
-    @Autowired
     private PeService peService;
-
-    private List<PeDao> peDaoList = new ArrayList<>();
-
 
     @GetMapping(value = "/all")
     public List<PeDao> getAll() {
         return peService.findAll();
     }
 
-    @PostMapping("/add")
-    public void add(@RequestBody PeDao pe) {
+    @GetMapping("/add/{peStr}")
+    public void addOne(@PathVariable("peStr") String peStr) {
+        Gson gson = new Gson();
+        PeDao pe = gson.fromJson(peStr, PeDao.class);
+        pe.setType("PE");
+        pe.setTemperature(40);
+        pe.setMaxDownlinkSpeed(10000);
+        pe.setDownlinkSpeed(0);
+        pe.setFanActive(false);
+        pe.setCoordinateX(0);
+        pe.setCoordinateY(0);
         peService.savePe(pe);
     }
 
-    @PostMapping("/delete")
-    public void deleteByIp(@RequestBody String ip) {
+    @GetMapping("/delete/{ip}")
+    public void deleteByIp(@PathVariable String ip) {
         peService.deletePe(ip);
     }
 
@@ -48,17 +49,17 @@ public class PeController {
         return peService.getPeByIp(ip);
     }
 
-    @PostMapping("/fan")
+    @GetMapping("/fan/{ip}")
     public @ResponseBody
-    ResponseEntity<HttpStatus> changeFanStatus(@RequestBody PeDto peDto) {
-        PeDao peDao = peService.getPeByIp(peDto.getIp());
-        if (peDao.isFanActive() == peDto.isFanActive()) {
-            return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT);
+    ResponseEntity<HttpStatus> changeFanStatus(@PathVariable("ip") String ip) {
+        PeDao peDao = peService.getPeByIp(ip);
+        if (peDao.isFanActive()) {
+            peDao.setFanActive(false);
         } else {
-            peDao.setFanActive(peDto.isFanActive());
-            peService.savePe(peDao);
-            return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+            peDao.setFanActive(true);
         }
+        peService.savePe(peDao);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @PostMapping("/сpeData")
@@ -86,6 +87,7 @@ public class PeController {
             String url = "http://localhost:8080/cpe/peData";
             List<PeDao> list = peService.findAll();
             restTemplate.postForEntity(url, list, List.class);
-        } catch (Exception e) { }
+        } catch (Exception e) {
+        }
     }
 }

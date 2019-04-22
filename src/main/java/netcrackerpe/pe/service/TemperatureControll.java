@@ -14,7 +14,7 @@ public class TemperatureControll {
     @Autowired
     private PeService peService;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 2000)
     public void controllTemperature() {
         List<PeDao> pe = peService.findAll();
 
@@ -34,8 +34,9 @@ public class TemperatureControll {
         newTemperature = pe.getTemperature() + 2;
         pe.setTemperature(newTemperature);
 
-        if (pe.getTemperature() < 23) {
-            pe.setTemperature(23);
+        if (pe.getTemperature() < 45 && pe.isFanActive()) {
+            pe.setTemperature(45);
+            pe.setFanActive(false);
         }
         if (pe.getTemperature() > 99 && !pe.isFanActive()) {
             pe.setFanActive(true);
