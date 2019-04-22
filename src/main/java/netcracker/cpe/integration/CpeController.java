@@ -39,8 +39,8 @@ public class CpeController {
 		Gson gson = new Gson();
 		CpeDao cpe = gson.fromJson(cpeStr, CpeDao.class);
 		cpe.setType("CPE");
-		cpe.setMaxDownlinkSpeed(1000);
-		cpe.setDownlinkSpeed(0);
+		cpe.setSpeed(1000);
+		cpe.setSpeed(0);
 		cpe.setCoordinateX(100);
 		cpe.setCoordinateY(100);
 		service.saveCpe(cpe);
@@ -57,7 +57,7 @@ public class CpeController {
 		CpeDao cpeDao = service.getCpeByIp(ip);
 		if (cpeDao.isInternetActive()) {
 			cpeDao.setInternetActive(false);
-			cpeDao.setDownlinkSpeed(0);
+			cpeDao.setSpeed(0);
 		} else {
 			cpeDao.setInternetActive(true);
 		}
@@ -70,7 +70,7 @@ public class CpeController {
 		List<CpeDao> listCpe;
 		SpeedGenerator generator = new SpeedGenerator();
 		for (PeDto peDto : list) {
-			listCpe = service.findAllByPeIpAddressAndIsInternetActive(peDto.getIp());
+			listCpe = service.findAllByPeIpAddressAndInternetActive(peDto.getIp());
 			listCpe = generator.generate(peDto, listCpe);
 			for (CpeDao cpe : listCpe) {
 				service.saveCpe(cpe);
@@ -86,13 +86,12 @@ public class CpeController {
 		kafkaTemplateString.send(TOPIC, totalString);
 	}
 
-	@PostMapping ( "/sendCpe" )//for send Cpe to Pe
 	public void sendCpe ( ) {
 		try {
 			RestTemplate rt = new RestTemplate();
-			String uri = "http://localhost:8081/pe/cpeData";//URL to PE adoption
+			String url = "http://localhost:8081/pe/cpeData2";//URL to PE adoption
 			List<CpeDao> list = service.findAll();
-			rt.postForEntity(uri, list, List.class);
+			rt.postForEntity(url, list, List.class);
 		} catch (Exception e) {
 			System.out.println("No connecting to: " + "http://localhost:8081/pe");
 		}

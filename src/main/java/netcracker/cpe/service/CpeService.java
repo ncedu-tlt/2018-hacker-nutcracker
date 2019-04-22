@@ -29,7 +29,7 @@ public class CpeService {
 		return cpeRepository.findAll();
 	}
 
-	public List<CpeDao> findAllByPeIpAddressAndIsInternetActive (String peIp) {
-		return cpeRepository.findAllByPeIpAddressAndIsInternetActive(peIp, true);
+	public List<CpeDao> findAllByPeIpAddressAndInternetActive (String peIp) {
+		return cpeRepository.findAllByPeIpAddressAndInternetActive(peIp, true);
 	}
 }

@@ -8,5 +8,5 @@ public interface CpeRepository extends JpaRepository<CpeDao, String> {
 
 	CpeDao getOneByIp (String ip);
 
-	List<CpeDao> findAllByPeIpAddressAndIsInternetActive (String peIp, boolean internet);
+	List<CpeDao> findAllByPeIpAddressAndInternetActive (String peIp, boolean internet);
 }
