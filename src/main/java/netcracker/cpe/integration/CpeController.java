@@ -51,7 +51,7 @@ public class CpeController {
 		service.deleteCpe(ip);
 	}
 
-	@GetMapping ( "/internet/{ip}" ) //for on/off internet
+	@GetMapping ( "/internet/{ip}" )
 	public @ResponseBody
 	ResponseEntity<HttpStatus> changeInternetStatus (@PathVariable ( "ip" ) String ip) {
 		CpeDao cpeDao = service.getCpeByIp(ip);
@@ -65,7 +65,7 @@ public class CpeController {
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
-	@PostMapping ( "/peData" )//for adoption PE and send CPE to kafka
+	@PostMapping ( "/peData" )
 	public void generateCpeSpeed (@RequestBody List<PeDto> list) {
 		List<CpeDao> listCpe;
 		SpeedGenerator generator = new SpeedGenerator();
