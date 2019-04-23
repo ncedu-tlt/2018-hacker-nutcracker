@@ -72,10 +72,10 @@ public class PagesController implements Serializable {
 	}
 
 	public String refreshPeAndCpe ( ) {
-		String str = "";
 		List<PeDao> listPe = cpePeService.findAllPe();
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
 
+		String str = "";
 		for (int i = 0; i < listPe.size(); i++) {
 			str += " <div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
 					"left: " + listPe.get(i).getCoordinateY() + "px; z-index: 10\" id=\"" + listPe.get(i).getIp() + "\">\n" +
@@ -92,9 +92,10 @@ public class PagesController implements Serializable {
 			str += "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changePeFan('" + monitoringController.getPeLinks().get(3) + "/" + listPe.get(i).getIp() + "')\">Вкл/Выкл\n" +
 					"                    </button>" +
 					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deletePe('" + monitoringController.getPeLinks().get(2) + "/" + listPe.get(i).getIp() + "')\">Удалить\n" +
-					"                    </button>" +
+					"                    </button>";
+			str +=
 					"                </div>\n" +
-					"            </div>";
+					"                </div>";
 		}
 
 		for (int i = 0; i < listCpe.size(); i++) {

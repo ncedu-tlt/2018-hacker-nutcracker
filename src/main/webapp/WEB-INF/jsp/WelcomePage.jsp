@@ -7,6 +7,129 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <% HashMap<Integer, String> linksCpe = (HashMap<Integer, String>) request.getAttribute("linksCpe");%>
 <% HashMap<Integer, String> linksPe = (HashMap<Integer, String>) request.getAttribute("linksPe");%>
+<head>
+    <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style src="..//css/line.css"></style>
+    <title>Главная страница</title>
+    <!-- CSS -->
+    <style>
+        body {
+            background: #c7b39b url(/images/map.jpg);
+            backdrop-repeat: no-repeat;
+            color: black;
+            background-size: cover;
+            width: 1920px;
+            height: 980px;
+        }
+    </style>
+    <!-- DRAGIN CSS -->
+    <style>
+        #container {
+            width: 2020px;
+            height: 980px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 7px;
+            touch-action: none;
+            position: relative;
+        }
+
+        .two {
+            width: 50px;
+            height: 50px;
+            background: url(/images/PE.png);
+        }
+
+        .three {
+            width: 60px;
+            height: 48px;
+            background: url(/images/CPE.png);
+        }
+
+        .item:active {
+            opacity: .75;
+        }
+
+        .item:hover {
+            cursor: pointer;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+        .pcl{
+            margin-left: 10px;
+        }
+
+    </style>
+    <!-- /DRAGIN CSS -->
+        <style>
+        .descr {
+        display: none;
+        }
+
+        .descrCPE {
+        padding-top: 10px;
+        height: 370%;
+        width: 200px;
+        margin-left: 75px;
+        margin-top: -25px;
+        background: #f3f3f3;
+        -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .descrPE {
+            padding-top: 10px;
+            height: 440%;
+            width: 200px;
+            margin-left: 55px;
+            margin-top: -50px;
+            /*margin-top:-75px;*/
+            background: #f3f3f3;
+            -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .two:hover .descrPE{
+        display: block;
+        margin-left: 55px;
+        margin-top: -50px;
+        height: 440%;
+        z-index: 9999;
+        width: 200px;
+        }
+
+        .three:hover .descrCPE {
+        display: block;
+        margin-left: 75px;
+        margin-top: -25px;
+        height: 370%;
+        z-index: 9999;
+        width: 200px;
+        }
+
+        .pcl{
+            margin-left: 10px;
+        }
+        </style>
+
+        <style id="dark">
+            .descr{
+                display: block;
+            }
+        </style>
+
+    <!-- /CSS -->
+</head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/refresh.js"></script><!-- Script for generate PE/CPE-->
@@ -40,24 +163,21 @@
                 </div>
             </li>
         </ul>
-        <label class="btn btn-secondary"><input type="radio" name="chooseStyle" value="block" checked=""> <span
-                style="vertical-align: 3px;">Динамика</span></label>
-        <label class="btn btn-secondary" style="margin-left: 10px"><input type="radio" name="chooseStyle"
-                                                                          value="none"><span
-                style="vertical-align: 3px;"> Статика</span> </label>
-        <script>
-            (function () {
-                var styles = {
-                    block: $("#light"),
-                    none: $("#dark").detach()
-                };
-                $("input[name=chooseStyle]").click(function () {
-                    var other = this.value === "block" ? "none" : "block";
-                    styles[this.value].appendTo('head');
-                    styles[other].detach();
-                });
-            })();
-        </script>
+            <label class="btn btn-secondary"><input type="radio" name="chooseStyle" value="block" checked=""> <span style="vertical-align: 3px;">Динамика</span></label>
+        <label class="btn btn-secondary" style="margin-left: 10px"><input type="radio" name="chooseStyle" value="none"><span style="vertical-align: 3px;"> Статика</span> </label>
+            <script>
+                (function() {
+                    var styles = {
+                        block: $("#light"),
+                        none:  $("#dark").detach()
+                    };
+                    $("input[name=chooseStyle]").click(function() {
+                        var other = this.value === "block" ? "none" : "block";
+                        styles[this.value].appendTo('head');
+                        styles[other].detach();
+                    });
+                })();
+            </script>
     </div>
 </nav>
 <!-- /NAVIGATION BAR-->
@@ -175,10 +295,10 @@
                         <label for="inputPeIp">PE IP address</label>
                         <input type="text" class="form-control" id="inputPeIp" placeholder="192.168.1.1">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="sendPe('<%=linksPe.get(1)%>')">Добавить
+                    <button  type="submit" class="btn btn-primary" onclick="sendPe('<%=linksPe.get(1)%>')">Добавить
                     </button>
                     <span style="visibility: hidden">.</span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button  type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 </form>
                 <!-- /Form for data PE-->
             </div>
@@ -281,128 +401,4 @@
         crossorigin="anonymous"></script>
 <!-- /SCRIPTS -->
 </body>
-<head>
-    <meta http-equiv="content-Type" content="text/html" charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style src="..//css/line.css"></style>
-    <title>Главная страница</title>
-    <!-- CSS -->
-    <style>
-        body {
-            background: #c7b39b url(/images/map.jpg);
-            backdrop-repeat: no-repeat;
-            color: black;
-            background-size: cover;
-            width: 1920px;
-            height: 980px;
-        }
-    </style>
-    <!-- DRAGIN CSS -->
-    <style>
-        #container {
-            width: 2020px;
-            height: 980px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-radius: 7px;
-            touch-action: none;
-            position: relative;
-        }
-
-        .two {
-            width: 50px;
-            height: 50px;
-            background: url(/images/PE.png);
-        }
-
-        .three {
-            width: 60px;
-            height: 48px;
-            background: url(/images/CPE.png);
-        }
-
-        .item:active {
-            opacity: .75;
-        }
-
-        .item:hover {
-            cursor: pointer;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        .pcl {
-            margin-left: 10px;
-        }
-
-    </style>
-    <!-- /DRAGIN CSS -->
-    <style>
-        .descr {
-            display: none;
-        }
-
-        .descrCPE {
-            padding-top: 10px;
-            height: 370%;
-            width: 200px;
-            margin-left: 75px;
-            margin-top: -25px;
-            background: #f3f3f3;
-            -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-            -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .descrPE {
-            padding-top: 10px;
-            height: 440%;
-            width: 200px;
-            margin-left: 55px;
-            margin-top: -50px;
-            /*margin-top:-75px;*/
-            background: #f3f3f3;
-            -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-            -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .two:hover .descrPE {
-            display: block;
-            margin-left: 55px;
-            margin-top: -50px;
-            height: 440%;
-            z-index: 9999;
-            width: 200px;
-        }
-
-        .three:hover .descrCPE {
-            display: block;
-            margin-left: 75px;
-            margin-top: -25px;
-            height: 370%;
-            z-index: 9999;
-            width: 200px;
-        }
-
-        .pcl {
-            margin-left: 10px;
-        }
-    </style>
-
-    <style id="dark">
-        .descr {
-            display: block;
-        }
-    </style>
-
-    <!-- /CSS -->
-</head>
 </html>
