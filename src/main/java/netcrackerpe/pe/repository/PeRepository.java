@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PeRepository extends JpaRepository<PeDao, String> {
 
-    PeDao getOneByIp(String ip);
+	PeDao getOneByIp (String ip);
 }

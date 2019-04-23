@@ -9,23 +9,22 @@ import java.util.List;
 
 @Service
 public class PeService {
-    @Autowired
-    private PeRepository peRepository;
+	@Autowired
+	private PeRepository peRepository;
 
-    public PeDao getPeByIp(String ip) {
+	public PeDao getPeByIp (String ip) {
+		return peRepository.getOneByIp(ip);
+	}
 
-        return peRepository.getOneByIp(ip);
-    }
+	public void savePe (PeDao pe) {
+		peRepository.save(pe);
+	}
 
-    public void savePe(PeDao pe) {
-        peRepository.save(pe);
-    }
+	public void deletePe (String ip) {
+		peRepository.deleteById(ip);
+	}
 
-    public void deletePe(String ip) {
-        peRepository.deleteById(ip);
-    }
-
-    public List<PeDao> findAll() {
-        return peRepository.findAll();
-    }
+	public List<PeDao> findAll ( ) {
+		return peRepository.findAll();
+	}
 }

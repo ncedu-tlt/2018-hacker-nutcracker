@@ -8,33 +8,35 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class PeSender {
 
-    private static final String TOPIC = "pe_topic";
+	private static final String TOPIC = "pe_topic";
 
-    @Autowired
-    private KafkaTemplate<String, PeDao> kafkaTemplate;
+	@Autowired
+	private KafkaTemplate<String, List<PeDao>> kafkaTemplate;
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplateString;
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplateString;
 
-    @Autowired
-    private PeService peService;
+	@Autowired
+	private PeService peService;
 
-    @Autowired
-    private PeController peController;
+	@Autowired
+	private PeController peController;
 
-    @Scheduled(fixedRate = 2000)
-    public void conversationWithCpe() {
-        peController.sendPe();
-        for (PeDao pe : peService.findAll()) {
-            kafkaTemplate.send(TOPIC, pe);
-        }
-        String linkToAddCpe = "http://localhost:8081/pe/add";
-        String linkToDeleteCpe = "http://localhost:8081/pe/delete";
-        String linkToInternet = "http://localhost:8081/pe/fan";
-        String totalString = linkToAddCpe + ',' + linkToDeleteCpe + ',' + linkToInternet;
-        kafkaTemplateString.send(TOPIC, totalString);
-    }
+	@Scheduled ( fixedRate = 3500 )
+	public void conversationWithCpe ( ) {
+		peController.sendPe();
+		List<PeDao> listPe = peService.findAll();
+		kafkaTemplate.send(TOPIC, listPe);
+
+		String linkToAddCpe = "http://localhost:8081/pe/add";
+		String linkToDeleteCpe = "http://localhost:8081/pe/delete";
+		String linkToInternet = "http://localhost:8081/pe/fan";
+		String totalString = linkToAddCpe + ',' + linkToDeleteCpe + ',' + linkToInternet;
+		kafkaTemplateString.send(TOPIC, totalString);
+	}
 }

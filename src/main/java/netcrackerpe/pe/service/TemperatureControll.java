@@ -11,41 +11,41 @@ import java.util.List;
 @Component
 public class TemperatureControll {
 
-    @Autowired
-    private PeService peService;
+	@Autowired
+	private PeService peService;
 
-    @Scheduled(fixedRate = 3500)
-    public void controllTemperature() {
-        List<PeDao> pe = peService.findAll();
+	@Scheduled ( fixedRate = 3500 )
+	public void controllTemperature ( ) {
+		List<PeDao> pe = peService.findAll();
 
-        for (int i = 0; i < pe.size(); i++) {
-            generateTemperature(pe.get(i));
-            if (pe.get(i).isFanActive()) {
-                fan(pe.get(i));
-            }
-            peService.savePe(pe.get(i));
-        }
+		for (int i = 0; i < pe.size(); i++) {
+			generateTemperature(pe.get(i));
+			if (pe.get(i).isFanActive()) {
+				fan(pe.get(i));
+			}
+			peService.savePe(pe.get(i));
+		}
 
-    }
+	}
 
-    public void generateTemperature(PeDao pe) {
-        Integer newTemperature;
+	public void generateTemperature (PeDao pe) {
+		Integer newTemperature;
 
-        newTemperature = pe.getTemperature() + 2;
-        pe.setTemperature(newTemperature);
+		newTemperature = pe.getTemperature() + 2;
+		pe.setTemperature(newTemperature);
 
-        if (pe.getTemperature() < 45 && pe.isFanActive()) {
-            pe.setTemperature(45);
-            pe.setFanActive(false);
-        }
-        if (pe.getTemperature() > 99 && !pe.isFanActive()) {
-            pe.setFanActive(true);
-        }
-    }
+		if (pe.getTemperature() < 45 && pe.isFanActive()) {
+			pe.setTemperature(45);
+			pe.setFanActive(false);
+		}
+		if (pe.getTemperature() > 99 && !pe.isFanActive()) {
+			pe.setFanActive(true);
+		}
+	}
 
-    public void fan(PeDao pe) {
-        Integer cooling = 5;
-        Integer currentTemperature = pe.getTemperature();
-        pe.setTemperature(currentTemperature - cooling);
-    }
+	public void fan (PeDao pe) {
+		Integer cooling = 5;
+		Integer currentTemperature = pe.getTemperature();
+		pe.setTemperature(currentTemperature - cooling);
+	}
 }

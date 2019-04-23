@@ -10,8 +10,8 @@ import java.util.Locale;
 @EnableScheduling
 public class PeApplication {
 
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.ENGLISH);
-        SpringApplication.run(PeApplication.class, args);
-    }
+	public static void main (String[] args) {
+		Locale.setDefault(Locale.ENGLISH);
+		SpringApplication.run(PeApplication.class, args);
+	}
 }

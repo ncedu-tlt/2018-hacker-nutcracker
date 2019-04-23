@@ -33,8 +33,8 @@ public class PeController {
 		pe.setMaxSpeed(10000);
 		pe.setSpeed(0);
 		pe.setFanActive(false);
-		pe.setCoordinateX(0);
-		pe.setCoordinateY(0);
+		pe.setCoordinateX(200);
+		pe.setCoordinateY(100);
 		peService.savePe(pe);
 	}
 
@@ -77,6 +77,7 @@ public class PeController {
 			peService.savePe(peService.getPeByIp(listPe.get(i).getIp()));
 			speed = 0;
 		}
+
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
