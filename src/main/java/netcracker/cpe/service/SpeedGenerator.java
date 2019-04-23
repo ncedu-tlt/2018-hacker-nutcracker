@@ -46,7 +46,7 @@ public class SpeedGenerator {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("У PE: " + peDto.getIp() + " нет CPE");
+			System.out.println("У PE: " + peDto.getIp() + " нет CPE со включенным интернетом");
 		}
 		return list;
 	}

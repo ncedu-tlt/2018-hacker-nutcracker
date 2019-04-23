@@ -24,7 +24,7 @@ public class CpeController {
 	private CpeService service;
 
 	@Autowired
-	private KafkaTemplate<String, CpeDao> kafkaTemplate;
+	private KafkaTemplate<String, List<CpeDao>> kafkaTemplate;
 
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplateString;
@@ -77,7 +77,7 @@ public class CpeController {
 			}
 		}
 		listCpe = service.findAll();
-		listCpe.forEach(cpeDao -> kafkaTemplate.send(TOPIC, cpeDao));
+		kafkaTemplate.send(TOPIC, listCpe);
 
 		String linkToAddCpe = "http://localhost:8080/cpe/add";
 		String linkToDeleteCpe = "http://localhost:8080/cpe/delete";
