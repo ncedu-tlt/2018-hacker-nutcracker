@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,16 +20,13 @@ public class PagesController implements Serializable {
 	@Autowired
 	private MonitoringController monitoringController;
 
-	private List<PeDao> listPe = new ArrayList<>();
-	private List<CpeDao> listCpe = new ArrayList<>();
-	private HashMap<Integer, String> colors = new HashMap<>(7);
-	private StringBuffer stringBuffer = new StringBuffer();
 	private int kindOfSwitch = 0;
 
 	public String refreshListPe ( ) {
+		String str = "";
 		List<PeDao> listPe = cpePeService.findAllPe();
 		for (PeDao pe : listPe) {
-			stringBuffer.append(" <div class=\"accordion\" id=\"accordionExample\">\n" +
+			str += " <div class=\"accordion\" id=\"accordionExample\">\n" +
 					"  <div class=\"card\">\n" +
 					"    <div class=\"card-header\" id=\"headingTwo\">\n" +
 					"      <h5 class=\"mb-0\">\n" +
@@ -45,16 +41,17 @@ public class PagesController implements Serializable {
 					"    </div>" +
 					"</div>" +
 					"</div>" +
-					"</div>");
+					"</div>";
 		}
-		return stringBuffer.toString();
+		return str;
 	}
 
 	public String refreshListCpe ( ) {
+		String str = "";
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
 		for (CpeDao cpe : listCpe) {
 
-			stringBuffer.append(" <div class=\"accordion\" id=\"accordionExample\">\n" +
+			str += " <div class=\"accordion\" id=\"accordionExample\">\n" +
 					"  <div class=\"card\">\n" +
 					"    <div class=\"card-header\" id=\"headingTwo\">\n" +
 					"      <h5 class=\"mb-0\">\n" +
@@ -69,62 +66,65 @@ public class PagesController implements Serializable {
 					"    </div>" +
 					"</div>" +
 					"</div>" +
-					"</div>");
+					"</div>";
 		}
-		return stringBuffer.toString();
+		return str;
 	}
 
 	public String refreshPeAndCpe ( ) {
+		String str = "";
 		List<PeDao> listPe = cpePeService.findAllPe();
 		List<CpeDao> listCpe = cpePeService.findAllCpe();
 
 		for (int i = 0; i < listPe.size(); i++) {
-			stringBuffer.append(" <div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
+			str += " <div class=\"item two \" style=\"position: absolute; top: " + listPe.get(i).getCoordinateX() + "px;" +
 					"left: " + listPe.get(i).getCoordinateY() + "px; z-index: 10\" id=\"" + listPe.get(i).getIp() + "\">\n" +
 
 					"                <div class=\"descrPE descr\" name=\"test1\">\n" +
 					"                    <p class=\"pcl\">" + "IP:          " + listPe.get(i).getIp() + "</p>\n" +
 					"                    <p class=\"pcl\">" + "Speed:       " + listPe.get(i).getSpeed() + " kb/s</p>\n" +
-					"                    <p class=\"pcl\">" + "Temperature: " + listPe.get(i).getTemperature() + " C </p>\n");
+					"                    <p class=\"pcl\">" + "Temperature: " + listPe.get(i).getTemperature() + " C </p>\n";
 			if (listPe.get(i).isFanActive()) {
-				stringBuffer.append("                    <p class=\"pcl\">" + "Fan:         " + "<span class=\"badge badge-pill badge-success\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n");
+				str += "                    <p class=\"pcl\">" + "Fan:         " + "<span class=\"badge badge-pill badge-success\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			} else {
-				stringBuffer.append("                    <p class=\"pcl\">" + "Fan:         " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n");
+				str += "                    <p class=\"pcl\">" + "Fan:         " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			}
-			stringBuffer.append("<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changePeFan('" + monitoringController.getPeLinks().get(3) + "/" + listPe.get(i).getIp() + "')\">Вкл/Выкл\n" +
+			str += "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changePeFan('" + monitoringController.getPeLinks().get(3) + "/" + listPe.get(i).getIp() + "')\">Вкл/Выкл\n" +
 					"                    </button>" +
 					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deletePe('" + monitoringController.getPeLinks().get(2) + "/" + listPe.get(i).getIp() + "')\">Удалить\n" +
 					"                    </button>" +
 					"                </div>\n" +
-					"            </div>");
+					"            </div>";
 		}
 
 		for (int i = 0; i < listCpe.size(); i++) {
-			stringBuffer.append(" <div class=\"item three \" style=\"position: absolute; top: " + listCpe.get(i).getCoordinateX() + "px;" +
+			str += " <div class=\"item three \" style=\"position: absolute; top: " + listCpe.get(i).getCoordinateX() + "px;" +
 					"left: " + listCpe.get(i).getCoordinateY() + "px;\" id=\"" + listCpe.get(i).getIp() + "\">\n" +
 					"                <div class=\"descrCPE descr\" name=\"test2\">\n" +
 					"                    <p class=\"pcl\">" + "IP:          " + listCpe.get(i).getIp() + "</p>\n" +
-					"                    <p class=\"pcl\">" + "Speed:       " + listCpe.get(i).getSpeed() + " kb/s</p>\n");
+					"                    <p class=\"pcl\">" + "Speed:       " + listCpe.get(i).getSpeed() + " kb/s</p>\n";
 			if (listCpe.get(i).isInternetActive()) {
-				stringBuffer.append("                    <p class=\"pcl\">" + "Internet: " + "<span class=\"badge badge-pill badge-success\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n");
+				str += "                    <p class=\"pcl\">" + "Internet: " + "<span class=\"badge badge-pill badge-success\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			} else {
-				stringBuffer.append("                    <p class=\"pcl\">" + "Internet: " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n");
+				str += "                    <p class=\"pcl\">" + "Internet: " + "<span class=\"badge badge-pill badge-danger\"><span style=\"visibility: hidden\">.</span></span>" + "</p>\n";
 			}
-			stringBuffer.append("<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changeCpeInternet('" + monitoringController.getCpeLinks().get(3) + "/" + listCpe.get(i).getIp() + "')\">Вкл/Выкл\n" +
+			str += "<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-info\" onclick=\"changeCpeInternet('" + monitoringController.getCpeLinks().get(3) + "/" + listCpe.get(i).getIp() + "')\">Вкл/Выкл\n" +
 					"                    </button>" +
 					"<button style=\"margin-left: 5px;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"deleteCpe('" + monitoringController.getCpeLinks().get(2) + "/" + listCpe.get(i).getIp() + "')\">Удалить\n" +
 					"                    </button>" +
 					"               </div>\n" +
-					"            </div>");
+					"            </div>";
 		}
-		return stringBuffer.toString();
+		return str;
 
 	}
 
 	public String lines ( ) {
 
-		listPe = cpePeService.findAllPe();
-		listCpe = cpePeService.findAllCpe();
+		List<PeDao> listPe = cpePeService.findAllPe();
+		List<CpeDao> listCpe = cpePeService.findAllCpe();
+		HashMap<Integer, String> colors = new HashMap<>(7);
+		String str = "";
 		colors.put(0, "#323433");
 		colors.put(1, "#C300AE");
 		colors.put(2, "#C30008");
@@ -137,32 +137,32 @@ public class PagesController implements Serializable {
 				if (listPe.get(j).getIp().equals(listCpe.get(i).getPeIpAddress())) {
 					switch (kindOfSwitch) {
 						case 0: {
-							stringBuffer.append("<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 40px\"  />\n");
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 40px\"  />\n";
 							kindOfSwitch++;
 						}
 						break;
 						case 1: {
-							stringBuffer.append("<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 35px\" />\n");
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 35px\" />\n";
 							kindOfSwitch++;
 						}
 						break;
 						case 2: {
-							stringBuffer.append("<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 30px\" />\n");
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 30px\" />\n";
 							kindOfSwitch++;
 						}
 						break;
 						default: {
-							stringBuffer.append("<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
-									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 25px\" />\n");
+							str += "<line x1=\"" + (listPe.get(j).getCoordinateY() - 25) + "\" y1=\"" + (listPe.get(j).getCoordinateX() + 75) + "\" x2=\""
+									+ (listCpe.get(i).getCoordinateY() - 25) + "\" y2=\"" + (listCpe.get(i).getCoordinateX() + 75) + "\" style=\"stroke: " + colors.get(j) + ";stroke-width:3; filter: brightness(0.6)\" stroke-dasharray=\"50px 25px\" />\n";
 							kindOfSwitch = 0;
 						}
 					}
 				}
 			}
 		}
-		return stringBuffer.toString();
+		return str;
 	}
 }

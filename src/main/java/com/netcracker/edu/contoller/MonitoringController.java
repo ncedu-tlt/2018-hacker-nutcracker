@@ -1,6 +1,5 @@
 package com.netcracker.edu.contoller;
 
-import com.google.gson.Gson;
 import com.netcracker.edu.entity.dao.CpeDao;
 import com.netcracker.edu.entity.dao.PeDao;
 import com.netcracker.edu.service.CpePeService;
@@ -40,32 +39,6 @@ public class MonitoringController {
 		cpeLinks.put(2, "http://localhost:8080/cpe/delete");
 		cpeLinks.put(3, "http://localhost:8080/cpe/internet");
 		return cpeLinks;
-	}
-
-	@GetMapping ( "/addCpe/{cpeStr}" )
-	public void addOneCpe (@PathVariable ( "cpeStr" ) String cpeStr) {
-		Gson gson = new Gson();
-		CpeDao cpe = gson.fromJson(cpeStr, CpeDao.class);
-		cpe.setType("CPE");
-		cpe.setMaxSpeed(1000);
-		cpe.setSpeed(0);
-		cpe.setCoordinateX(100);
-		cpe.setCoordinateY(100);
-		cpePeService.saveCpe(cpe);
-	}
-
-	@GetMapping ( "/addPe/{peStr}" )
-	public void addOnePe (@PathVariable ( "peStr" ) String peStr) {
-		Gson gson = new Gson();
-		PeDao pe = gson.fromJson(peStr, PeDao.class);
-		pe.setType("PE");
-		pe.setMaxSpeed(10000);
-		pe.setSpeed(0);
-		pe.setTemperature(40);
-		pe.setCoordinateX(100);
-		pe.setCoordinateY(200);
-		pe.setFanActive(false);
-		cpePeService.savePe(pe);
 	}
 
 	@GetMapping ( "/deleteCpe/{ip}" )
